@@ -1,49 +1,45 @@
+/* eslint-disable */
+
 import React from "react";
 import { Link } from "react-router-dom";
 
 function Challenges(props) {
-    const { challenges } = props;
+  const {challenges} = props;
   return (
-    <>
+    <div className="wrapper">
 
-<div class="wrapper">
+      <section id="all-challenges">
 
-        <section id="all-challenges">
-
-            <div class="linkDiv">
-            <Link to="/addChallenge">
-            <span class="thin"></span><span class="thick">ADD CHALLENGE</span>
+        <div className="linkDiv">
+          <Link to="/addChallenge">
+            <span className="thin" />
+            <span className="thick">ADD CHALLENGE</span>
           </Link>
-              </div>
-
-           {challenges.map((challenge, i) =>  
-
-       
-<>
-          <div className="one-challenge">
+        </div>
+        {challenges.map((challenge, idx) => (
+          <div className="one-challenge" key={idx}>
             <h3 className="challengeName">
               CHALLENGE NAME :
-              <p> {challenge.name} </p>
+              <p>
+                {challenge.name}
+              </p>
             </h3>
             <h3 className="challengeS">
               CHALLENGE SUMMARY :
-              <p> { challenge.summary } </p>
+              <p>
+                { challenge.summary }
+              </p>
             </h3>
 
             <div className="linkDiv">
-            <Link to={`/challenges/${challenge._id}`}>
-            start
-          </Link>
+              <Link to={`/challenges/${challenge._id}`}>
+                start
+              </Link>
             </div>
           </div>
-<hr />
-</>
-         )
-         }
-        </section>
-      </div>
-
-    </>
+        ))}
+      </section>
+    </div>
   );
 }
 export default Challenges;

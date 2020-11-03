@@ -5,7 +5,11 @@ export default class ChallengesContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      challenges: [],
+      challenges: [{
+        name: "tree",
+        summary: "implement a tree data structure with all traversal method",
+        _id: "1234",
+      }],
     };
   }
 
