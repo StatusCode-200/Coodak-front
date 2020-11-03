@@ -3,6 +3,8 @@ import { Switch, Route } from "react-router-dom";
 import Home from "./views/Home";
 import Login from "./views/Login";
 import PageNotFound from "./views/PageNotFound";
+import Prfile from "./views/Prfile";
+
 
 function Main() {
   return (
