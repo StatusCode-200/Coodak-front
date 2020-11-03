@@ -1,6 +1,7 @@
 {
   "name": "coodak-front",
   "version": "0.1.0",
+  "homepage": ".",
   "private": true,
   "homepage": "https://statuscode-200.github.io/Coodak-front/",
   "dependencies": {
