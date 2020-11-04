@@ -6,17 +6,21 @@ export default class ChallengesContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      challenge: [{
+      challenge: { //original    will always be wanted for both saved/non-saved
         name: "tree",
         summary: "implement a tree data structure with all traversal method",
+        description: "challenge description",
         _id: "1234",
         starter_code: "starter code",
         test: "",
-      }],
-      solution: null,
+      },
+      solution: null,  //null //if opening saved challenge it will be fetched
       userId: "123",
-
+      //saved
+        savedChallengeId: null, //null //if opening saved challenge it will be getted from route(link) (this.props.match.params.id)
+        userId: "123",
     };
+
   }
 
   handleChange = e => {
@@ -41,7 +45,7 @@ componentWillMount(){
 */
 
   render() {
-    const { challenge, solution, userId } = this.state;
-    return <Challenge challenge={challenge} solution={solution} userId={userId} />;
+    const { challenge, solution, userId, savedChallengeId } = this.state;
+    return <Challenge challenge={challenge} solution={solution} userId={userId} savedChallengeId={savedChallengeId} />;
   }
 }
