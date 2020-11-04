@@ -29,9 +29,16 @@ export default class ChallengesContainer extends Component {
     console.log('contaxt>>>>',this.context);
 }
 
+/*
 componentWillMount(){
-  console.log(this.props);
+  const challengeId = this.props.match.params.id;
+  if (this.props.user){
+  // fetch from userChallenges/userId/10/challenges/500 // response with solution
 }
+}
+  fetch It from the server
+}
+*/
 
   render() {
     const { challenge, solution, userId } = this.state;
