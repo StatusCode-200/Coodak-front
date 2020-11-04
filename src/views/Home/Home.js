@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <>
+    <main>
       <div className="blockquote-wrapper">
         <div className="blockquote">
           <h1>
@@ -97,7 +97,7 @@ function Home() {
           </p>
         </div>
       </div>
-    </>
+    </main>
   );
 }
 
