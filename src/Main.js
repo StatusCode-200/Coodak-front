@@ -6,7 +6,7 @@ import Signup from "./views/signup/SignupContainer";
 
 import PageNotFound from "./views/PageNotFound/PageNotFound";
 import Profile from "./views/Profile/ProfileContainer";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 function Main() {
   return (
