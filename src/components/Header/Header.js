@@ -18,7 +18,7 @@ function Header() {
           </Link>
 
           <Link className="links" to="/signup">
-            <Nav.Link href="#Signup">REGISTER</Nav.Link>
+            <Nav.Link href="#Signup">LOGIN</Nav.Link>
           </Link>
 
         </ul>
