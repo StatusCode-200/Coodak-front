@@ -8,12 +8,12 @@ function WhiteBoard(props) {
   return (
     <main id="whiteboard">
       <h2 id="titleW">Whiteboard</h2>
-      <form action="#" method="POST">
+      <form action="#" method="POST" id="whiteBoardForm">
         <input type="hidden" name="user_challenge_id" value={savedChallengeId} />
         <div className="grid-container">
           <div className="grid-item">
             <h3>Problem Domain</h3>
-            <textarea name="problem_domain" id="problemDomain" cols="30" rows="10">
+            <textarea name="problem_domain" id="problemDomain">
               { whiteboard.problem_domain }
             </textarea>
             <br />
@@ -26,28 +26,28 @@ function WhiteBoard(props) {
 
           <div className="grid-item">
             <h3>Algorithm</h3>
-            <textarea name="algorithm" id="algorithm" cols="30" rows="10">
+            <textarea name="algorithm" id="algorithm">
               { whiteboard.algorithm }
             </textarea>
           </div>
 
           <div className="grid-item">
             <h3>Edge Cases</h3>
-            <textarea name="edge_cases" id="edgeCases" cols="30" rows="10">
+            <textarea name="edge_cases" id="edgeCases">
               { whiteboard.edge_cases }
             </textarea>
           </div>
 
           <div className="grid-item">
             <h3>pseudo Code</h3>
-            <textarea name="pseudo_code" id="pseudoCode" cols="30" rows="10">
+            <textarea name="pseudo_code" id="pseudoCode">
               { whiteboard.pseudo_code }
             </textarea>
           </div>
 
           <div className="grid-item">
             <h3>Big O</h3>
-            <textarea name="bigo" id="bigo" cols="30" rows="10">
+            <textarea name="bigo" id="bigo">
               { whiteboard.bigo }
             </textarea>
           </div>

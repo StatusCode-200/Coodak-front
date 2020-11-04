@@ -2,12 +2,19 @@ main#whiteboard {
   * {
    box-sizing: border-box;
   }
+  #whiteBoardForm{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
   .grid-container {
-    height: 250px;
-    width: 70%;
+    // height: 250px;
+    width: 100%;
     margin: auto;
-    display: grid;
-    grid-template-columns: auto auto auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
     /* box-shadow: 10px 10px 8px black; */
     padding: 10px;
   }
@@ -17,6 +24,14 @@ main#whiteboard {
     padding: 20px;
     font-size: 30px;
     text-align: center;
+    width: 48%;
+    margin-bottom: 30px;
+
+      textarea{
+        font-size: 18px;
+        width: 72%;
+        height: 25em;
+      }
   }
 
   #titleW{
