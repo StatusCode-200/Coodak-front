@@ -1,7 +1,9 @@
 
 
 main#homePage { 
-    background-color: #292a2b;
+    // background-color: #292a2b;
+    background-color: #f0f0f1;
+
     /* <<<<<<<<<<< nav >>>>>>>>>>  */
 
 /* body {
@@ -931,6 +933,8 @@ main#homePage {
       border: solid 2px;
       border-radius:20px;
       padding: 25px;
+      margin-top: 160px;
+      // background-color: #191a1d;
   }
   
   /* Blockquote right double quotes */
@@ -952,7 +956,7 @@ main#homePage {
       content:"";
       position: absolute;
       width: 80px;
-      border: 6px solid #292a2b;
+      border: 6px solid #17181b;
       bottom: -3px;
       left: 50px;
       z-index: 2;
@@ -963,6 +967,7 @@ main#homePage {
       .blockquote h1 {
           font-size: 3rem;
           line-height: 1.2;
+          background: #17181b;
      }
   
   }
@@ -970,7 +975,7 @@ main#homePage {
   /* Blockquote subheader */
   .blockquote h4 {
       position: relative;
-      color: #ffffff;
+      color: #e74848;
       font-size: 1.3rem;
       font-weight: 400;
       line-height: 1.2;
@@ -1002,7 +1007,7 @@ main#homePage {
 .linkDiv .Link {
   text-transform: uppercase;
   font-size: 36px;
-  color: white;
+  color: black;
   text-decoration: none;
   position: relative;
   display: block;

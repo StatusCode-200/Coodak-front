@@ -9,9 +9,9 @@ function Home() {
         <div className="blockquote">
           <h1>
             Build your code
-            <span style={{ color: "#ffffff" }}>,from end-to-end  </span>
+            <span style={{ color: "#fff" }}>,from end-to-end  </span>
             and let your work done faster
-            <span style={{ color: "#ffffff" }}> , AND FASTER !!</span>
+            <span style={{ color: "#fff" }}> , AND FASTER !!</span>
           </h1>
           <h4>
             &mdash; Coodak

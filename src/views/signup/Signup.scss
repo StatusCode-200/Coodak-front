@@ -1,6 +1,8 @@
 #signupPage {
   @import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
 
+  // background: #1c1d22;
+
   * {
     box-sizing: border-box;
   }
@@ -100,6 +102,8 @@
     width: 830px;
     max-width: 100%;
     min-height: 480px;
+    margin-top: 99px;
+
   }
 
   .form-container {
@@ -163,9 +167,9 @@
   }
 
   .overlay {
-    background: #ff416c;
-    background: -webkit-linear-gradient(to right, #ff4b2b, #ff416c);
-    background: linear-gradient(to right, #ff4b2b, #ff416c);
+    background: #d9524a ;
+    background: -webkit-linear-gradient(to right, #ff4b2b, #d9524a );
+    background: linear-gradient(to right, #ff4b2b, #d9524a );
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;
