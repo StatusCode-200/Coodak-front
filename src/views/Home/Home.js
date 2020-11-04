@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <main>
+    <main id="homePage">
       <div className="blockquote-wrapper">
         <div className="blockquote">
           <h1>
