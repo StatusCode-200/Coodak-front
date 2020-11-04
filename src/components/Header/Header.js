@@ -1,27 +1,39 @@
+/*eslint-disable*/
+
 import React from "react";
 import { Link } from "react-router-dom";
+import { Nav , Navbar  } from 'react-bootstrap';
+
+import './header.scss';
 
 function Header() {
   return (
-    <header>
-      <ul>
-        <li>
+ <main id="headerPage">
+
+    <Navbar className="containerHeader" collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar.Brand href="#home">Coodak-front</Navbar.Brand>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+
+      <Navbar.Collapse id="responsive-navbar-nav">
+        <Nav className="mr-auto">
+
           <Link to="/">
-            Home
+            <Nav.Link href="#features">Home</Nav.Link>
           </Link>
-        </li>
-        <li>
-          <Link to="/login">
-            login
-          </Link>
-        </li>
-        <li>
+
           <Link to="/signup">
-            signup
+            <Nav.Link href="#Signup">REGISTRATION</Nav.Link>
           </Link>
-        </li>
-      </ul>
-    </header>
+
+          {/* <Link to="/signin">
+            <Nav.Link href="#signin">signin</Nav.Link>
+          </Link> */}
+        </Nav>
+
+      </Navbar.Collapse>
+    </Navbar>
+
+</main>
   );
 }
 
