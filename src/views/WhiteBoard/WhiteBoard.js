@@ -1,15 +1,15 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable */
 import React from "react";
 import PropTypes from "prop-types";
 import "./WhiteBoard.scss";
 
 function WhiteBoard(props) {
-  const { whiteboard } = props;
+  const { whiteboard, savedChallengeId, userId } = props;
   return (
     <main id="whiteboard">
       <h2 id="titleW">Whiteboard</h2>
       <form action="#" method="POST">
-        <input type="hidden" name="user_challenge_id" value="<%= savedChallengeId %>" />
+        <input type="hidden" name="user_challenge_id" value={savedChallengeId} />
         <div className="grid-container">
           <div className="grid-item">
             <h3>Problem Domain</h3>
