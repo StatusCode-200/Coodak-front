@@ -10,6 +10,7 @@
     "base-64": "^1.0.0",
     "bootstrap": "^4.5.3",
     "jsonwebtoken": "^8.5.1",
+    "node-sass": "^4.0.0",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.0",
     "react-cookies": "^0.1.1",

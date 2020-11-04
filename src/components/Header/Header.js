@@ -4,10 +4,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Nav , Navbar  } from 'react-bootstrap';
 
-import './header.css';
+import './header.scss';
 
 function Header() {
   return (
+ <main id="headerPage">
 
     <Navbar className="containerHeader" collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Navbar.Brand href="#home">Coodak-front</Navbar.Brand>
@@ -21,17 +22,18 @@ function Header() {
           </Link>
 
           <Link to="/signup">
-            <Nav.Link href="#Signup">Signup</Nav.Link>
+            <Nav.Link href="#Signup">REGISTRATION</Nav.Link>
           </Link>
 
-          <Link to="/signin">
+          {/* <Link to="/signin">
             <Nav.Link href="#signin">signin</Nav.Link>
-          </Link>
+          </Link> */}
         </Nav>
 
       </Navbar.Collapse>
     </Navbar>
 
+</main>
   );
 }
 
