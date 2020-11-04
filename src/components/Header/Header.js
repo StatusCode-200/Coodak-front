@@ -21,6 +21,10 @@ function Header() {
             <Nav.Link href="#Signup">LOGIN</Nav.Link>
           </Link>
 
+          <Link className="links" to="/whiteboard">
+            <Nav.Link href="#whiteboard">WhiteBoard</Nav.Link>
+          </Link>
+
         </ul>
       </Navbar>
 
