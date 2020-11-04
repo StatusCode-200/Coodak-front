@@ -24,7 +24,7 @@ main#whiteboard {
     padding: 20px;
     font-size: 30px;
     text-align: center;
-    width: 48%;
+    width: 33%;
     margin-bottom: 30px;
 
       textarea{
@@ -32,6 +32,11 @@ main#whiteboard {
         width: 72%;
         height: 25em;
       }
+  }
+  .inputAndOutput{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   #titleW{

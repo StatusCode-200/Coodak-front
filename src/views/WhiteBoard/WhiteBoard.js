@@ -16,12 +16,15 @@ function WhiteBoard(props) {
             <textarea name="problem_domain" id="problemDomain">
               { whiteboard.problem_domain }
             </textarea>
-            <br />
-            <label htmlFor="input">Input </label>
-            <input name="input" id="input" type="text" value={whiteboard.input} />
-            <br />
-            <label htmlFor="output">Output </label>
-            <input name="output" id="output" type="text" value={whiteboard.output} />
+            
+          </div>
+
+          <div className="grid-item inputAndOutput">
+            <h3>Input and output</h3>
+            <label htmlFor="input">Input: <input name="input" id="input" type="text" value={whiteboard.input} /> </label>
+            
+            <label htmlFor="output">Output: <input name="output" id="output" type="text" value={whiteboard.output} /> </label>
+            
           </div>
 
           <div className="grid-item">
