@@ -9,6 +9,8 @@ export default class ChallengesContainer extends Component {
         name: "tree",
         summary: "implement a tree data structure with all traversal method",
         _id: "1234",
+        starter_code: "",
+        test: "",
       }],
       solution: null,
       userId: "123",
