@@ -18,7 +18,6 @@ export default class ChallengesContainer extends Component {
       userId: "123",
       //saved
         savedChallengeId: null, //null //if opening saved challenge it will be getted from route(link) (this.props.match.params.id)
-        userId: "123",
     };
 
   }
