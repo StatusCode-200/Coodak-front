@@ -9,7 +9,7 @@ function AboutUs() {
 <img className=" img-fluid" src="http://pyramidaal.com/wp-content/uploads/2019/03/aboutus-org.jpg" alt="card image" />
 
     
-      <section  className="team" class="pb-5">
+      <section  className="team" className="pb-5">
         <div className="container">
         <p id="summary">Coodak, It is a Collaborative development environment for front-end developers & data structure learner, to show off their work as well as improve their data structure skills <br />
               We hope you enjoy our website as much as we enjoy offering it to you. If you have any questions or comments, please don't hesitate to contact us.
