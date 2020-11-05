@@ -7,12 +7,19 @@ export default class CommentContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: 'laith comment',
+            comments: [{
+                comment: "this laith comment",
+                user_id: { username: 'laith' }
+            }, {
+                comment: "this samara comment",
+                user_id: { username: 'samara' }
+            }],
+
         };
     }
     render() {
 
-    return <Comment />
+        return <Comment comments={this.state.comments}/>
 
     }
 

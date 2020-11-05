@@ -1,20 +1,50 @@
 /* eslint-disable */
-
 import React from "react";
 import "./Profile.scss";
-
+import { Link } from "react-router-dom";
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+// import Card from '@material-ui/core/Card';
+// import CardContent from '@material-ui/core/CardContent';
+// import Button from '@material-ui/core/Button';
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { makeStyles } from '@material-ui/core/styles';
+const useStyles = makeStyles((theme) => ({
+    imgStyle: {
+        width: '100%',
+        padding: '20px 15px 0 15px'
+    },
+    rightAlign: {
+        textAlign: 'right'
+    },
+    addBtn: {
+        margin: '20px 0 30px 0'
+    },
+    container: {
+        padding: '20px 0 50px 0'
+    },
+    margin: {
+        margin: '30px 0 10px 0'
+    },
+}));
 function profile(props) {
+    const classes = useStyles();
     console.log('propssssss', props);
-     const renderProjects = () =>{
-        {props.projects.map((project, idx) => 
-            <ul>
-                <li key={idx}> {project.project_name} </li>
-            </ul>
-     )}
+    const renderProjects = () => {
+        {
+            props.projects.map((project, idx) =>
+                <ul>
+                    <li key={idx}> {project.project_name} </li>
+                </ul>
+            )
+        }
     }
     return (
         <main id="profilePage">
-
             <div className="container">
                 <h1>USER INFORMATION</h1>
                 <section id="user-info">
@@ -25,97 +55,53 @@ function profile(props) {
                         </h1>
                     </div>
                 </section>
-
-                <div className="accordion">
-                    <div className="accordion-item">
-                        
-                            <ul>
-                            {props.projects.map((project, idx) =>
-                                <li key={idx}> project{idx +1} : {project.project_name} </li>
-                                )}
-                            </ul>
-
-                      
-
-                        {/* {props.projects.map((project, idx) => (
-                        console.log('>>>>>>',project), */}
-                            
-                            <button id="accordion-button-1" aria-expanded="false"  onClick={() => renderProjects()} >
-                                <span className="accordion-title">My projects</span><span className="icon" aria-hidden="true"></span></button>
-
-                            {/* ))} */}
-                        <div id="user-projects" className="accordion-content">
-                            <p></p>
-                        </div>
-
-                    </div>
-                    <div className="accordion-item">
-                    <ul>
-                            {props.challenges.map((challenge, idx) =>
-                                <li key={idx}> challenge name: {challenge.challenge_name} </li>
-                                )}
-                            </ul>
-                        <button id="accordion-button-2" aria-expanded="false"><span className="accordion-title">My challenges</span><span className="icon" aria-hidden="true"></span></button>
-                        <div id="user-challenges" className="accordion-content">
-
-                        </div>
-                    </div>
-                </div>
             </div>
-
+            <Container maxWidth='sm' className={classes.container}>
+                <Grid container>
+                    <Grid className={classes.margin} item xs={12}>
+                        <Typography variant='h5'>Project Details</Typography>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Accordion>
+                            <AccordionSummary
+                                expandIcon={<ExpandMoreIcon />}
+                                aria-controls='panel1a-content'
+                                id='panel1a-header'
+                            >
+                                <Typography>My Projects</Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <Typography>
+                                    {props.projects.map((project, idx) =>
+                                        <Link key={idx} to={`/projects/${project._id}`}>
+                                            project Name: {project.project_name}
+                                        </Link>
+                                    )}
+                                </Typography>
+                            </AccordionDetails>
+                        </Accordion>
+                        <Accordion>
+                            <AccordionSummary
+                                expandIcon={<ExpandMoreIcon />}
+                                aria-controls='panel2a-content'
+                                id='panel2a-header'
+                            >
+                                <Typography>My Challenges</Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <Typography>
+                                    {props.challenges.map((challenge, idx) =>
+                                        <Link key={idx} to={`/challenges/${challenge._id}`}>
+                                            challenge name: {challenge.challenge_name}
+                                        </Link>
+                                    )}
+                                </Typography>
+                            </AccordionDetails>
+                        </Accordion>
+                    </Grid>
+                </Grid>
+            </Container>
         </main>
     );
 }
-
 export default profile;
-
-{/* <div className="page-content page-container" id="page-content">
-    <div className="padding">
-        <div className="row container d-flex justify-content-center">
-            <div className="col-xl-12 col-md-12">
-                <div className="card user-card-full">
-                    <div className="row m-l-0 m-r-0">
-                        <div className="col-sm-4 bg-c-lite-green user-profile">
-                            <div className="card-block text-center text-white">
-                                <div className="m-b-25"> <img src="https://img.icons8.com/bubbles/100/000000/user.png" className="img-radius" alt="User-Profile-Image" /> </div>
-                                <h6 className="f-w-600">Hembo Tingor</h6>
-                                <p>Web Designer</p> <i className=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
-                            </div>
-                        </div>
-                        <div className="col-sm-8">
-                            <div className="card-block">
-                                <h6 className="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
-                                <div className="row">
-                                    <div className="col-sm-6">
-                                        <p className="m-b-10 f-w-600">Email</p>
-                                        <h6 className="text-muted f-w-400">rntng@gmail.com</h6>
-                                    </div>
-                                    <div className="col-sm-6">
-                                        <p className="m-b-10 f-w-600">Phone</p>
-                                        <h6 className="text-muted f-w-400">98979989898</h6>
-                                    </div>
-                                </div>
-                                <h6 className="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Projects</h6>
-                                <div className="row">
-                                    <div className="col-sm-6">
-                                        <p className="m-b-10 f-w-600">Recent</p>
-                                        <h6 className="text-muted f-w-400">Sam Disuja</h6>
-                                    </div>
-                                    <div className="col-sm-6">
-                                        <p className="m-b-10 f-w-600">Most Viewed</p>
-                                        <h6 className="text-muted f-w-400">Dinoter husainm</h6>
-                                    </div>
-                                </div>
-                                <ul className="social-link list-unstyled m-t-40 m-b-10">
-                                    <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="facebook" data-abc="true"><i className="mdi mdi-facebook feather icon-facebook facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="twitter" data-abc="true"><i className="mdi mdi-twitter feather icon-twitter twitter" aria-hidden="true"></i></a></li>
-                                    <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="instagram" data-abc="true"><i className="mdi mdi-instagram feather icon-instagram instagram" aria-hidden="true"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> */}

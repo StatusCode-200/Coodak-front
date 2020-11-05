@@ -5,6 +5,7 @@ import { Nav, Navbar, secondary, Alert, dark, Form, Button } from 'react-bootstr
 import './Comment.scss';
 
 function comment(props) {
+    console.log('props>>>', props);
     return (
         <>
             <main id="commentPage">
@@ -20,9 +21,17 @@ function comment(props) {
                     <div className="hide top"></div>
                     <div className="hide bottom"></div>
                 </div>
-                <Alert variant="secondary" className="alertText" >
-                    comment text here
-                </Alert>
+
+                {props.comments.map((item, idsx) => (
+
+                    <Alert variant="secondary" className="alertText" >
+                        {/* comment text here */}
+                        {item.user_id.username}
+                        <br />
+                        {item.comment}
+                    </Alert>
+                ))}
+
                 <Form>
                     <Form.Group controlId="exampleForm.ControlTextarea1">
                         <Form.Label>Example textarea</Form.Label>
