@@ -69,11 +69,11 @@ function Footer() {
               
           
 
-              <li><a className="facebook" href="coodak.herokuapp.com/"><i className="fa fa-facebook"></i>
+              <li><a className="facebook" href="coodak.herokuapp.com/">
               <CodeIcon /></a></li>
-              <li><a className="twitter" href="www.twitter.com"><i className="fa fa-twitter"></i>
+              <li><a className="twitter" href="www.twitter.com">
               <TwitterIcon /></a></li>
-              <li><a className="dribbble" href="https://github.com/StatusCode-200/Coodak-front"><i className="fa fa-dribbble"></i>
+              <li><a className="dribbble" href="https://github.com/StatusCode-200/Coodak-front">
               <GitHubIcon /> </a></li>
              
             </ul>

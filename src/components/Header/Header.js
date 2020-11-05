@@ -29,9 +29,14 @@ function Header() {
             PROFILE
           </Link>
 
+          <Link className="links" to="/aboutus">
+            ABOUTUS
+          </Link>
+          
           <Link className="links" to="/signup">
             LOGIN
           </Link>
+
 
           {/* <Link className="links" to="/signout">
             SIGNOUT
