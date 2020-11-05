@@ -1,13 +1,19 @@
 {
   "name": "coodak-front",
   "version": "0.1.0",
+  "homepage": ".",
   "private": true,
-  "homepage": "https://statuscode-200.github.io/Coodak-front",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "base-64": "^1.0.0",
+    "bootstrap": "^4.5.3",
+    "jsonwebtoken": "^8.5.1",
+    "node-sass": "^4.0.0",
     "react": "^17.0.1",
+    "react-bootstrap": "^1.4.0",
+    "react-cookies": "^0.1.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
@@ -22,11 +28,13 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
+    "start": "deploy-react -d build",
+    "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint './**/*.js' --ignore-path ./.eslintignore"
+    "lint": "eslint './**/*.js' --ignore-path ./.eslintignore",
+    "postinstall": "npm install -g deploy-react"
   },
   "eslintConfig": {
     "extends": [
