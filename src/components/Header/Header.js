@@ -11,10 +11,10 @@ function Header() {
     <main id="headerPage">
       <Navbar>
         <ul className="menuItems">
-        <Navbar.Brand id="anker" href="#home">Coodak</Navbar.Brand>
+          <Navbar.Brand id="anker" href="#home">Coodak</Navbar.Brand>
 
-        <Link className="links" to="/">
-           HOME
+          <Link className="links" to="/">
+            HOME
           </Link>
 
           <Link className="links" to="/challenges">
@@ -29,9 +29,14 @@ function Header() {
             PROFILE
           </Link>
 
+          <Link className="links" to="/aboutus">
+            ABOUTUS
+          </Link>
+
           <Link className="links" to="/signin">
             SINGIN
           </Link>
+
 
           {/* <Link className="links" to="/signout">
             SIGNOUT
