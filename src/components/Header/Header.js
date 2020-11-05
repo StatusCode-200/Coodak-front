@@ -29,8 +29,8 @@ function Header() {
             PROFILE
           </Link>
 
-          <Link className="links" to="/signup">
-            LOGIN
+          <Link className="links" to="/signin">
+            SINGIN
           </Link>
 
           {/* <Link className="links" to="/signout">
