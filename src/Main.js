@@ -7,18 +7,22 @@ import Challenges from "./views/Challenges/ChallengesContainer";
 import Comments from "./views/Comment/CommentContainer";
 import ChallengeDetails from "./views/ChallengeDetails/ChallengeDetailsContainer";
 import WhiteBoard from "./views/WhiteBoard/WhiteBoardContainer";
+import AddChallenge from "./views/AddChalenge/AddChalengeContainer";
 
 import PageNotFound from "./views/PageNotFound/PageNotFound";
+import Profile from "./views/Profile/ProfileContainer";
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 function Main() {
   return (
     <main>
       <Switch>
-        {/* <Route exact path="/login" component={Login} /> */}
+        <Route exact path="/profile" component={Profile} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/challenges" component={Challenges} />
         <Route exact path="/challenges/:id" component={ChallengeDetails} />
         <Route exact path="/challenges/:id/comments" component={Comments} />
+        <Route exact path="/addChallenge" component={AddChallenge} />
         <Route exact path="/" component={Home} />
         <Route exact path="/whiteboard" component={WhiteBoard} />
         <Route path="*" component={PageNotFound} />
