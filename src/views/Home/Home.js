@@ -30,7 +30,7 @@ function Home() {
       <div className="tabled">
 
         <div className="linkDiv">
-          <Link to="/codeeditor" className="Link">
+          <Link to="/editor" className="Link">
             <span className="thin" />
             <span className="thick" style={{background: themeContext.mode}}>Get Started !</span>
           </Link>
