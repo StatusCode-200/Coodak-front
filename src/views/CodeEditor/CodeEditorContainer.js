@@ -7,6 +7,9 @@ export default class CodeEdotorContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      code_html: "",
+      code_css: "",
+      code_js: "",
       project: {
         _id: "",
         id: "",
@@ -19,25 +22,24 @@ export default class CodeEdotorContainer extends Component {
     };
   }
 
-  componentWillMount() {
-    document.body.onkeyup = function() {
-      this.compile(this);
-    };
+  onKeyUp = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+    this.compile([event.target.name]); // code_html || code_css || code_js
   }
 
-  compile(sendSocket) {
-    const html = this.state.project.code_html;
-    const css = this.state.project.code_css;
-    const js = this.state.project.code_js;
+  compile (type, sendSocket) {
+    const html = this.state.code_html;
+    const css = this.state.code_css;
+    const js = this.state.code_js;
     var code = document.getElementById("code").contentWindow.document;
     code.open();
     const newCode =
-          html.value +
+          html +
           "<style>" +
-          css.value +
+          css +
           "</style>" +
           "<script>" +
-          js.value +
+          js +
           "</script>";
     code.writeln(newCode);
     code.close();
@@ -47,6 +49,6 @@ export default class CodeEdotorContainer extends Component {
   render() {
     const { project } = this.state;
     const { userId } = this.state;
-    return <CodeEditor project={project} userId={userId} />;
+    return <CodeEditor project={project} onKeyUp={this.onKeyUp} userId={userId} />;
   }
 }
