@@ -1,8 +1,10 @@
 #signupPage {
+  @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
   @import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
 
   // background: #1c1d22;
   padding-bottom: 130px;
+  padding-top: 125px;
 
   * {
     box-sizing: border-box;
@@ -103,7 +105,7 @@
     width: 830px;
     max-width: 100%;
     min-height: 480px;
-    margin-top: 99px;
+    // margin-top: 99px;
 
   }
 

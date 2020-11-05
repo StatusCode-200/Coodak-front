@@ -1,15 +1,20 @@
 /*eslint-disable*/
 
-import React from "react";
+import React , { useContext } from "react";
 import { Link } from "react-router-dom";
-import { Nav, Navbar } from 'react-bootstrap';
+import {  Navbar } from 'react-bootstrap';
+import ContentFunction from '../ToggleBackground/content-theam.js';
+import { ThemeContext } from '../../views/context/TheamContainer';
 
 import './header.scss';
 
 function Header() {
+  const themeContext = useContext(ThemeContext);
+
+
   return (
-    <main id="headerPage">
-      <Navbar>
+    <main id="headerPage" >
+      <Navbar style={{padding: "0px"}}>
         <ul className="menuItems">
           <Navbar.Brand id="anker" href="#home">Coodak</Navbar.Brand>
 
@@ -43,6 +48,7 @@ function Header() {
           </Link> */}
 
         </ul>
+          <ContentFunction />
       </Navbar>
 
     </main>

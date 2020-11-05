@@ -23,9 +23,8 @@ function Signup(props) {
 						<form onSubmit={props.handleSubmit} action="#">
 							<h1>Create Account</h1>
 							<div className="social-container">
-								<a href="#" className="social"><i className="fab fa-facebook-f"></i></a>
-								<a href="#" className="social"><i className="fab fa-google-plus-g"></i></a>
-								<a href="#" className="social"><i className="fab fa-linkedin-in"></i></a>
+								<a href="#" className="social-icon"><i className="fa fa-github fa-2x"></i></a>
+								<a href="#" className="social"><i className="fa fa-google fa-2x"></i></a>
 							</div>
 							<span>or use your email for registration</span>
 							<input onChange={props.handleChange} required type="text" placeholder="Name" name="username" />
@@ -40,9 +39,8 @@ function Signup(props) {
 					<form onSubmit={props.handleSubmit} action="#">
 					<h1>Sign in</h1>
 					<div className="social-container">
-						<a href="#" className="social"><i className="fab fa-facebook-f"></i></a>
-						<a href="#" className="social"><i className="fab fa-google-plus-g"></i></a>
-						<a href="#" className="social"><i className="fab fa-linkedin-in"></i></a>
+						<a href="#" className="social"><i className="fa fa-github fa-2x"></i></a>
+						<a href="#" className="social"><i className="fa fa-google fa-2x"></i></a>
 					</div>
 					<span>or use your account</span>
 					<input onChange={props.handleChange} type="username" placeholder="username" name="username" />
