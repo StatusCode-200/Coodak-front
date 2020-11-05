@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# Coodak
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## it's an application that  you can signin / signup  to allow you to start bulding a web site using **HTML** **CSS** **JAVASCRIPT**  throgh an online code editor that provide you the result of your code , also you can work with your partner in the same challenge to adjust the same file with real time connection
 
-## Available Scripts
+## Group Name
 
-In the project directory, you can run:
+- Laith Al Daree
+- Raghad Anees
+- Adnan Muammar
+- Mohammad Samara
 
-### `npm start`
+## users Stories
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1- As a User i want to be able to write my code on the page and get the result
+2- As a User i want to be able to signup/signin ,  So that i can save my projects in my profile
+3- As a User i want to see a simple implementation UI/UX
+4- As a User i want to be able to work with my partner on the same challenge at the same time
+5- A a User i wante to solve some challenges to test my abilitys
+6- An admin can create and delete user accounts
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Date
 
-### `npm test`
+```javascript
+---
+date: 2020-10-1 10:00
+---
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Schemas
 
-### `npm run build`
+![schema](./assets/schemas.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Wire Frame
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+[https://wireframe.cc/pro/pp/fa4c8b89c378873](https://wireframe.cc/pro/pp/fa4c8b89c378873)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## live url
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[heroku-live](coodak.herokuapp.com/)
