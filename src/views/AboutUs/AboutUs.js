@@ -23,7 +23,7 @@ function AboutUs() {
                         <p><img class=" img-fluid" src="https://avatars1.githubusercontent.com/u/35776421?s=400&u=f98cbf1b97de77d9d247fff44300fefcea454d79&v=4" alt="card image" /></p>
                         <h4 class="card-title">Adnan Abu Muamar</h4>
                         <p class="card-text"> Web Developer.</p>
-                        <a href="https://www.fiverr.com/share/qb8D02" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                        <a href="https://www.fiverr.com/share/qb8D02" class="btn btn-primary btn-sm"><i class="fa fa-info"></i></a>
                       </div>
                     </div>
                   </div>
@@ -70,7 +70,7 @@ function AboutUs() {
                         <p><img class=" img-fluid" src="https://avatars0.githubusercontent.com/u/38500521?s=400&u=5e28fbf9ba9923902793bb1f79500c127a836cc9&v=4" alt="card image" /></p>
                         <h4 class="card-title">Laith Al Daree</h4>
                         <p class="card-text">Web Developer.</p>
-                        <a href="https://www.fiverr.com/share/qb8D02" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                        <a href="https://www.fiverr.com/share/qb8D02" class="btn btn-primary btn-sm"><i class="fa fa-info"></i></a>
                       </div>
                     </div>
                   </div>
@@ -78,7 +78,7 @@ function AboutUs() {
                     <div class="card">
                       <div class="card-body text-center mt-4">
                         <h4 class="card-title">Laith Al Daree</h4>
-                        <p class="card-text">A full Stack Web Developer At ASAC  ,24 years old , Live in Azraq and  Graduated From Zarqa University in Software Engineering Field.</p>
+                        <p class="card-text">A Full Stack Web Developer At ASAC  ,24 years old , Live in Azraq and  Graduated From Zarqa University in Software Engineering Field.</p>
                         <ul class="list-inline">
                           <li class="list-inline-item">
                             <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
@@ -116,7 +116,7 @@ function AboutUs() {
                         <p><img class=" img-fluid" src="https://avatars0.githubusercontent.com/u/64354787?s=400&u=42ce914cbb8f9dc5ef4e0c884e6027dc715125ad&v=4" alt="card image" /></p>
                         <h4 class="card-title">Mohammad Samara</h4>
                         <p class="card-text">Web Developer.</p>
-                        <a href="https://www.fiverr.com/share/qb8D02" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                        <a href="https://www.fiverr.com/share/qb8D02" class="btn btn-primary btn-sm"><i class="fa fa-info"></i></a>
                       </div>
                     </div>
                   </div>
@@ -124,7 +124,7 @@ function AboutUs() {
                     <div class="card">
                       <div class="card-body text-center mt-4">
                         <h4 class="card-title">Mohammad Samara</h4>
-                        <p class="card-text">A full Stack  JavaScript  Web Developer   , Live in Irbid and  has a BSc Degree in Civil Engineering  field .</p>
+                        <p class="card-text">A Full Stack JS Web Developer, 24 years old Live in Irbid and  has a BSc Degree in Civil Engineering  field .</p>
                         <ul class="list-inline">
                           <li class="list-inline-item">
                             <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
@@ -163,7 +163,7 @@ function AboutUs() {
                         <p><img class=" img-fluid" src="https://avatars0.githubusercontent.com/u/65109422?s=400&u=208e47e22c70f07db790b16dc34f297123195c08&v=4" alt="card image" /></p>
                         <h4 class="card-title">Raghad Anees</h4>
                         <p class="card-text">Web Developer.</p>
-                        <a href="https://www.fiverr.com/share/qb8D02" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                        <a href="https://www.fiverr.com/share/qb8D02" class="btn btn-primary btn-sm"><i class="fa fa-info"></i></a>
                       </div>
                     </div>
                   </div>
@@ -171,7 +171,7 @@ function AboutUs() {
                     <div class="card">
                       <div class="card-body text-center mt-4">
                         <h4 class="card-title">Raghad Anees</h4>
-                        <p class="card-text">A Web Developer At ASAC , Live In Amman, Graduated From Zarqa University in pharmacy Field  .</p>
+                        <p class="card-text">A Full Stack Web Developer At ASAC, 23 years old Live in Amman, Graduated From Zarqa University faculty of pharmacy</p>
                         <ul class="list-inline">
                           <li class="list-inline-item">
                             <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
