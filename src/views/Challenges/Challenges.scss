@@ -1,4 +1,11 @@
 main#Challenges{
+    padding-bottom: 130px;
+
+    .addChallengBtn {
+        text-align: center;
+        text-align: center;
+        margin: 8% 40% 5% 43%;
+    }
     .bigsubContainer{
         margin: 0;
         padding: 0;
@@ -16,6 +23,7 @@ main#Challenges{
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
+        margin-left: 150px;
     }
     
     .subContainer .challengeCard{
@@ -86,18 +94,20 @@ main#Challenges{
         padding: 0;
     }
     
-    .subContainer .challengeCard .face.face2 .cardContent a{
+    .subContainer .challengeCard .face.face2 .cardContent Button{
         margin: 15px 0 0;
         display:  inline-block;
         text-decoration: none;
         font-weight: 900;
-        color: #333;
+        // color: #333;
+        width: 100px;
         padding: 5px;
         border: 1px solid #333;
     }
     
-    .subContainer .challengeCard .face.face2 .cardContent a:hover{
-        background: #333;
+    .subContainer .challengeCard .face.face2 .cardContent Button:hover{
+        // background: #333;
+    
         color: #fff;
     }
     .challengeCard {
