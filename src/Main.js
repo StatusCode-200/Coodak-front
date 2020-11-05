@@ -8,6 +8,7 @@ import Challenges from "./views/Challenges/ChallengesContainer";
 import Comments from "./views/Comment/CommentContainer";
 import ChallengeDetails from "./views/ChallengeDetails/ChallengeDetailsContainer";
 import WhiteBoard from "./views/WhiteBoard/WhiteBoardContainer";
+import CodeEditor from "./views/CodeEditor/CodeEditorContainer";
 
 import AddChalenge from "./views/AddChalenge/AddChalengeContainer";
 
@@ -21,7 +22,7 @@ function Main() {
       <Switch>
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/signup" component={Signup} />
-
+        <Route exact path="/editor" component={CodeEditor} />
         <Route exact path="/challenges" component={Challenges} />
         <Route exact path="/challenges/:id" component={ChallengeDetails} />
         <Route exact path="/challenges/:id/comments" component={Comments} />
