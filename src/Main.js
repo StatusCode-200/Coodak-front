@@ -10,6 +10,7 @@ import ChallengeDetails from "./views/ChallengeDetails/ChallengeDetailsContainer
 import WhiteBoard from "./views/WhiteBoard/WhiteBoardContainer";
 
 import AddChalenge from "./views/AddChalenge/AddChalengeContainer";
+import AboutUs from "./views/AboutUs/AboutUs";
 
 import PageNotFound from "./views/PageNotFound/PageNotFound";
 import Profile from "./views/Profile/ProfileContainer";
@@ -21,7 +22,7 @@ function Main() {
       <Switch>
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/signup" component={Signup} />
-
+        <Route exact path="/AboutUs" component={AboutUs} />
         <Route exact path="/challenges" component={Challenges} />
         <Route exact path="/challenges/:id" component={ChallengeDetails} />
         <Route exact path="/challenges/:id/comments" component={Comments} />
