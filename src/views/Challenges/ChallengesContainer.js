@@ -8,7 +8,22 @@ export default class ChallengesContainer extends Component {
       challenges: [{
         name: "tree",
         summary: "implement a tree data structure with all traversal method",
-        _id: "1234",
+        _id: "1",
+      },
+      {
+        name: "Linked List",
+        summary: "implement a Linked List structure with all traversal method",
+        _id: "2",
+      },
+      {
+        name: "Hash Table",
+        summary: "implement a Hash Table data structure with all traversal method",
+        _id: "3",
+      },
+      {
+        name: "bibary search tree",
+        summary: "implement a bibary search tree data structure with all traversal method",
+        _id: "4",
       }],
     };
   }
