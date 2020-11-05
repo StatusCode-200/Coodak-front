@@ -1,0 +1,107 @@
+/* eslint-disable */
+import React from "react";
+import "./Profile.scss";
+import { Link } from "react-router-dom";
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+// import Card from '@material-ui/core/Card';
+// import CardContent from '@material-ui/core/CardContent';
+// import Button from '@material-ui/core/Button';
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { makeStyles } from '@material-ui/core/styles';
+const useStyles = makeStyles((theme) => ({
+    imgStyle: {
+        width: '100%',
+        padding: '20px 15px 0 15px'
+    },
+    rightAlign: {
+        textAlign: 'right'
+    },
+    addBtn: {
+        margin: '20px 0 30px 0'
+    },
+    container: {
+        padding: '20px 0 50px 0'
+    },
+    margin: {
+        margin: '30px 0 10px 0'
+    },
+}));
+function profile(props) {
+    const classes = useStyles();
+    console.log('propssssss', props);
+    const renderProjects = () => {
+        {
+            props.projects.map((project, idx) =>
+                <ul>
+                    <li key={idx}> {project.project_name} </li>
+                </ul>
+            )
+        }
+    }
+    return (
+        <main id="profilePage">
+            <div className="container">
+                <h1>USER INFORMATION</h1>
+                <section id="user-info">
+                    <img src="https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png" alt="" style={{ width: "200px", height: "200px" }} />
+                    <div>
+                        <h1>
+                            {props.username}
+                        </h1>
+                    </div>
+                </section>
+            </div>
+            <Container maxWidth='sm' className={classes.container}>
+                <Grid container>
+                    <Grid className={classes.margin} item xs={12}>
+                        <Typography variant='h5'>Project Details</Typography>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Accordion>
+                            <AccordionSummary
+                                expandIcon={<ExpandMoreIcon />}
+                                aria-controls='panel1a-content'
+                                id='panel1a-header'
+                            >
+                                <Typography>My Projects</Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <Typography>
+                                    {props.projects.map((project, idx) =>
+                                        <Link key={idx} to={`/projects/${project._id}`}>
+                                            project Name: {project.project_name}
+                                        </Link>
+                                    )}
+                                </Typography>
+                            </AccordionDetails>
+                        </Accordion>
+                        <Accordion>
+                            <AccordionSummary
+                                expandIcon={<ExpandMoreIcon />}
+                                aria-controls='panel2a-content'
+                                id='panel2a-header'
+                            >
+                                <Typography>My Challenges</Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <Typography>
+                                    {props.challenges.map((challenge, idx) =>
+                                        <Link key={idx} to={`/challenges/${challenge._id}`}>
+                                            challenge name: {challenge.challenge_name}
+                                        </Link>
+                                    )}
+                                </Typography>
+                            </AccordionDetails>
+                        </Accordion>
+                    </Grid>
+                </Grid>
+            </Container>
+        </main>
+    );
+}
+export default profile;
