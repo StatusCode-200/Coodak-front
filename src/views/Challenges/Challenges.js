@@ -3,6 +3,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Challenges.scss";
+import {  Button } from 'react-bootstrap';
 
 function Challenges(props) {
   const {challenges} = props;
@@ -15,7 +16,9 @@ function Challenges(props) {
   <div className="linkDiv">
     <Link to="/addChallenge">
       <span className="thin" />
-      <span className="thick">ADD CHALLENGE</span>
+      {/* <span className="thick">ADD CHALLENGE</span> */}
+      <Button className="addChallengBtn" style={{textAlign:"center"}} variant="danger">ADD CHALLENGE</Button>{' '}
+
     </Link>
   </div>
   <div className="bigContainer">
@@ -32,7 +35,8 @@ function Challenges(props) {
           <div className="cardContent">
               <p>{ challenge.summary }</p>
               <Link to={`/challenges/${challenge._id}`}>
-                start
+              <Button variant="danger">start</Button>{' '}
+
               </Link>
           </div>
       </div>
