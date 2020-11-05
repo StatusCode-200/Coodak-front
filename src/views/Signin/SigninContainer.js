@@ -31,8 +31,6 @@ class SigninContainer extends Component {
 
     render() {
 
-      console.log("props", this.props);
-
         return <Signin
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}

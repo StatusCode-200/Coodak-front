@@ -26,7 +26,7 @@ export default function (state = initialState, action) {
       return { ...state, isLoading: true };
     } case "SIGNUP_SUCCESS":
       return {
-        ...state, user: payload.user, token: payload.token, isLoading: false,
+        ...state, user: payload.user, token: payload.token, isLoading: false, switchToSignup: false,
       };
     case "SIGNUP_FAILED":
       return {
