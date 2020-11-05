@@ -7,13 +7,14 @@ import Challenges from "./views/Challenges/ChallengesContainer";
 import Comments from "./views/Comment/CommentContainer";
 import ChallengeDetails from "./views/ChallengeDetails/ChallengeDetailsContainer";
 import WhiteBoard from "./views/WhiteBoard/WhiteBoardContainer";
+import CodeEditor from "./views/CodeEditor/CodeEditorContainer";
+
 import AddChalenge from "./views/AddChalenge/AddChalengeContainer";
 import AboutUs from "./views/AboutUs/AboutUs";
 
 import PageNotFound from "./views/PageNotFound/PageNotFound";
 import Profile from "./views/Profile/ProfileContainer";
 import { ThemeContext } from './views/context/TheamContainer';
-// import ContentFunction from './components/content-theam';
 
 
 function Main() {
@@ -22,22 +23,18 @@ function Main() {
   return (
     <main className={themeContext.mode}>
 
-      {/* <section>
-        <ContentFunction />
-      </section> */}
-
       <Switch>
-          <Route exact path="/profile" component={Profile} />
-          <Route exact path="/signup" component={Signup} />
-          <Route exact path="/AboutUs" component={AboutUs} />
-          <Route exact path="/challenges" component={Challenges} />
-          <Route exact path="/challenges/:id" component={ChallengeDetails} />
-          <Route exact path="/challenges/:id/comments" component={Comments} />
-          <Route exact path="/addChalenge" component={AddChalenge} />
-          <Route exact path="/" component={Home} />
-          <Route exact path="/whiteboard" component={WhiteBoard} />
-          <Route path="*" component={PageNotFound} />
-
+        <Route exact path="/profile" component={Profile} />
+        <Route exact path="/signup" component={Signup} />
+        <Route exact path="/AboutUs" component={AboutUs} />
+        <Route exact path="/editor" component={CodeEditor} />
+        <Route exact path="/challenges" component={Challenges} />
+        <Route exact path="/challenges/:id" component={ChallengeDetails} />
+        <Route exact path="/challenges/:id/comments" component={Comments} />
+        <Route exact path="/addChalenge" component={AddChalenge} />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/whiteboard" component={WhiteBoard} />
+        <Route path="*" component={PageNotFound} />
       </Switch>
     </main>
   );
