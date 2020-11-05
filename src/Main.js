@@ -9,7 +9,7 @@ import ChallengeDetails from "./views/ChallengeDetails/ChallengeDetailsContainer
 import WhiteBoard from "./views/WhiteBoard/WhiteBoardContainer";
 import CodeEditor from "./views/CodeEditor/CodeEditorContainer";
 
-import AddChalenge from "./views/AddChalenge/AddChalengeContainer";
+import AddChallenge from "./views/AddChalenge/AddChalengeContainer";
 import AboutUs from "./views/AboutUs/AboutUs";
 
 import PageNotFound from "./views/PageNotFound/PageNotFound";
@@ -31,7 +31,7 @@ function Main() {
         <Route exact path="/challenges" component={Challenges} />
         <Route exact path="/challenges/:id" component={ChallengeDetails} />
         <Route exact path="/challenges/:id/comments" component={Comments} />
-        <Route exact path="/addChalenge" component={AddChalenge} />
+        <Route exact path="/addChallenge" component={AddChallenge} />
         <Route exact path="/" component={Home} />
         <Route exact path="/whiteboard" component={WhiteBoard} />
         <Route path="*" component={PageNotFound} />

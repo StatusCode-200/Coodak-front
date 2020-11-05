@@ -1,11 +1,14 @@
 #CodeEditor  {
+  padding-top: 150px;
+  padding-bottom: 150px;
+
   body {
   text-align: center;
 }
 
 textarea {
   width: 32%;
-  float: top;
+  // float: top;
   min-height: 250px;
   overflow: scroll;
   margin: auto;

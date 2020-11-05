@@ -13,23 +13,23 @@ function AddChalenge(props) {
                 <div className="container" id="container">
 
                     <form onSubmit={props.handleSubmit} action="#">
-                        <h1>Add New Chalenge</h1>
+                        <h1 style={{textAlign : "center"}}>Add New Challenge</h1>
                         <br></br>
                         <CardDeck>
-                            <Card bg="secondary" text="white" className="text-center" style={{ width: '25.5rem' }} >
+                            <Card bg="danger" text="white" className="text-center" style={{ width: '25.5rem' }} >
                                 <Card.Header>Summary</Card.Header>
 
                                 <textarea onChange={props.handleChange} required type="text" placeholder=" Write your chalenge summary" name="summary" cols="30" rows="10" />
                             </Card>
-                            <Card bg="secondary" text="white" className="text-center" style={{ width: '23.5rem' }} >
+                            <Card bg="danger" text="white" className="text-center" style={{ width: '23.5rem' }} >
                                 <Card.Header>Description</Card.Header>
                                 <textarea onChange={props.handleChange} required type="text" placeholder=" Write your chalenge description" name="description" cols="30" rows="10" />
                             </Card>
-                            <Card bg="secondary" text="white" className="text-center" style={{ width: '23.5rem' }} >
+                            <Card bg="danger" text="white" className="text-center" style={{ width: '23.5rem' }} >
                                 <Card.Header>Starter Code</Card.Header>
                                 <textarea onChange={props.handleChange} required type="text" placeholder=" Write your chalenge starter_code" name="starter_code" cols="30" rows="10" />
                             </Card>
-                            <Card bg="secondary" text="white" className="text-center" style={{ width: '23.5rem' }} >
+                            <Card bg="danger" text="white" className="text-center" style={{ width: '23.5rem' }} >
                                 <Card.Header>Test</Card.Header>
                                 <textarea onChange={props.handleChange} required type='text' placeholder=' Write your chalenge test' name='test' cols="30" rows="10" />
                             </Card>
