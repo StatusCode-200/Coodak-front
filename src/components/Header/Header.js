@@ -10,16 +10,32 @@ function Header() {
   return (
     <main id="headerPage">
       <Navbar>
-        <ul class="menuItems">
+        <ul className="menuItems">
         <Navbar.Brand id="anker" href="#home">Coodak</Navbar.Brand>
 
         <Link className="links" to="/">
-            <Nav.Link href="#features">Home</Nav.Link>
+           HOME
+          </Link>
+
+          <Link className="links" to="/challenges">
+            CHALLENGES
+          </Link>
+
+          <Link className="links" to="/editor">
+            EDITOR
+          </Link>
+
+          <Link className="links" to="/profile">
+            PROFILE
           </Link>
 
           <Link className="links" to="/signup">
-            <Nav.Link href="#Signup">LOGIN</Nav.Link>
+            LOGIN
           </Link>
+
+          {/* <Link className="links" to="/signout">
+            SIGNOUT
+          </Link> */}
 
         </ul>
       </Navbar>
