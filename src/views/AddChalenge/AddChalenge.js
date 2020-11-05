@@ -4,11 +4,6 @@ import { CardDeck, Card, Button, InputGroup, FormControl } from 'react-bootstrap
 import './AddChalenge.scss';
 
 
-// function signInButton() {
-// 	const container = document.getElementById('container');
-// 	container.classList.remove("right-panel-active");
-// }
-
 function AddChalenge(props) {
     console.log('propppps', props);
     return (
@@ -42,15 +37,13 @@ function AddChalenge(props) {
                         <br />
                         <InputGroup className="mb-3">
                             <FormControl
-                                placeholder="Challenge Name" aria-label="challenge Name" aria-describedby="basic-addon2" name="name" id="challengeName" 
+                                placeholder="Challenge Name" aria-label="challenge Name" aria-describedby="basic-addon2" name="name" id="challengeName" required
                             />
                             <InputGroup.Append>
                                 <Button variant="outline-danger">Save Chalenge</Button>
                             </InputGroup.Append>
                         </InputGroup>
-                        {/* <input type="text" name="name" id="challengeName" placeholder="challenge Name" required />
-                        <br />
-                        <button > Save Chalenge</button> */}
+            
 
                     </form>
 
