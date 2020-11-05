@@ -1,9 +1,7 @@
 /* eslint-disable */
-
 import React from "react";
 import "./Profile.scss";
 import { Link } from "react-router-dom";
-
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
@@ -15,7 +13,6 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { makeStyles } from '@material-ui/core/styles';
-
 const useStyles = makeStyles((theme) => ({
     imgStyle: {
         width: '100%',
@@ -34,13 +31,8 @@ const useStyles = makeStyles((theme) => ({
         margin: '30px 0 10px 0'
     },
 }));
-
-
-
 function profile(props) {
     const classes = useStyles();
-
-
     console.log('propssssss', props);
     const renderProjects = () => {
         {
@@ -53,8 +45,6 @@ function profile(props) {
     }
     return (
         <main id="profilePage">
-
-
             <div className="container">
                 <h1>USER INFORMATION</h1>
                 <section id="user-info">
@@ -65,13 +55,9 @@ function profile(props) {
                         </h1>
                     </div>
                 </section>
-
             </div>
-
             <Container maxWidth='sm' className={classes.container}>
-
                 <Grid container>
-
                     <Grid className={classes.margin} item xs={12}>
                         <Typography variant='h5'>Project Details</Typography>
                     </Grid>
@@ -85,17 +71,13 @@ function profile(props) {
                                 <Typography>My Projects</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
-
                                 <Typography>
-
                                     {props.projects.map((project, idx) =>
                                         <Link key={idx} to={`/projects/${project._id}`}>
                                             project Name: {project.project_name}
                                         </Link>
                                     )}
-
                                 </Typography>
-
                             </AccordionDetails>
                         </Accordion>
                         <Accordion>
@@ -107,27 +89,19 @@ function profile(props) {
                                 <Typography>My Challenges</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
-
                                 <Typography>
-
-
                                     {props.challenges.map((challenge, idx) =>
                                         <Link key={idx} to={`/challenges/${challenge._id}`}>
                                             challenge name: {challenge.challenge_name}
-
                                         </Link>
                                     )}
-
                                 </Typography>
-
                             </AccordionDetails>
                         </Accordion>
                     </Grid>
                 </Grid>
             </Container>
-
         </main>
     );
 }
-
 export default profile;

@@ -11,24 +11,32 @@ function WhiteBoard(props) {
       <form action="#" method="POST" id="whiteBoardForm">
         <input type="hidden" name="user_challenge_id" value={savedChallengeId} />
         <div className="grid-container">
-          <div className="grid-item">
+          <div className="grid-item" style={{background: "linear-gradient(-45deg, #f403d1, #0989f0)", borderRadius: "10PX"}}>
             <h3>Problem Domain</h3>
-            <textarea name="problem_domain" id="problemDomain">
+            <textarea name="problem_domain" id="problemDomain" style={{outline: "none",backgroundColor: "transparent",
+    boxShadow: "inset 2px 2px 5px black, inset -5px -5px 10px #ab41d5",
+    }}>
               { whiteboard.problem_domain }
             </textarea>
-            <br />
-            <label htmlFor="input">Input </label>
-            <input name="input" id="input" type="text" value={whiteboard.input} />
-            <br />
-            <label htmlFor="output">Output </label>
-            <input name="output" id="output" type="text" value={whiteboard.output} />
+            
+          </div>
+
+          <div className="grid-item inputAndOutput">
+            <h3>Input and output</h3>
+            <label htmlFor="input">Input: <input name="input" id="input" type="text" value={whiteboard.input} /> </label>
+            
+            <label htmlFor="output">Output: <input name="output" id="output" type="text" value={whiteboard.output} /> </label>
+            
           </div>
 
           <div className="grid-item">
             <h3>Algorithm</h3>
-            <textarea name="algorithm" id="algorithm">
-              { whiteboard.algorithm }
+            <textarea name="algorithm" id="algorithm" className="text" style={{wordWrap: "break-word", resize: "none"}}>
+
             </textarea>
+            {/* <textarea name="algorithm" id="algorithm">
+              { whiteboard.algorithm }
+            </textarea> */}
           </div>
 
           <div className="grid-item">
