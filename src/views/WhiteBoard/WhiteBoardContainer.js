@@ -1,3 +1,4 @@
+/*eslint-disable */
 import React, { Component } from "react";
 import WhiteBoard from "./WhiteBoard";
 
@@ -6,7 +7,7 @@ export default class WhiteBoardContainer extends Component {
     super(props);
     this.state = {
       whiteboard: {
-        user_challenge_id: "1234",
+        user_challenge_id: "987",
         problem_domain: "adnan",
         algorithm: "some algorithm for the challenge",
         bigo: null,
@@ -20,8 +21,20 @@ export default class WhiteBoardContainer extends Component {
     };
   }
 
+  handleChange = e => {
+    this.setState({ whiteboard: {...this.state.whiteboard, [e.target.name]: e.target.value}});
+    
+  }
+
+  handleSubmit = e => {
+    e.preventDefault();
+    console.log("whiteboard data to be sent>>>>", this.state.whiteboard);
+    // do a fetch to send data to the server then redirect to some page
+  }
+
   render() {
+    console.log('this.state >>', this.state);
     const { whiteboard, savedChallengeId, userId } = this.state;
-    return <WhiteBoard whiteboard={whiteboard} savedChallengeId={savedChallengeId} userId={userId} />;
+    return <WhiteBoard whiteboard={whiteboard} savedChallengeId={savedChallengeId} userId={userId} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />;
   }
 }
