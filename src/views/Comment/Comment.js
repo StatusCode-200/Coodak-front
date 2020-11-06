@@ -1,4 +1,5 @@
 /*eslint-disable*/
+import { Height } from '@material-ui/icons';
 import React from 'react';
 import { Nav, Navbar, secondary, Alert, dark, Form, Button } from 'react-bootstrap';
 
@@ -22,11 +23,17 @@ function comment(props) {
                     <div className="hide bottom"></div>
                 </div>
 
-                {props.comments.map((item, idsx) => (
+                {props.comments.map((item, idx) => (
 
                     <Alert variant="secondary" className="alertText" >
-                        {/* comment text here */}
-                        {item.user_id.username}
+                            
+                         <Alert style={{paddingRight: "30px"}}>
+                          <img style={{width: "50px", height: "50px" , borderRadius: "50%", marginRight: "20px"}}src={item.img} />
+                         {item.user_id.username}
+
+                            <span style={{paddingLeft: "20px"}}> {item.time} </span>
+                          </Alert>  
+
                         <br />
                         {item.comment}
                     </Alert>
