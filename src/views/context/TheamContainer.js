@@ -8,7 +8,7 @@ class ThemeProvider extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            mode: 'dark',
+            mode: 'light',
             toggleMode: this.toggleMode
         }
     }
