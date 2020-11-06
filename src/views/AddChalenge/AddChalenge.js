@@ -19,19 +19,19 @@ function AddChalenge(props) {
                             <Card bg="danger" text="white" className="text-center" style={{ width: '25.5rem' }} >
                                 <Card.Header>Summary</Card.Header>
 
-                                <textarea onChange={props.handleChange} required type="text" placeholder=" Write your chalenge summary" name="summary" cols="30" rows="10" />
+                                <textarea style={{resize: "none"}} onChange={props.handleChange} required type="text" placeholder=" Write your chalenge summary" name="summary" cols="30" rows="10" />
                             </Card>
                             <Card bg="danger" text="white" className="text-center" style={{ width: '23.5rem' }} >
                                 <Card.Header>Description</Card.Header>
-                                <textarea onChange={props.handleChange} required type="text" placeholder=" Write your chalenge description" name="description" cols="30" rows="10" />
+                                <textarea style={{resize: "none"}} onChange={props.handleChange} required type="text" placeholder=" Write your chalenge description" name="description" cols="30" rows="10" />
                             </Card>
                             <Card bg="danger" text="white" className="text-center" style={{ width: '23.5rem' }} >
                                 <Card.Header>Starter Code</Card.Header>
-                                <textarea onChange={props.handleChange} required type="text" placeholder=" Write your chalenge starter_code" name="starter_code" cols="30" rows="10" />
+                                <textarea style={{resize: "none"}} onChange={props.handleChange} required type="text" placeholder=" Write your chalenge starter_code" name="starter_code" cols="30" rows="10" />
                             </Card>
                             <Card bg="danger" text="white" className="text-center" style={{ width: '23.5rem' }} >
                                 <Card.Header>Test</Card.Header>
-                                <textarea onChange={props.handleChange} required type='text' placeholder=' Write your chalenge test' name='test' cols="30" rows="10" />
+                                <textarea style={{resize: "none"}} onChange={props.handleChange} required type='text' placeholder=' Write your chalenge test' name='test' cols="30" rows="10" />
                             </Card>
                         </CardDeck>
                         <br />
