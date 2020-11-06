@@ -2,7 +2,9 @@
 import React , { useContext } from "react";
 import { Switch, Route } from "react-router-dom";
 import Home from "./views/Home/Home";
-import Signup from "./views/signup/SignupContainer";
+// import Login from "./views/Login/LoginContainer";
+import Signin from "./views/Signin/SigninContainer";
+
 import Challenges from "./views/Challenges/ChallengesContainer";
 import Comments from "./views/Comment/CommentContainer";
 import ChallengeDetails from "./views/ChallengeDetails/ChallengeDetailsContainer";
@@ -25,7 +27,7 @@ function Main() {
 
       <Switch>
         <Route exact path="/profile" component={Profile} />
-        <Route exact path="/signup" component={Signup} />
+        <Route exact path="/signin" component={Signin} />
         <Route exact path="/AboutUs" component={AboutUs} />
         <Route exact path="/editor" component={CodeEditor} />
         <Route exact path="/challenges" component={Challenges} />

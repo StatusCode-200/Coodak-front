@@ -1,24 +1,14 @@
 /* eslint-disable */
-import React from "react";
+import React, { useState } from "react";
+import { ClipLoader } from "react-spinners";
 
-import './Signup.scss';
+import './Signin.scss';
 
-function signUpButton() {
-	const container = document.getElementById('container');
-	container.classList.add("right-panel-active");
-}
-
-function signInButton() {
-	const container = document.getElementById('container');
-	container.classList.remove("right-panel-active");
-}
-
-function Signup(props) {
+function Signin(props) {
 	return (
 		<>
-			<main id="signupPage">
-
-				<div className="container" id="container">
+			<main id="signinPage">
+				<div className={`container ${props.switchToSignup ? "right-panel-active": ""}`} id="container">
 					<div className="form-container sign-up-container">
 						<form onSubmit={props.handleSubmit} action="#">
 							<h1>Create Account</h1>
@@ -27,10 +17,22 @@ function Signup(props) {
 								<a href="#" className="social"><i className="fa fa-google fa-2x"></i></a>
 							</div>
 							<span>or use your email for registration</span>
-							<input onChange={props.handleChange} required type="text" placeholder="Name" name="username" />
+							<input onChange={props.handleChange} required type="text" placeholder="Username" name="username" />
 							<input onChange={props.handleChange} required type="email" placeholder="Email" name="email" />
 							<input onChange={props.handleChange} required type="password" placeholder="Password" name="password" />
 							<input onChange={props.handleChange} required type='password' placeholder='Confirm Password' className='input-line full-width'></input>
+
+							{ props.switchToSignup &&
+								<center>
+									<ClipLoader
+										sizeUnit="px"
+										size={20}
+										color="#123abc"
+										loading={props.isLoading}
+										/>
+								</center>
+						}
+						{ props.switchToSignup && <h6>{ props.msg} </h6>}
 
 							<button  >Sign Up</button>
 						</form>
@@ -46,6 +48,20 @@ function Signup(props) {
 					<input onChange={props.handleChange} type="username" placeholder="username" name="username" />
 					<input onChange={props.handleChange} type="password" placeholder="Password" name="password"  />
 					<a href="#">Forgot your password?</a>
+
+					{ !props.switchToSignup &&
+						<center>
+							<ClipLoader
+								sizeUnit="px"
+								size={20}
+								color="#123abc"
+								loading={props.isLoading}
+								/>
+						</center>
+				}
+
+				{ !props.switchToSignup && <h6>{ props.msg} </h6>}
+
 					<button >Sign In</button>
 				    </form>
 			        </div>
@@ -55,21 +71,20 @@ function Signup(props) {
 							<div className="overlay-panel overlay-left">
 								<h1>Welcome Back!</h1>
 								<p>To keep connected with us please login with your personal info</p>
-								<button onClick={signInButton} className="ghost" id="signIn">Sign In</button>
+								<button onClick={() => props.setSwitchToSignup(false)} className="ghost" id="signIn">Sign In</button>
 							</div>
 							<div className="overlay-panel overlay-right">
 								<h1>Hello, Friend!</h1>
 								<p>Enter your personal details and start journey with us</p>
-								<button onClick={signUpButton} className="ghost" id="signUp">Sign Up</button>
+								<button onClick={() => props.setSwitchToSignup(true)} className="ghost" id="signUp">Sign Up</button>
 							</div>
 						</div>
 					</div>
 				</div>
-
 			</main>
 
 		</>
 	);
 }
 
-export default Signup;
+export default Signin;
