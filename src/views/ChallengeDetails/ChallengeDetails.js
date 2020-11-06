@@ -3,6 +3,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {If, Then, Else} from '../../components/If/If';
+import "./ChallengeDetails.scss"
 
 function Challenge(props) {
   const {challenge, solution, userId, savedChallengeId} = props;
@@ -22,26 +23,28 @@ function Challenge(props) {
   };
 
   return (
-    <main>
-
-      <section id="started-challenge">
-
-        <div id="challenge-description">
-          <div>
-            <Link to={`/challenges/${challenge._id}/comments`}>
-              Forum
-            </Link>
-          </div>
+    <main id="ChallengeDetails">
+      <section id="forumAndWhiteboard">
+        <div>
+          <Link to={`/challenges/${challenge._id}/comments`}>
+            Forum
+          </Link>
+        </div>
           <WhiteboardLink />
-          <p>
+      </section>
+      <section id="started-challenge">
+      
+        <div id="challenge-description">
+          <p id="descriptionHeader">description</p>
+          <p id="challengeDescription">
             { challenge.description }
           </p>
         </div>
 
         <div id="work-area">
-
+          <p id="solutionHeader">code here</p>
           <form id="saveChallenge">
-            <textarea name="solution" id="userSolution" cols="70" rows="40">
+            <textarea name="solution" id="userSolution">
               { solution? solution : challenge.starter_code }
             </textarea>
             <input id="inputUser_id" type="hidden" name="user_id" value={userId} />
@@ -50,13 +53,12 @@ function Challenge(props) {
 
           </form>
 
-          <button type="button" onClick="checkResult()">check</button>
-
         </div>
 
       </section>
 
       <section id="results">
+      <button type="button" onClick="checkResult()">check</button>
         <div id="result-failed-cases"></div>
         <div id="result-passed-cases"></div>
       </section>

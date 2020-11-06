@@ -1,0 +1,39 @@
+main#ChallengeDetails{
+    #started-challenge{
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    #challenge-description{
+        width: 48%;
+        background-color: white;
+        
+        #descriptionHeader{
+            background-color: #f3f1f1;
+            padding: 5px;
+            margin-bottom: 0px;
+        }
+        #challengeDescription{
+            padding: 5px;
+        }
+    }
+    #work-area{
+        width: 48%;
+
+        #solutionHeader{
+            background-color: #f3f1f1;
+            padding: 5px;
+            margin-bottom: 0px;
+        }
+
+        form#saveChallenge{
+            textarea#userSolution{
+                width: 100%;
+                height: 80vh;
+                outline: none;
+                padding: 10px;
+            }
+        }
+    }
+}
