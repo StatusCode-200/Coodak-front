@@ -2,7 +2,6 @@
 
 import React from "react";
 import './Footer.scss';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import GitHubIcon from '@material-ui/icons/GitHub';
@@ -26,19 +25,18 @@ function Footer() {
             <div className="footer-center">
               <h6>Contact</h6>
               <div>
-                <i className="fa fa-map-marker"></i>
-                <p> Amman, Jordan</p>
-                <p> Ghaza, Palestine</p>
+                
+                <p> <i className="fa fa-map-marker"></i> Amman, Jordan</p>
+                <p> <i className="fa fa-map-marker"></i> Ghaza, Palestine</p>
               </div>
 
               <div>
-                <i className="fa fa-phone"></i>
-                <p>+1 555 123456</p>
+                
+                <p> <i className="fa fa-phone"></i> +1 555 123456</p>
               </div>
             </div>
 
           </div>
-
 
 
           <div className="col-xs-6 col-md-3">

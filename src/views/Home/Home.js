@@ -1,8 +1,12 @@
-import React from "react";
+/*eslint-disable*/
+import React, { useContext } from "react";
 import "./index.scss";
 import { Link } from "react-router-dom";
+import { ThemeContext } from '../../views/context/TheamContainer.js';
 
 function Home() {
+  const themeContext = useContext(ThemeContext);
+
   return (
     <main id="homePage">
       <div className="blockquote-wrapper">
@@ -26,9 +30,9 @@ function Home() {
       <div className="tabled">
 
         <div className="linkDiv">
-          <Link to="/codeeditor" className="Link">
+          <Link to="/editor" className="Link">
             <span className="thin" />
-            <span className="thick">Get Started !</span>
+            <span className="thick" style={{background: themeContext.mode}}>Get Started !</span>
           </Link>
         </div>
 
