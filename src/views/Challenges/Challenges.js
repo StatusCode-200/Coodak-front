@@ -35,7 +35,7 @@ function Challenges(props) {
           <div className="cardContent">
               <p>{ challenge.summary }</p>
               <Link to={`/challenges/${challenge._id}`}>
-              <Button variant="danger">start</Button>{' '}
+              <Button variant="light">START</Button>{' '}
 
               </Link>
           </div>

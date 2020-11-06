@@ -9,7 +9,6 @@ class ThemeProvider extends React.Component {
         super(props);
         this.state = {
             mode: 'light',
-            
             toggleMode: this.toggleMode
         }
     }
