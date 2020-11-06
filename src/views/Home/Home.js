@@ -21,7 +21,8 @@ function Home() {
             &mdash; Coodak
             <br />
             <em>
-              web site For Test And run your Code
+           exists to encourage, challenge, and develop the skills and enjoyment of anyone with an interest in the programing
+            {/* <br /> It's a website to Test And run your Code */}
             </em>
           </h4>
         </div>
@@ -32,7 +33,9 @@ function Home() {
         <div className="linkDiv">
           <Link to="/editor" className="Link">
             <span className="thin" />
-            <span className="thick" style={{background: themeContext.mode}}>Get Started !</span>
+            <span style={{ color: "#a89e9e" }}> Become a better developer & start your learning journey with us.</span>
+            <span className="thick" style={{background: themeContext.mode}}> 
+            <br /> Get Started !</span>
           </Link>
         </div>
 
