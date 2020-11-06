@@ -1,9 +1,28 @@
 main#ChallengeDetails{
+    margin-left: 15px;
+    margin-right: 15px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    #forumAndWhiteboard{
+        margin-bottom: 30px;
+        a{
+            background-color: #e7e6ef;
+            width: 10em;
+            height: 2em;
+            display: inline-block;
+            text-align: center;
+            line-height: 2em;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        a:hover{
+            background-color: white;
+        }
+    }
     #started-challenge{
         display: flex;
-        justify-content: space-evenly;
-        margin-top: 50px;
-        margin-bottom: 50px;
+        justify-content: space-between;
+        margin-bottom: 40px;
     }
     #challenge-description{
         width: 48%;
@@ -33,6 +52,22 @@ main#ChallengeDetails{
                 height: 80vh;
                 outline: none;
                 padding: 10px;
+            }
+        }
+    }
+    #checkResult{
+        width: 48%;
+
+        #checkResultButton{
+            margin-bottom: 30px;
+        }
+        #results{
+            background-color: #f3f1f1;
+            #result-failed-cases{
+                color: red;
+            }
+            #result-passed-cases{
+                color: green;
             }
         }
     }

@@ -6,7 +6,7 @@ import {If, Then, Else} from '../../components/If/If';
 import "./ChallengeDetails.scss"
 
 function Challenge(props) {
-  const {challenge, solution, userId, savedChallengeId} = props;
+  const {challenge, solution, userId, savedChallengeId, stderr, stdout} = props;
 
   const WhiteboardLink =(props) => {
     if (savedChallengeId) {
@@ -29,8 +29,12 @@ function Challenge(props) {
           <Link to={`/challenges/${challenge._id}/comments`}>
             Forum
           </Link>
-        </div>
+          <Link to={`/challenges/${challenge._id}/comments`}>
+            whiteboard
+          </Link>
           <WhiteboardLink />
+        </div>
+          
       </section>
       <section id="started-challenge">
       
@@ -57,10 +61,12 @@ function Challenge(props) {
 
       </section>
 
-      <section id="results">
-      <button type="button" onClick="checkResult()">check</button>
-        <div id="result-failed-cases"></div>
-        <div id="result-passed-cases"></div>
+      <section id="checkResult">
+      <button type="button" id="checkResultButton" onClick="checkResult()">check</button>
+        <div id="results">
+          <div id="result-failed-cases"> {stderr} </div>
+          <div id="result-passed-cases"> {stdout} </div>
+        </div>
       </section>
     </main>
   );
