@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import Home from "./views/Home/Home";
 // import Login from "./views/Login/LoginContainer";
 import Signin from "./views/Signin/SigninContainer";
+import Signout from "./views/Signout/SignoutContainer";
 
 import Challenges from "./views/Challenges/ChallengesContainer";
 import Comments from "./views/Comment/CommentContainer";
@@ -28,6 +29,7 @@ function Main() {
       <Switch>
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/signin" component={Signin} />
+        <Route exact path="/signout" component={Signout} />
         <Route exact path="/AboutUs" component={AboutUs} />
         <Route exact path="/editor" component={CodeEditor} />
         <Route exact path="/challenges" component={Challenges} />

@@ -4,6 +4,8 @@ const initialState = {
   isLoading: false,
   msg: "",
   switchToSignup: false,
+  isValidateToken: false,
+  validateMsg: "",
 };
 
 export default function (state = initialState, action) {
@@ -35,6 +37,22 @@ export default function (state = initialState, action) {
     case "SWITCH_TO_SIGNUP":
       return {
         ...state, switchToSignup: payload, msg: "",
+      };
+    case "SIGNOUT_SUCCESS":
+      return {
+        ...initialState,
+      };
+    case "VALIDATE_TOKEN_START":
+      return {
+        ...initialState, isValidateToken: true, validateMsg: "",
+      };
+    case "VALIDATE_TOKEN_SUCCESS":
+      return {
+        ...initialState, user: payload.user, isValidateToken: false,
+      };
+    case "VALIDATE_TOKEN_FAILED":
+      return {
+        ...initialState, isValidateToken: false, validateMsg: payload,
       };
     default:
       return state;
