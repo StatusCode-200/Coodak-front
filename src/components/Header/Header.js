@@ -8,9 +8,8 @@ import { ThemeContext } from '../../views/context/TheamContainer';
 
 import './header.scss';
 
-function Header() {
+function Header(props) {
   const themeContext = useContext(ThemeContext);
-
 
   return (
     <main id="headerPage" >
@@ -38,9 +37,15 @@ function Header() {
             ABOUTUS
           </Link>
 
+          { props.user.username ?
+            <Link className="links" to="/signout">
+              SIGNOUT
+            </Link>
+          :
           <Link className="links" to="/signin">
-            SINGIN
+            SIGNIN
           </Link>
+        }
 
 
           {/* <Link className="links" to="/signout">
