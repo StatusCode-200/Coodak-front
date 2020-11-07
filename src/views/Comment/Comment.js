@@ -1,4 +1,5 @@
 /*eslint-disable*/
+import { Height } from '@material-ui/icons';
 import React from 'react';
 import { Nav, Navbar, secondary, Alert, dark, Form, Button } from 'react-bootstrap';
 
@@ -22,23 +23,35 @@ function comment(props) {
                     <div className="hide bottom"></div>
                 </div>
 
-                {props.comments.map((item, idsx) => (
+                <div className="comments">
 
-                    <Alert variant="secondary" className="alertText" >
-                        {/* comment text here */}
-                        {item.user_id.username}
-                        <br />
-                        {item.comment}
-                    </Alert>
-                ))}
+                    {props.comments.map((item, idx) => (
 
-                <Form>
-                    <Form.Group controlId="exampleForm.ControlTextarea1">
-                        <Form.Label>Example textarea</Form.Label>
-                        <Form.Control as="textarea" rows={3} className="textAria" />
-                    </Form.Group>
-                </Form>
-                <Button variant="danger">Comment</Button>{' '}
+                        <Alert variant="secondary" className="alertText" >
+
+                            <Alert style={{ paddingRight: "30px" }}>
+                                <img style={{ width: "50px", height: "50px", borderRadius: "50%", marginRight: "20px" }} src={item.img} />
+                                {item.user_id.username}
+
+                                <span style={{ paddingLeft: "20px" }}> {item.time} </span>
+                            </Alert>
+
+                            <br />
+                            <Alert style={{backgroundColor: "#ccc" , marginLeft: "7%", marginRight: "5%", width: "80%" , marginBottom: "4%"}}>
+
+                            {item.comment}
+                            </Alert>
+                        </Alert>
+                    ))}
+
+                    <Form>
+                        <Form.Group className="formComment" controlId="exampleForm.ControlTextarea1">
+                            <Form.Label style={{fontSize: "1.2em" , fontWeight: "bold"}} className="commentText">WRITE YOUR COMMENT</Form.Label>
+                            <Form.Control as="textarea" rows={3} className="textAria" />
+                        </Form.Group>
+                    </Form>
+                    <Button className="commentBtn" variant="danger">Comment</Button>{' '}
+                </div>
 
             </main>
         </>

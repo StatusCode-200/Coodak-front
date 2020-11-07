@@ -1,26 +1,62 @@
+/*eslit-disable*/
+/* missing standard property */
 #CodeEditor  {
-  padding-top: 150px;
-  padding-bottom: 150px;
+  padding: 50px 20px 150px 20px;
 
   body {
   text-align: center;
 }
-
-textarea {
-  width: 32%;
-  // float: top;
-  min-height: 250px;
-  overflow: scroll;
-  margin: auto;
-  display: inline-block;
-  background: #f4f4f9;
-  outline: none;
-  font-family: Courier, sans-serif;
-  font-size: 14px;
-  background-color: white;
+.codeName {
+  // padding: 0.45rem 0.8rem;
+  height: 38px;
+}
+#code {
+  border: 2px solid gray;
+  border-radius: 10px;
+  margin-top: 15px;
+  width: 100%;
+height: 300px;
 
 }
 
+#saveProject {
+margin-top: 25px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 250px;
+  overflow-y: scroll;
+ overflow-x: hidden;
+  margin: auto;
+  display: inline-block;
+  color: #ccc;
+  outline: none;
+  font-family: Courier, sans-serif;
+  font-size: 1.2em;
+  background-color: #1c1d22;
+  resize: none;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: #969799;
+
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+  border-radius: 10px;
+}
 iframe {
   bottom: 0;
   position: relative;
@@ -29,9 +65,6 @@ iframe {
   background-color: white;
 }
 
-#code{
-width:96.5%;
-height: 300px;
-}
+
 
 }
