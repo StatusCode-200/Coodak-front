@@ -4,7 +4,7 @@ const initialState = {
   isLoading: false,
   msg: "",
   switchToSignup: false,
-  isValidateToken: false,
+  isValidateToken: true,
   validateMsg: "",
 };
 
@@ -48,7 +48,7 @@ export default function (state = initialState, action) {
       };
     case "VALIDATE_TOKEN_SUCCESS":
       return {
-        ...initialState, user: payload.user, isValidateToken: false,
+        ...initialState, user: payload.user, token: payload.token, isValidateToken: false,
       };
     case "VALIDATE_TOKEN_FAILED":
       return {

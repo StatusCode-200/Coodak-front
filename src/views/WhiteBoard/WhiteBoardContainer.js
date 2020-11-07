@@ -23,16 +23,14 @@ class WhiteBoardContainer extends Component {
   }
 
   async componentDidMount() {
-    console.log("componentDidMount !!!! ")
-    // get whiteboard data from API
-    let fetchedWhiteBoardData = this.props.getWhiteboradAction({savedChallengeId : this.props.match.params.savedChallengeId,userId : this.props.userId});
+    let fetchedWhiteBoardData = this.props.getWhiteboradAction({savedChallengeId : this.props.match.params.savedChallengeId,userId : this.props.userId, token: this.props.token});
     console.log("whiteboard data", fetchedWhiteBoardData);
-    this.setState({whiteboard: fetchedWhiteBoardData, savedChallengeId: this.props.match.params.savedChallengeId});
+//    this.setState({whiteboard: fetchedWhiteBoardData, savedChallengeId: this.props.match.params.savedChallengeId});
 }
 
   handleChange = e => {
     this.setState({ whiteboard: {...this.state.whiteboard, [e.target.name]: e.target.value}});
-    
+
   }
 
   handleSubmit = e => {
@@ -45,11 +43,10 @@ class WhiteBoardContainer extends Component {
     }else{
       this.props.postWhiteboardAction({ whiteboard, savedChallengeId, userId });
     }
-    
+
   }
 
   render() {
-    console.log('this.state >>', this.state);
     const { whiteboard, savedChallengeId } = this.state;
     return <WhiteBoard whiteboard={whiteboard} savedChallengeId={savedChallengeId} userId={this.props.userId} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />;
   }
@@ -66,6 +63,7 @@ const mapStateToProps = store => ({
   savedChallengeId:store.whiteboard.savedChallengeId,
   isLoading: store.whiteboard.isLoading,
   userId: store.auth.user._id,//you might get it from auth from user object
+  token: store.auth.token,
   msg: store.whiteboard.msg,
 });
 
