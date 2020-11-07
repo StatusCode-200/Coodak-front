@@ -1,3 +1,4 @@
+/* eslint-disable */
 import axios from "axios";
 
 import { API } from "../config";
@@ -16,7 +17,7 @@ const fetchWhiteboardFailed = (msg) => ({
   payload: msg,
 });
 //pass both userId:(take it from redux) and savedChallengeId:(take it from state.savedChallengeId of WhiteBoardContainer.js)
-export const getWhiteboradAction = ({ }) => (dispatch) => {
+export const getWhiteboradAction = ({ savedChallengeId, userId }) => (dispatch) => {
   dispatch(fetchWhiteboard());
   axios.get(`${API}/users/${userId}/challenges/${savedChallengeId}/whiteboard`, { headers: { "Content-Type": "application/json" } })
     .then(({ data }) => {
@@ -40,7 +41,7 @@ const postWhiteboardFailed = (msg) => ({
   payload: msg,
 });
 
-export const postWhiteboardAction = ({ whiteboard }) => (dispatch) => {
+export const postWhiteboardAction = ({ whiteboard, savedChallengeId, userId }) => (dispatch) => {
   dispatch(postWhiteboardStart());
   axios.post(`${API}/users/${userId}/challenges/${savedChallengeId}/whiteboard`, { ...whiteboard }, { headers: { "Content-Type": "application/json" } })
     .then(({ data }) => {
@@ -64,7 +65,7 @@ const putWhiteboardStart = () => ({
     payload: msg,
   });
   
-  export const putWhiteboardAction = ({ whiteboard }) => (dispatch) => {///take the whiteboard from the state.whiteboard of WhiteBoardContainer.js  ///////check if the method override can work, otherwise use put and update server
+  export const putWhiteboardAction = ({ whiteboard, savedChallengeId, userId }) => (dispatch) => {///take the whiteboard from the state.whiteboard of WhiteBoardContainer.js  ///////check if the method override can work, otherwise use put and update server
     dispatch(putWhiteboardStart());
     axios.put(`${API}/users/${userId}/challenges/${savedChallengeId}/whiteboard`, { ...whiteboard }, { headers: { "Content-Type": "application/json" } })//whiteboard must be destructured because all of its key:value pairs are expected to be in the req.body
       .then(({ data }) => {

@@ -1,3 +1,4 @@
+/* eslint-disable */
 const initialState = {
     whiteboard: {},
     savedChallengeId: null,
