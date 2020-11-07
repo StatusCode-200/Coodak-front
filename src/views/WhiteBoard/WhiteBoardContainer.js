@@ -22,10 +22,11 @@ class WhiteBoardContainer extends Component {
     };
   }
 
-  async componentDidMount() {
-    let fetchedWhiteBoardData = this.props.getWhiteboradAction({savedChallengeId : this.props.match.params.savedChallengeId,userId : this.props.userId, token: this.props.token});
-    console.log("whiteboard data", fetchedWhiteBoardData);
-//    this.setState({whiteboard: fetchedWhiteBoardData, savedChallengeId: this.props.match.params.savedChallengeId});
+  async componentWillMount() {
+    await this.props.getWhiteboradAction({savedChallengeId : this.props.match.params.savedChallengeId,userId : this.props.userId, token: this.props.token});
+    this.setState({whiteboard: this.props.whiteboard, savedChallengeId: this.props.match.params.savedChallengeId});
+    console.log("componentWillMount---------------------");
+    console.log("inside componentWillMount this.props.whiteboard",this.props.whiteboard);
 }
 
   handleChange = e => {
@@ -34,7 +35,8 @@ class WhiteBoardContainer extends Component {
   }
 
   handleSubmit = e => {
-    const { whiteboard, savedChallengeId, userId } = this.state;
+    const { whiteboard, savedChallengeId } = this.state;
+    const userId = this.props.userId;
     e.preventDefault();
     console.log("whiteboard data to be sent>>>>", this.state.whiteboard);
     // do a fetch to send data to the server then redirect to some page
@@ -47,8 +49,9 @@ class WhiteBoardContainer extends Component {
   }
 
   render() {
-    const { whiteboard, savedChallengeId } = this.state;
-    return <WhiteBoard whiteboard={whiteboard} savedChallengeId={savedChallengeId} userId={this.props.userId} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />;
+    console.log("after render---this.state--->",this.state);
+    // const { whiteboard, savedChallengeId } = this.state;
+    return <WhiteBoard whiteboard={this.state.whiteboard} savedChallengeId={this.state.savedChallengeId} userId={this.props.userId} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />;
   }
 }
 
