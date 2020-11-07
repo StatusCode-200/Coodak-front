@@ -16,6 +16,7 @@ const initialState = {
       case "FETCH_WHITEBOARD_START": {
         return { ...state, isLoading: true };
       } case "FETCH_WHITEBOARD_SUCCESS":
+      console.log("fetch success", payload.whiteboard);
         return {
           ...state, whiteboard: payload.whiteboard, savedChallengeId:payload.savedChallengeId, userId:payload.userId, isLoading: false,
         };
