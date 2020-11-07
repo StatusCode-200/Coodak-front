@@ -18,6 +18,8 @@ export default class ChallengesContainer extends Component {
       userId: "123",
       //saved
         savedChallengeId: null, //null //if opening saved challenge it will be getted from route(link) (this.props.match.params.id)
+        stderr: "your solution is wrong because of the following test cases : bla bla bla",  //null untill the check button is pressed then if there is error or solution is false then goes here
+        stdout: "your solution have passed the following test cases",  //null untill the check button is pressed then if solution is true then goes here
     };
 
   }
@@ -44,7 +46,7 @@ componentWillMount(){
 */
 
   render() {
-    const { challenge, solution, userId, savedChallengeId } = this.state;
-    return <Challenge challenge={challenge} solution={solution} userId={userId} savedChallengeId={savedChallengeId} />;
+    const { challenge, solution, userId, savedChallengeId, stderr, stdout } = this.state;
+    return <Challenge challenge={challenge} solution={solution} userId={userId} savedChallengeId={savedChallengeId} stderr={stderr} stdout={stdout} />;
   }
 }
