@@ -95,7 +95,7 @@ export const validateTokenAction = () => (dispatch) => {
     dispatch(validateTokenStart());
     axios.get(`${API}/users/validateToken`, { headers: { Authorization: `Bearer ${cookie}` } })
       .then(({ data }) => {
-        dispatch(validateTokenSuccess(data));
+        dispatch(validateTokenSuccess({ token: cookie, ...data }));
       }).catch((err) => { // inValidToken
         cookies.remove("token");
         dispatch(validateTokenFailed(err.message));

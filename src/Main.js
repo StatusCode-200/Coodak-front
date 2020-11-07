@@ -37,7 +37,7 @@ function Main() {
         <Route exact path="/challenges/:id/comments" component={Comments} />
         <Route exact path="/addChallenge" component={AddChallenge} />
         <Route exact path="/" component={Home} />
-        <Route exact path="/challenges/:userChallengeId/whiteboard" component={WhiteBoard} /> {/* /challenges/:userChallengeId/whiteboard */}
+        <Route exact path="/challenges/:savedChallengeId/whiteboard" component={WhiteBoard} /> {/* /challenges/:savedChallengeId/whiteboard */}
         <Route path="*" component={PageNotFound} />
       </Switch>
     </main>
