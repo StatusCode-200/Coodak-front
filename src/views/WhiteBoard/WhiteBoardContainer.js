@@ -16,10 +16,17 @@ export default class WhiteBoardContainer extends Component {
         input: "tree",
         output: "tree",
       },
-      savedChallengeId: "987",
+      savedChallengeId: "987",// it will be getted from route(link) (this.props.match.params.savedChallengeId)
       userId: "123",
     };
   }
+
+//   async componentDidMount() {
+//     console.log("componentDidMount !!!! ")
+//     // get whiteboard data from API
+//     let response = await superagent.get('https://pokeapi.co/api/v2/pokemon');
+//     this.setState({items: response.body.results});
+// }
 
   handleChange = e => {
     this.setState({ whiteboard: {...this.state.whiteboard, [e.target.name]: e.target.value}});
