@@ -1,6 +1,10 @@
+import Cookies from "universal-cookie";
+
 import axios from "axios";
 
 import { API } from "../config";
+
+const cookies = new Cookies();
 
 const loginStart = () => ({
   type: "LOGIN_START",
@@ -20,6 +24,7 @@ export const loginAction = ({ username, password }) => (dispatch) => {
   dispatch(loginStart());
   axios.post(`${API}/users/signin`, { username, password }, { headers: { "Content-Type": "application/json" } })
     .then(({ data }) => {
+      cookies.set("token", data.token);
       dispatch(loginSuccess(data));
     }).catch((err) => {
       dispatch(loginFailed(err.message));
@@ -57,4 +62,43 @@ const setSwitchToSignup = (value) => ({
 
 export const setSwitchToSignupAction = (value) => (dispatch) => {
   dispatch(setSwitchToSignup(value));
+};
+
+const logoutSuccess = () => ({
+  type: "SIGNOUT_SUCCESS",
+});
+
+export const logoutAction = () => (dispatch) => {
+  cookies.remove("token");
+  dispatch(logoutSuccess());
+};
+
+const validateTokenStart = () => ({
+  type: "VALIDATE_TOKEN_START",
+});
+
+const validateTokenSuccess = (data) => ({
+  type: "VALIDATE_TOKEN_SUCCESS",
+  payload: data,
+});
+
+const validateTokenFailed = (msg) => ({
+  type: "VALIDATE_TOKEN_FAILED",
+  payload: msg,
+});
+
+export const validateTokenAction = () => (dispatch) => {
+  const cookie = cookies.get("token");
+  if (!cookie) {
+    dispatch(validateTokenFailed("no token"));
+  } else {
+    dispatch(validateTokenStart());
+    axios.get(`${API}/users/validateToken`, { headers: { Authorization: `Bearer ${cookie}` } })
+      .then(({ data }) => {
+        dispatch(validateTokenSuccess({ token: cookie, ...data }));
+      }).catch((err) => { // inValidToken
+        cookies.remove("token");
+        dispatch(validateTokenFailed(err.message));
+      });
+  }
 };

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import axios from "axios";
 
 import { API } from "../config";
@@ -16,9 +17,9 @@ const fetchWhiteboardFailed = (msg) => ({
   payload: msg,
 });
 //pass both userId:(take it from redux) and savedChallengeId:(take it from state.savedChallengeId of WhiteBoardContainer.js)
-export const getWhiteboradAction = ({ savedChallengeId, userId }) => (dispatch) => {
+export const getWhiteboradAction = ({ savedChallengeId, userId, token }) => (dispatch) => {
   dispatch(fetchWhiteboard());
-  axios.get(`${API}/users/${userId}/challenges/${savedChallengeId}/whiteboard`, { headers: { "Content-Type": "application/json" } })
+  axios.get(`${API}/users/${userId}/challenges/${savedChallengeId}/whiteboard`, { headers: { "Content-Type": "application/json" , Authorization: `Bearer ${token}` }})
     .then(({ data }) => {
       dispatch(fetchWhiteboardSuccess(data));//whiteboard: results[0] //could be null, savedChallengeId , userId
     }).catch((err) => {
@@ -53,18 +54,18 @@ export const postWhiteboardAction = ({ whiteboard, savedChallengeId, userId }) =
 const putWhiteboardStart = () => ({
     type: "PUT_WHITEBOARD_START",
   });
-  
+
   const putWhiteboardSuccess = (data) => ({
     type: "PUT_WHITEBOARD_SUCCESS",
     payload: data,
   });
-  
+
   const putWhiteboardFailed = (msg) => ({
     type: "PUT_WHITEBOARD_FAILED",
     payload: msg,
   });
-  
-  export const putWhiteboardAction = ({ whiteboard, savedChallengeId, userId }) => (dispatch) => {///take the whiteboard from the state.whiteboard of WhiteBoardContainer.js  ///////check if the method override can work, otherwise use put and update server
+
+  export const putWhiteboardAction = ({ whiteboard, savedChallengeId, userId, token }) => (dispatch) => {///take the whiteboard from the state.whiteboard of WhiteBoardContainer.js  ///////check if the method override can work, otherwise use put and update server
     dispatch(putWhiteboardStart());
     axios.put(`${API}/users/${userId}/challenges/${savedChallengeId}/whiteboard`, { ...whiteboard }, { headers: { "Content-Type": "application/json" } })//whiteboard must be destructured because all of its key:value pairs are expected to be in the req.body
       .then(({ data }) => {
