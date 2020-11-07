@@ -7,19 +7,24 @@ export default class CodeEdotorContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      code_html: "",
-      code_css: "",
-      code_js: "",
       project: {
         _id: "",
         id: "",
-        name: "",
+        name: "project1",
         code_html: "",
         code_css: "",
         code_js: "",
       },
       userId: "",
+     
     };
+  }
+  handleSubmit = () => {
+    console.log('saved project');
+  }
+  handleChange = e => {
+    // console.log(' >> ', this.state);
+    this.setState({ project: { ...this.state , [e.target.name]: e.target.value }});
   }
 
   onKeyUp = (e) => {
@@ -49,6 +54,7 @@ export default class CodeEdotorContainer extends Component {
   render() {
     const { project } = this.state;
     const { userId } = this.state;
-    return <CodeEditor project={project} onKeyUp={this.onKeyUp} userId={userId} />;
+    console.log(' >> ', this.state);
+        return <CodeEditor project={project} handleChange={this.handleChange} onKeyUp={this.onKeyUp} userId={userId} handleSubmit={this.handleSubmit} />;
   }
 }
