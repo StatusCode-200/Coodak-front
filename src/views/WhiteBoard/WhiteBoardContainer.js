@@ -35,17 +35,20 @@ class WhiteBoardContainer extends Component {
   }
 
   handleSubmit = e => {
-    const { whiteboard, savedChallengeId } = this.state;
-    const userId = this.props.userId;
+    // const { whiteboard, savedChallengeId } = this.state;
+    // const userId = this.props.userId;
+    // e.preventDefault();
+    // console.log("whiteboard data to be sent>>>>", this.state.whiteboard);
+    // // do a fetch to send data to the server then redirect to some page
+    // if(this.props.whiteboard){
+    //   this.props.putWhiteboardAction({ whiteboard, savedChallengeId, userId });
+    // }else{
+    //   this.props.postWhiteboardAction({ whiteboard, savedChallengeId, userId });
+    // }
     e.preventDefault();
-    console.log("whiteboard data to be sent>>>>", this.state.whiteboard);
-    // do a fetch to send data to the server then redirect to some page
-    if(this.props.whiteboard){
-      this.props.putWhiteboardAction({ whiteboard, savedChallengeId, userId });
-    }else{
-      this.props.postWhiteboardAction({ whiteboard, savedChallengeId, userId });
-    }
-
+    console.log(this.state);
+    console.log("---------");
+    console.log(this.props.whiteboard);
   }
 
   render() {
