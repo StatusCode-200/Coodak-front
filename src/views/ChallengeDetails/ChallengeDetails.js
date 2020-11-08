@@ -47,9 +47,9 @@ function Challenge(props) {
 
         <div id="work-area">
           <p id="solutionHeader">code here</p>
-          <form id="saveChallenge">
+          <form id="saveChallenge" onSubmit={props.handleSubmit}>
             <textarea name="solution" id="userSolution">
-              { solution? solution : challenge.starter_code }
+              { solution }
             </textarea>
             <input type="submit" value="save" />
           </form>
@@ -59,18 +59,18 @@ function Challenge(props) {
       </section>
 
       <section id="checkResult">
-      <button type="button" id="checkResultButton" onClick={checkResult}>check</button>
+      <button type="button" id="checkResultButton" onClick={props.checkResult}>check</button>
         <div id="results">
           <div id="result-failed-cases"> {stderr} </div>
           <div id="result-passed-cases"> {stdout} </div>
         </div>
       </section>
 
-      
+
       <div className="rateDiv">
 
 <div className="blog-card alt">
- 
+
       <div className="ratingContainer">
       <div className="feedback">
         <div className="rating">
@@ -171,11 +171,11 @@ function Challenge(props) {
               </svg>
             </div>
           </div>
-       
+
     </div>
 
    </div>
-   
+
   </div>
   <div className="description">
     <h1>Rate Your Challenge !!</h1>

@@ -20,30 +20,32 @@ import { getChallengeAction , postChallengeAction , putChallengeAction } from ".
 
    componentWillMount() {
     this.props.getChallenge({ savedChallengeId: this.props.match.params.savedChallengeId , userId: this.props.userId, token: this.props.token});
-    // this.setState({challenge: this.props.challenge, savedChallengeId: this.props.match.params.savedChallengeId});
-    // console.log("inside componentWillMount this.props.challenge",this.props.challenge);
   }
 
-  checkResult = () => {
-    console.log("checkResult");
-  };
-
-  handleChange = e => {
-    this.setState({ challenge: { ...this.state.challenge ,  [e.target.name]: e.target.value }});
-    console.log('this.state >>', this.state);
+  componentWillReceiveProps(nextProps){
+    if (nextProps.challenge && (JSON.stringify(nextProps.challenge) !== JSON.stringify(this.props.challenge))){
+      this.setState({ solution: nextProps.challenge.solution || nextProps.challenge.starter_code })
+    }
   }
+
+  // handleChange = e => {
+  //   this.setState({ challenge: { ...this.state.challenge ,  [e.target.name]: e.target.value }});
+  // }
 
   handleSubmit = e => {
-    const { challenge , savedChallengeId} = this.state;
-    const userId = this.props.userId;
+    const { solution } = this.state;
+    const { userId, token } = this.props;
     e.preventDefault();
-    if(this.props.challenge){
-      this.props.putChallenge({ challenge , savedChallengeId , userId });
+    if(this.props.challenge.solution){
+      this.props.putChallenge({ solution , userId, savedChallengeId: this.props.match.params.savedChallengeId, token });
     }else {
-      this.props.postChallenge({ challenge, savedChallengeId , userId });
-    console.log('contaxt>>>>',this.context);
+      this.props.postChallenge({ solution, userId, savedChallengeId: this.props.match.params.savedChallengeId, token });
     }
 }
+
+    checkResult = () => {
+      console.log("checkResult");
+    };
 
 /*
 componentWillMount(){
@@ -57,8 +59,17 @@ componentWillMount(){
 */
 
   render() {
-    const { challenge, solution, stderr, stdout } = this.props;
-    return <Challenge challenge={challenge} solution={solution} checkResult={checkResult} stderr={stderr} stdout={stdout} />;
+    const { solution } = this.state;
+    const { isLoading, challenge, stderr, stdout } = this.props;
+    return (
+      <>
+      {isLoading ?
+          <h1>loading</h1>
+        :
+      <Challenge challenge={challenge} solution={solution} handleSubmit={this.handleSubmit}  checkResult={this.checkResult} stderr={stderr} stdout={stdout} />
+        }
+      </>
+    )
   }
 }
 
@@ -71,7 +82,7 @@ const mapDispatchToProps = {
 const mapStateToProps = store => ({
   challenge: store.challengeDetails.challenge,
   isLoading: store.challengeDetails.isLoading,
-  userId: store.auth.user._id,
+  userId:  store.auth.user ? store.auth.user._id : "",
   token: store.auth.token,
   msg: store.challengeDetails.msg,
 })

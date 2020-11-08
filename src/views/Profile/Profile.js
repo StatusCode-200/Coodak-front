@@ -33,7 +33,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 function profile(props) {
     const classes = useStyles();
-    console.log('propsssssssssss', props);
+    console.log("challenge", props.challenges);
+    console.log("project", props.projects);
     // const renderProjects = () => {
     //     {
     //         props.projects ? props.projects.map((project, idx) =>
@@ -44,7 +45,7 @@ function profile(props) {
     //         : <br></br>
     //     }
     // }
-    
+
     return (
         <main id="profilePage">
             <div className="container">
@@ -76,7 +77,7 @@ function profile(props) {
                                 <Typography>
                                     { props.projects ? props.projects.map((project, idx) =>
                                         <Link key={idx} to={`/projects/${project._id}`}>
-                                            project Name: {project.project_name}
+                                            {project.name}
                                         </Link>
                                     )
                                     : <> </>
@@ -96,7 +97,7 @@ function profile(props) {
                                 <Typography>
                                     {props.challenges ? props.challenges.map((challenge, idx) =>
                                         <Link key={idx} to={`/challenges/${challenge._id}`}>
-                                            challenge name: {challenge.challenge_name}
+                                            {challenge.challenge_id.name}
                                         </Link>
                                     )
                                     : <> </>
