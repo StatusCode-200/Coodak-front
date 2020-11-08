@@ -27,13 +27,12 @@ import { getChallengeAction , postChallengeAction , putChallengeAction } from ".
 
   }
 
-  async componentWillMount() {
-    await this.props.getChallengeAction({ savedChallengeId: this.props.match.params.savedChallengeId , userId: this.props.userId, token: this.props.token});
-    this.setState({challenge: this.props.challenge, savedChallengeId: this.props.match.params.savedChallengeId});
-    console.log("componentWillMount---------------------");
-    console.log("inside componentWillMount this.props.challenge",this.props.challenge);
+   componentWillMount() {
+    this.props.getChallenge({ savedChallengeId: this.props.match.params.savedChallengeId , userId: this.props.userId, token: this.props.token});
+    // this.setState({challenge: this.props.challenge, savedChallengeId: this.props.match.params.savedChallengeId});
+    // console.log("inside componentWillMount this.props.challenge",this.props.challenge);
   }
-
+  
   handleChange = e => {
     this.setState({ challenge: { ...this.state.challenge ,  [e.target.name]: e.target.value }});
     console.log('this.state >>', this.state);
@@ -44,9 +43,9 @@ import { getChallengeAction , postChallengeAction , putChallengeAction } from ".
     const userId = this.props.userId;
     e.preventDefault();
     if(this.props.challenge){
-      this.props.putChallengeAction({ challenge , savedChallengeId , userId });
+      this.props.putChallenge({ challenge , savedChallengeId , userId });
     }else {
-      this.props.postChallengeAction({ challenge, savedChallengeId , userId });
+      this.props.postChallenge({ challenge, savedChallengeId , userId });
     console.log('contaxt>>>>',this.context);
     }
 }
@@ -64,24 +63,23 @@ componentWillMount(){
 
   render() {
     console.log('props in details >>', this.props);
-    const { challenge, solution, userId, savedChallengeId, stderr, stdout } = this.state;
+    const { challenge, solution,  stderr, stdout } = this.props;
     return <Challenge challenge={challenge} solution={solution} userId={userId} savedChallengeId={savedChallengeId} stderr={stderr} stdout={stdout} />;
   }
 }
 
 const mapDispatchToProps = {
-  getChallengeAction: getChallengeAction , 
-  postChallengeAction: postChallengeAction ,
-  putChallengeAction: putChallengeAction,
+  getChallenge: getChallengeAction , 
+  postChallenge: postChallengeAction ,
+  putChallenge: putChallengeAction,
 }
 
 const mapStateToProps = store => ({
-  challenge: store.challenge.challenge, 
-  savedChallengeId:store.challenge.savedChallengeId,
-  isLoading: store.challenge.isLoading,
+  challenge: store.challengeDetails.challenge, 
+  isLoading: store.challengeDetails.isLoading,
   userId: store.auth.user._id,
   token: store.auth.token,
-  msg: store.challenge.msg,
+  msg: store.challengeDetails.msg,
 })
 
 

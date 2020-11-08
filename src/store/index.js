@@ -5,14 +5,15 @@ import thunk from "redux-thunk";
 
 import auth from "./reducers/auth";
 import whiteboard from "./reducers/whiteboard";
-import challenge from "./reducers/challengeDetails";
+import challengeDetails from "./reducers/challengeDetails";
+
 const middlewares = [];
 middlewares.push(thunk);
 if (process.env.NODE_ENV !== "production") {
   middlewares.push(logger);
 }
 
-const reducers = combineReducers({ auth, whiteboard, challenge });
+const reducers = combineReducers({ auth, whiteboard, challengeDetails });
 
 const store = () => createStore(reducers, applyMiddleware(...middlewares));
 

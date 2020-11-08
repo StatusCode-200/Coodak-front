@@ -2,8 +2,6 @@
 const initialState = {
     challenge: {},
     solution: null,
-    savedChallengeId: null,
-    userId: null,
     isLoading: false,
     msg: "",
 }
@@ -17,7 +15,7 @@ export default function (state = initialState, action) {
         }
         case "FETCH_CHALLENGE_SUCCESS":
             return {
-                ...state, challenge: payload.challenge, savedChallengeId: payload.savedChallengeId, userId: payload.userId, isLoading: false
+                ...state, challenge: payload.challenge,  isLoading: false
             };
         case "FETCH_CHALLENGE_FAILED":
             return {
@@ -29,7 +27,7 @@ export default function (state = initialState, action) {
         }
         case "POST_CHALLENGE_SUCCESS":
             return {
-                ...state, challenge: payload.challenge, savedChallengeId: payload.savedChallengeId, userId: payload.userId, isLoading: false
+                ...state, challenge: payload.challenge,  isLoading: false
             };
         case "POST_CHALLENGE_FAILED":
             return {
@@ -42,7 +40,7 @@ export default function (state = initialState, action) {
         }
         case "PUT_CHALLENGE_SUCCESS":
             return {
-                ...state, challenge: payload.challenge, savedChallengeId: payload.savedChallengeId, userId: payload.userId, isLoading: false
+                ...state, challenge: payload.challenge,  isLoading: false
             };
         case "PUT_CHALLENGE_FAILED":
             return {

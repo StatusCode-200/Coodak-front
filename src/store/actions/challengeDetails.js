@@ -45,9 +45,9 @@ const postChallengeFaild = (msg) => ({
     payload: msg
 });
 
-export const postChallengeAction = ({ challenge , solution , savedChallengeId, userId }) => (dispatch) => {
+export const postChallengeAction = ({  solution , savedChallengeId, userId }) => (dispatch) => {
     dispatch(postChallengeStart());
-    axios.post(`${API}/users/${userId}/challenges/${savedChallengeId}`, { ...challenge } , 
+    axios.post(`${API}/users/${userId}/challenges/${savedChallengeId}`, { ...solution },
     { headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` } })
     .then(({ data })=> {
         dispatch(postChallengeSuccess(data));
@@ -73,9 +73,9 @@ const putChallengeFaild = (msg) => ({
     payload: msg
 });
 
-export const putChallengeAction = ({challenge , solution , savedChallengeId, userId , token}) => (dispatch) => {
+export const putChallengeAction = ({ solution , savedChallengeId, userId , token}) => (dispatch) => {
     dispatch(putChallengeStart());
-    axios.put(`${API}/users/${userId}/challenges/${savedChallengeId}`, { ...challenge }, { ...solution },  { headers: { "Content-Type": "application/json" } } )
+    axios.put(`${API}/users/${userId}/challenges/${savedChallengeId}`,  { ...solution },  { headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` } } )
         .then(({ data })=> {
             dispatch(putChallengeSuccess(data));
         }).catch((err) => {
