@@ -7,24 +7,14 @@ import { getChallengesAction } from "./../../store/actions/challenges.js"
 class ChallengesContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      challenges: [],
-    };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.getChallengesAction({ token: this.props.token });
 }
 
-componentWillReceiveProps(nextProps){
-  // set state challenges at the firstTime (after loaded success)
-  if (JSON.stringify(nextProps.challenges) !== JSON.stringify(this.props.challenges)){
-    this.setState({ challenges: [...nextProps.challenges] });
-  }
-}
-
   render() {
-    const { challenges } = this.state;
+    const { challenges } = this.props;
     return <Challenges challenges={challenges} />;
   }
 }
