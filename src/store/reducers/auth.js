@@ -40,7 +40,7 @@ export default function (state = initialState, action) {
       };
     case "SIGNOUT_SUCCESS":
       return {
-        ...initialState,
+        ...initialState, isValidateToken: false, // don't do loading
       };
     case "VALIDATE_TOKEN_START":
       return {
