@@ -69,6 +69,7 @@ const putWhiteboardStart = () => ({
     dispatch(putWhiteboardStart());
     axios.put(`${API}/users/${userId}/challenges/${savedChallengeId}/whiteboard`, { ...whiteboard }, { headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` } })//whiteboard must be destructured because all of its key:value pairs are expected to be in the req.body
       .then(({ data }) => {
+        console.log("data return from put", data);
         dispatch(putWhiteboardSuccess(data));//no data is recieved it just redirects to the same whiteboard page (refresh it)
       }).catch((err) => {
         dispatch(putWhiteboardFailed(err.message));
