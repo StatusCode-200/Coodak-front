@@ -22,21 +22,29 @@ class CodeEdotorContainer extends Component {
   }
 
   componentWillMount() {
-    this.setState({ project: {...this.state.project, owner_id: this.props.userId} });
     if(this.props.match.params.projectId){
       this.props.getProjectAction({projectId : this.props.match.params.projectId,userId : this.props.userId, token: this.props.token});
+    }else{
+      this.setState({ project: {...this.state.project, owner_id: this.props.userId} });
     }
-
+    
 }
 
 componentWillReceiveProps(nextProps){
   // set state project at the firstTime (after loaded success)
-  if (JSON.stringify(nextProps.project) !== JSON.stringify(this.props.project)){
-    this.setState({ project: {...nextProps.project} });
+  // if (JSON.stringify(nextProps.project) !== JSON.stringify(this.props.project)){
+  //   this.setState({ project: {...nextProps.project} });
+  // }
+  console.log("componentWillReceiveProps");
+  if(this.props.match.params.projectId){
+    console.log(this.props.match.params.projectId);
+  this.setState({ project: {...nextProps.project} });
+  }else{
+    console.log("should reset it");
   }
 }
 
-  handleSubmit = () => {
+  handleSubmit = (e) => {
     console.log('saved project');
     const { project } = this.state;
     const { userId, token } = this.props;
