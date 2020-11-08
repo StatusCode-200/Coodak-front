@@ -120,4 +120,20 @@ main#Challenges{
       flex-direction: column;
       align-items: center;
     }
+
+    #all-challenges h6 {
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    .img-div {
+        // width: 100%; /* width of container */
+        height: 520px; /* height of container */
+        overflow: hidden;
+        // border: 5px solid black;
+    }
+    
+    .img-div img {
+        margin-top: -190px;
+    }
 }

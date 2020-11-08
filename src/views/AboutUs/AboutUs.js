@@ -4,6 +4,9 @@ import "./AboutUs.scss"
 function AboutUs() {
   return (
     <>
+    <main id="aboutUsPageMain">
+
+    
 <div className="aboutUsPage">
 
 <img className=" img-fluid" src="http://pyramidaal.com/wp-content/uploads/2019/03/aboutus-org.jpg" alt="card image" />
@@ -26,7 +29,7 @@ function AboutUs() {
                         <p><img className=" img-fluid" src="https://avatars1.githubusercontent.com/u/35776421?s=400&u=f98cbf1b97de77d9d247fff44300fefcea454d79&v=4" alt="card image" /></p>
                         <h4 className="card-title">Adnan Abu Muamar</h4>
                         <p className="card-text"> Web Developer.</p>
-                        <a href="https://www.fiverr.com/share/qb8D02" className="btn btn-primary btn-sm"><i className="fa fa-info"></i></a>
+                        <a href="https://www.fiverr.com/share/qb8D02" className="btn btn-primary btn-sm"><i className="fa fa-info fa-xs"></i></a>
                       </div>
                     </div>
                   </div>
@@ -81,7 +84,7 @@ function AboutUs() {
                     <div className="card">
                       <div className="card-body text-center mt-4">
                         <h4 className="card-title">Laith Al Daree</h4>
-                        <p className="card-text">A Full Stack Web Developer At ASAC  ,24 years old , Live in Azraq and  Graduated From Zarqa University in Software Engineering Field.</p>
+                        <p className="card-text">A Full Stack Web Developer, 24 years old , Live in Azraq and  Graduated From Zarqa University in Software Engineering Field.</p>
                         <ul className="list-inline">
                           <li className="list-inline-item">
                             <a className="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
@@ -174,7 +177,7 @@ function AboutUs() {
                     <div className="card">
                       <div className="card-body text-center mt-4">
                         <h4 className="card-title">Raghad Anees</h4>
-                        <p className="card-text">A Full Stack Web Developer At ASAC, 23 years old Live in Amman, Graduated From Zarqa University faculty of pharmacy</p>
+                        <p className="card-text">A Full Stack Web Developer, 23 years old Live in Amman, Graduated From Zarqa University faculty of pharmacy</p>
                         <ul className="list-inline">
                           <li className="list-inline-item">
                             <a className="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
@@ -207,7 +210,7 @@ function AboutUs() {
         </div>
       </section>
       </div>
-
+      </main>
     </>
   );
 }
