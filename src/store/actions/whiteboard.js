@@ -22,8 +22,6 @@ export const getWhiteboradAction = ({ savedChallengeId, userId, token }) => (dis
   axios.get(`${API}/users/${userId}/challenges/${savedChallengeId}/whiteboard`, { headers: { "Content-Type": "application/json" , Authorization: `Bearer ${token}` }})
     .then(({ data }) => {
       dispatch(fetchWhiteboardSuccess(data));//whiteboard: results[0] //could be null, savedChallengeId , userId
-      // console.log("data from getWhiteboradAction", data);
-      return data;
     }).catch((err) => {
       dispatch(fetchWhiteboardFailed(err.message));
     });
@@ -75,15 +73,6 @@ const putWhiteboardStart = () => ({
       }).catch((err) => {
         dispatch(putWhiteboardFailed(err.message));
       });
-  };
-  //change whiteboard(inputting)
-  const inputtingWhitebord = (data) => ({
-    type: "WHITEBOARD_CHANGE",
-    payload: data,
-  });
-  export const inputtingWhitebordAction = ( whiteboard ) => (dispatch) => {//handles user input
-    console.log("payload to be passed to inputtingWhitebord", whiteboard);
-    dispatch(inputtingWhitebord({whiteboard}));
   };
 
 //
