@@ -66,7 +66,7 @@ componentWillMount(){
       {isLoading ?
           <h1>loading</h1>
         :
-      <Challenge challenge={challenge} solution={solution} handleSubmit={this.handleSubmit}  checkResult={this.checkResult} stderr={stderr} stdout={stdout} />
+      <Challenge challenge={challenge} solution={solution} savedChallengeId={this.props.match.params.savedChallengeId} handleSubmit={this.handleSubmit}  checkResult={this.checkResult} stderr={stderr} stdout={stdout} />
         }
       </>
     )

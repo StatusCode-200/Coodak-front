@@ -96,7 +96,7 @@ function profile(props) {
                             <AccordionDetails>
                                 <Typography>
                                     {props.challenges ? props.challenges.map((challenge, idx) =>
-                                        <Link key={idx} to={`/challenges/${challenge._id}`}>
+                                        <Link key={idx} to={`/user/challenges/${challenge._id}`}>
                                             {challenge.challenge_id.name}
                                         </Link>
                                     )

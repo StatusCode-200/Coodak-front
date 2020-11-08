@@ -34,6 +34,8 @@ function Main() {
         <Route exact path="/editor" component={CodeEditor} />
         <Route exact path="/projects/:projectId" component={CodeEditor} />
         <Route exact path="/challenges" component={Challenges} />
+        {/* <Route exact path="/user/challenges/:savedChallengeId" component={ChallengeDetails} />
+        <Route exact path="/challenges/:ChallengeId" component={ChallengeDetails} /> */}
         <Route exact path="/challenges/:savedChallengeId" component={ChallengeDetails} />
         <Route exact path="/challenges/:id/comments" component={Comments} />
         <Route exact path="/addChallenge" component={AddChallenge} />
