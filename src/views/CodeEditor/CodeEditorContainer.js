@@ -2,29 +2,54 @@
 
 import React, { Component } from "react";
 import CodeEditor from "./CodeEditor";
+import { connect } from "react-redux";
+import { getProjectAction, postProjectAction, putProjectAction } from "./../../store/actions/project.js"
 
-export default class CodeEdotorContainer extends Component {
+class CodeEdotorContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
       project: {
-        _id: "",
-        id: "",
-        name: "project1",
-        code_html: "",
-        code_css: "",
-        code_js: "",
+        _id: null,
+        owner_id: null,
+        name: null,
+        code_html: null,
+        code_css: null,
+        code_js: null,
       },
-      userId: "",
-     
+
     };
   }
+
+  componentWillMount() {
+    this.setState({ project: {...this.state.project, owner_id: this.props.userId} });
+    if(this.props.match.params.projectId){
+      this.props.getProjectAction({projectId : this.props.match.params.projectId,userId : this.props.userId, token: this.props.token});
+    }
+
+}
+
+componentWillReceiveProps(nextProps){
+  // set state project at the firstTime (after loaded success)
+  if (JSON.stringify(nextProps.project) !== JSON.stringify(this.props.project)){
+    this.setState({ project: {...nextProps.project} });
+  }
+}
+
   handleSubmit = () => {
     console.log('saved project');
+    const { project } = this.state;
+    const { userId, token } = this.props;
+    e.preventDefault();
+    if(this.props.project._id){
+      this.props.putProjectAction({ project, projectId: this.props.match.params.projectId, userId, token });
+    }else{
+      this.props.postProjectAction({ project, userId, token });
+    }
   }
   handleChange = e => {
     // console.log(' >> ', this.state);
-    this.setState({ project: { ...this.state , [e.target.name]: e.target.value }});
+    this.setState({ project: { ...this.state.project , [e.target.name]: e.target.value }});
   }
 
   onKeyUp = (e) => {
@@ -52,9 +77,33 @@ export default class CodeEdotorContainer extends Component {
   }
 
   render() {
+    const { isLoading } = this.props;
     const { project } = this.state;
-    const { userId } = this.state;
     console.log(' >> ', this.state);
-        return <CodeEditor project={project} handleChange={this.handleChange} onKeyUp={this.onKeyUp} userId={userId} handleSubmit={this.handleSubmit} />;
+    return (
+      <>
+        { isLoading ?
+          <h1>loading Project</h1>
+          :
+          <CodeEditor project={project} handleChange={this.handleChange} onKeyUp={this.onKeyUp} userId={this.props.userId} handleSubmit={this.handleSubmit} />
+        }
+      </>
+    )
   }
 }
+
+const mapDispatchToProps = {
+  getProjectAction: getProjectAction,
+  postProjectAction: postProjectAction,
+  putProjectAction: putProjectAction,
+}
+
+const mapStateToProps = store => ({
+  project: store.project.project,
+  isLoading: store.project.isLoading,
+  userId: store.auth.user._id,//you might get it from auth from user object
+  token: store.auth.token,
+  msg: store.project.msg,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps) (CodeEdotorContainer);
