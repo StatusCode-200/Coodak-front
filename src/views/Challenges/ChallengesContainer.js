@@ -1,35 +1,44 @@
+/* eslint-disable */
 import React, { Component } from "react";
 import Challenges from "./Challenges";
+import { connect } from "react-redux";
+import { getChallengesAction } from "./../../store/actions/challenges.js"
 
-export default class ChallengesContainer extends Component {
+class ChallengesContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      challenges: [{
-        name: "tree",
-        summary: "implement a tree data structure with all traversal method",
-        _id: "1",
-      },
-      {
-        name: "Linked List",
-        summary: "implement a Linked List structure with all traversal method",
-        _id: "2",
-      },
-      {
-        name: "Hash Table",
-        summary: "implement a Hash Table data structure with all traversal method",
-        _id: "3",
-      },
-      {
-        name: "bibary search tree",
-        summary: "implement a bibary search tree data structure with all traversal method",
-        _id: "4",
-      }],
+      challenges: [],
     };
   }
+
+  componentDidMount() {
+    this.props.getChallengesAction({ token: this.props.token });
+}
+
+componentWillReceiveProps(nextProps){
+  // set state challenges at the firstTime (after loaded success)
+  if (JSON.stringify(nextProps.challenges) !== JSON.stringify(this.props.challenges)){
+    this.setState({ challenges: [...nextProps.challenges] });
+  }
+}
 
   render() {
     const { challenges } = this.state;
     return <Challenges challenges={challenges} />;
   }
 }
+
+const mapDispatchToProps = {
+  getChallengesAction: getChallengesAction,
+}
+
+const mapStateToProps = store => ({
+  challenges: store.challenges.challenges,
+  isLoading: store.challenges.isLoading,
+  userId: store.auth.user._id,
+  token: store.auth.token,
+  msg: store.whiteboard.msg,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps) (ChallengesContainer);

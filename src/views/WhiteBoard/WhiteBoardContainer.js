@@ -37,9 +37,9 @@ class WhiteBoardContainer extends Component {
     console.log("whiteboard data to be sent>>>>", this.state.whiteboard);
     // do a fetch to send data to the server then redirect to some page
     if(this.props.whiteboard){
-      this.props.putWhiteboardAction({ whiteboard, savedChallengeId, userId });
+      this.props.putWhiteboardAction({ whiteboard, savedChallengeId, userId, token: this.props.token });
     }else{
-      this.props.postWhiteboardAction({ whiteboard, savedChallengeId, userId });
+      this.props.postWhiteboardAction({ whiteboard, savedChallengeId, userId, token: this.props.token });
     }
 
   }
