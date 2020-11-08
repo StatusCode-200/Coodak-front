@@ -32,6 +32,7 @@ function Main() {
         <Route exact path="/signout" component={Signout} />
         <Route exact path="/AboutUs" component={AboutUs} />
         <Route exact path="/editor" component={CodeEditor} />
+        <Route exact path="/projects/:id" component={CodeEditor} />
         <Route exact path="/challenges" component={Challenges} />
         <Route exact path="/challenges/:id" component={ChallengeDetails} />
         <Route exact path="/challenges/:id/comments" component={Comments} />
