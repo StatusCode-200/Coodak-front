@@ -23,15 +23,15 @@ export default function (state = initialState, action) {
             };
 
         case "POST_CHALLENGE_START": {
-            return { ...state, isLoading: true };
+            return { ...state };
         }
         case "POST_CHALLENGE_SUCCESS":
             return {
-                ...state, challenge: payload.challenge,  isLoading: false
+                ...state, challenge: payload.challenge,
             };
         case "POST_CHALLENGE_FAILED":
             return {
-                ...state, msg: payload, isLoading: false,
+                ...state, msg: payload,
             };
 
 

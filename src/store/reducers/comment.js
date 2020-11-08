@@ -1,6 +1,6 @@
 /* eslint-disable */
 const initialState = {
-    comments: {},
+    comments: [],
     isLoading: false,
     msg: "",
 }
@@ -14,7 +14,7 @@ export default function (state = initialState, action) {
         }
         case "FETCH_COMMENT_SUCCESS":
             return {
-                ...state, comments: payload.comments, isLoading: false
+                ...state, comments: [...payload] , isLoading: false
             }
 
         case "FETCH_COMMENT_FAILED":

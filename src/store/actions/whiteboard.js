@@ -41,9 +41,9 @@ const postWhiteboardFailed = (msg) => ({
   payload: msg,
 });
 
-export const postWhiteboardAction = ({ whiteboard, savedChallengeId, userId }) => (dispatch) => {
+export const postWhiteboardAction = ({ whiteboard, savedChallengeId, userId, token }) => (dispatch) => {
   dispatch(postWhiteboardStart());
-  axios.post(`${API}/users/${userId}/challenges/${savedChallengeId}/whiteboard`, { ...whiteboard }, { headers: { "Content-Type": "application/json" } })
+  axios.post(`${API}/users/${userId}/challenges/${savedChallengeId}/whiteboard`, { ...whiteboard }, { headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` } })
     .then(({ data }) => {
       dispatch(postWhiteboardSuccess(data));//whiteboard: results//the posted whiteboard after saving to database , savedChallengeId : userChallengeId, userId : userId
     }).catch((err) => {
@@ -67,8 +67,9 @@ const putWhiteboardStart = () => ({
 
   export const putWhiteboardAction = ({ whiteboard, savedChallengeId, userId, token }) => (dispatch) => {///take the whiteboard from the state.whiteboard of WhiteBoardContainer.js  ///////check if the method override can work, otherwise use put and update server
     dispatch(putWhiteboardStart());
-    axios.put(`${API}/users/${userId}/challenges/${savedChallengeId}/whiteboard`, { ...whiteboard }, { headers: { "Content-Type": "application/json" } })//whiteboard must be destructured because all of its key:value pairs are expected to be in the req.body
+    axios.put(`${API}/users/${userId}/challenges/${savedChallengeId}/whiteboard`, { ...whiteboard }, { headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` } })//whiteboard must be destructured because all of its key:value pairs are expected to be in the req.body
       .then(({ data }) => {
+        console.log("data return from put", data);
         dispatch(putWhiteboardSuccess(data));//no data is recieved it just redirects to the same whiteboard page (refresh it)
       }).catch((err) => {
         dispatch(putWhiteboardFailed(err.message));
