@@ -51,12 +51,12 @@ class ProfileContainer extends Component {
 const mapDispatchToProps = {
   getUserProjectsAction: getUserProjectsAction,
   getUserChallengesAction: getUserChallengesAction,
- 
+
 }
 
 const mapStateToProps = store => ({
-  projects: store.profile.projects,
-  challenges:store.profile.challenges,
+  projects: store.profile.userProjects,
+  challenges:store.profile.userChallenges,
   isLoading: store.profile.isLoading,
   user_id: store.auth.user._id,//you might get it from auth from user object
   username: store.auth.user.username,
