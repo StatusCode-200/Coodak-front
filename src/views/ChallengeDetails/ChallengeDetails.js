@@ -29,15 +29,15 @@ function Challenge(props) {
           <Link to={`/challenges/${challenge._id}/comments`}>
             Forum
           </Link>
-          <Link to={`/challenges/${challenge._id}/comments`}>
+          <Link to={`/challenges/${challenge._id}/whiteboard`}>
             whiteboard
           </Link>
           <WhiteboardLink />
         </div>
-          
+
       </section>
       <section id="started-challenge">
-      
+
         <div id="challenge-description">
           <p id="descriptionHeader">description</p>
           <p id="challengeDescription">
@@ -51,10 +51,7 @@ function Challenge(props) {
             <textarea name="solution" id="userSolution">
               { solution? solution : challenge.starter_code }
             </textarea>
-            <input id="inputUser_id" type="hidden" name="user_id" value={userId} />
-            <input id="inputChallenge_id" type="hidden" name="challenge_id" value={challenge._id} />
             <input type="submit" value="save" />
-
           </form>
 
         </div>
@@ -62,7 +59,7 @@ function Challenge(props) {
       </section>
 
       <section id="checkResult">
-      <button type="button" id="checkResultButton" onClick="checkResult()">check</button>
+      <button type="button" id="checkResultButton" onClick={checkResult}>check</button>
         <div id="results">
           <div id="result-failed-cases"> {stderr} </div>
           <div id="result-passed-cases"> {stdout} </div>
