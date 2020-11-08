@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import WhiteBoard from "./WhiteBoard";
 import { connect } from "react-redux";
-import { getWhiteboradAction, postWhiteboardAction, putWhiteboardAction } from "./../../store/actions/whiteboard.js"
+import { getWhiteboradAction, postWhiteboardAction, putWhiteboardAction, inputtingWhitebordAction } from "./../../store/actions/whiteboard.js"
 
 class WhiteBoardContainer extends Component {
   constructor(props) {
@@ -24,14 +24,19 @@ class WhiteBoardContainer extends Component {
 
   async componentWillMount() {
     await this.props.getWhiteboradAction({savedChallengeId : this.props.match.params.savedChallengeId,userId : this.props.userId, token: this.props.token});
-    this.setState({whiteboard: this.props.whiteboard, savedChallengeId: this.props.match.params.savedChallengeId});
-    console.log("componentWillMount---------------------");
-    console.log("inside componentWillMount this.props.whiteboard",this.props.whiteboard);
+    // this.setState({whiteboard: this.props.whiteboard, savedChallengeId: this.props.match.params.savedChallengeId});
+    
+    // let whiteboardData = await this.props.getWhiteboradAction({savedChallengeId : this.props.match.params.savedChallengeId,userId : this.props.userId, token: this.props.token});
+    // console.log("whiteboardData inside componentWillMount", whiteboardData);
+    // this.setState({whiteboard: whiteboardData.whiteboard, savedChallengeId: this.props.match.params.savedChallengeId});
+    // console.log("componentWillMount---------------------");
+    // console.log("inside componentWillMount this.props.whiteboard",this.props.whiteboard);
 }
 
   handleChange = e => {
-    this.setState({ whiteboard: {...this.state.whiteboard, [e.target.name]: e.target.value}});
-
+    // this.setState({ whiteboard: {...this.state.whiteboard, [e.target.name]: e.target.value}});
+    console.log("handlechange data",{...this.props.whiteboard, [e.target.name]: e.target.value})
+    this.props.inputtingWhitebordAction({...this.props.whiteboard, [e.target.name]: e.target.value});
   }
 
   handleSubmit = e => {
@@ -46,15 +51,16 @@ class WhiteBoardContainer extends Component {
     //   this.props.postWhiteboardAction({ whiteboard, savedChallengeId, userId });
     // }
     e.preventDefault();
-    console.log(this.state);
+    // console.log(this.state);
     console.log("---------");
     console.log(this.props.whiteboard);
   }
 
   render() {
-    console.log("after render---this.state--->",this.state);
+    // console.log("after render---this.state--->",this.state);
+    console.log("after render---this.props.whiteboard--->",this.props.whiteboard);
     // const { whiteboard, savedChallengeId } = this.state;
-    return <WhiteBoard whiteboard={this.state.whiteboard} savedChallengeId={this.state.savedChallengeId} userId={this.props.userId} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />;
+    return <WhiteBoard whiteboard={this.props.whiteboard} savedChallengeId={this.props.savedChallengeId} userId={this.props.userId} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />;
   }
 }
 
@@ -62,6 +68,7 @@ const mapDispatchToProps = {
   getWhiteboradAction: getWhiteboradAction,
   postWhiteboardAction: postWhiteboardAction,
   putWhiteboardAction: putWhiteboardAction,
+  inputtingWhitebordAction: inputtingWhitebordAction,
 }
 
 const mapStateToProps = store => ({
