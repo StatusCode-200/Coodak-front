@@ -21,9 +21,19 @@ export default class ChallengesContainer extends Component {
         _id: "3",
       },
       {
-        name: "bibary search tree",
+        name: "binary search tree",
         summary: "implement a bibary search tree data structure with all traversal method",
         _id: "4",
+      },
+      {
+        name: "Bracket Matcher",
+        summary: "you will determine if the brackets in a string are correctly matched up",
+        _id: "5",
+      },
+      {
+        name: " Longest Word",
+        summary: "determining the largest word in a string",
+        _id: "6",
       }],
     };
   }
