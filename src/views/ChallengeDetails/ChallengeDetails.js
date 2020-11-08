@@ -29,7 +29,7 @@ function Challenge(props) {
           <Link to={`/challenges/${challenge._id}/comments`}>
             Forum
           </Link>
-          <WhiteboardLink />
+          {WhiteboardLink()}
         </div>
 
       </section>
