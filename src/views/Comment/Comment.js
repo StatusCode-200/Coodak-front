@@ -6,7 +6,7 @@ import { Nav, Navbar, secondary, Alert, dark, Form, Button } from 'react-bootstr
 import './Comment.scss';
 
 function comment(props) {
-    console.log('props>>>', props);
+    console.log('props in comment compon >>>', props);
     return (
         <>
             <main id="commentPage">
@@ -30,10 +30,10 @@ function comment(props) {
                         <Alert variant="secondary" className="alertText" >
 
                             <Alert style={{ paddingRight: "30px" }}>
-                                <img style={{ width: "50px", height: "50px", borderRadius: "50%", marginRight: "20px" }} src={item.img} />
+                                <img style={{ width: "50px", height: "50px", borderRadius: "50%", marginRight: "20px" }}  src={item.img}  />
                                 {item.user_id.username}
 
-                                <span style={{ paddingLeft: "20px" }}> {item.time} </span>
+                                <span style={{ paddingLeft: "20px" }}>  {item.time}  </span>
                             </Alert>
 
                             <br />
@@ -44,13 +44,13 @@ function comment(props) {
                         </Alert>
                     ))}
 
-                    <Form>
+                    <Form onSubmit={props.handleSubmit}>
                         <Form.Group className="formComment" controlId="exampleForm.ControlTextarea1">
                             <Form.Label style={{fontSize: "1.2em" , fontWeight: "bold"}} className="commentText">WRITE YOUR COMMENT</Form.Label>
-                            <Form.Control as="textarea" rows={3} className="textAria" />
+                            <Form.Control onChange={props.handleChange} as="textarea" rows={3} className="textAria" />
                         </Form.Group>
-                    </Form>
                     <Button className="commentBtn" variant="danger">Comment</Button>{' '}
+                    </Form>
                 </div>
 
             </main>
