@@ -8,7 +8,9 @@ class WhiteBoardContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      whiteboard: {},
+      whiteboard: {
+      },
+      savedChallengeId: "",// it will be getted from route(link) (this.props.match.params.savedChallengeId)
     };
   }
 
@@ -29,15 +31,15 @@ class WhiteBoardContainer extends Component {
   }
 
   handleSubmit = e => {
-    const { whiteboard } = this.state;
-    const { userId, token } = this.props;
+    const { whiteboard, savedChallengeId } = this.state;
+    const userId = this.props.userId;
     e.preventDefault();
     console.log("whiteboard data to be sent>>>>", this.state.whiteboard);
     // do a fetch to send data to the server then redirect to some page
     if(this.props.whiteboard){
-      this.props.putWhiteboardAction({ whiteboard, savedChallengeId: this.props.match.params.savedChallengeId, userId, token });
+      this.props.putWhiteboardAction({ whiteboard, savedChallengeId, userId });
     }else{
-      this.props.postWhiteboardAction({ whiteboard, savedChallengeId: this.props.match.params.savedChallengeId, userId, token });
+      this.props.postWhiteboardAction({ whiteboard, savedChallengeId, userId });
     }
 
   }
