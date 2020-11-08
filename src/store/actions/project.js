@@ -18,6 +18,7 @@ const fetchProjectFailed = (msg) => ({
 });
 //pass both userId:(take it from redux) and savedChallengeId:(take it from state.savedChallengeId of WhiteBoardContainer.js)
 export const getProjectAction = ({ projectId, userId, token }) => (dispatch) => {
+  console.log("linkOfFetchProjects", `${API}/users/${userId}/projects/${projectId}`);
   dispatch(fetchProject());
   axios.get(`${API}/users/${userId}/projects/${projectId}`, { headers: { "Content-Type": "application/json" , Authorization: `Bearer ${token}` }})
     .then(({ data }) => {

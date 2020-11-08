@@ -17,7 +17,7 @@ class CodeEdotorContainer extends Component {
         code_css: null,
         code_js: null,
       },
-     
+
     };
   }
 
@@ -26,7 +26,7 @@ class CodeEdotorContainer extends Component {
     if(this.props.match.params.projectId){
       this.props.getProjectAction({projectId : this.props.match.params.projectId,userId : this.props.userId, token: this.props.token});
     }
-    
+
 }
 
 componentWillReceiveProps(nextProps){
@@ -77,6 +77,7 @@ componentWillReceiveProps(nextProps){
   }
 
   render() {
+    const { isLoading } = this.props;
     const { project } = this.state;
     console.log(' >> ', this.state);
     return (
