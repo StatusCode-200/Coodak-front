@@ -33,7 +33,7 @@ function Home() {
         <div className="linkDiv">
           <Link to="/editor" className="Link">
             <span className="thin" />
-            <span style={{ color: "#a89e9e" }}> Become a better developer & start your learning journey with us.</span>
+            <span style={{ color: "#a89e9e" }}> <h4>Become a better developer & start your learning journey with us.</h4></span>
             <span className="thick" style={{background: themeContext.mode}}> 
             <br /> Get Started !</span>
           </Link>

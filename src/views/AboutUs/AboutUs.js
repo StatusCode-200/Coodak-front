@@ -4,6 +4,9 @@ import "./AboutUs.scss"
 function AboutUs() {
   return (
     <>
+    <main id="aboutUsPageMain">
+
+    
 <div className="aboutUsPage">
 
 <img className=" img-fluid" src="http://pyramidaal.com/wp-content/uploads/2019/03/aboutus-org.jpg" alt="card image" />
@@ -207,7 +210,7 @@ function AboutUs() {
         </div>
       </section>
       </div>
-
+      </main>
     </>
   );
 }
