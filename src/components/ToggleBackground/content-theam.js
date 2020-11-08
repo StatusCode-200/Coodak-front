@@ -10,8 +10,10 @@ function Content(props) {
     const themeContext = useContext(ThemeContext);
 
     return (
-        <>
+        <> <p align="right">
+
                 <Button style={{borderColor: "none" , marginLeft: "225px"}}variant={themeContext.mode} className="toggleBtn" onClick={themeContext.toggleMode} >{themeContext.mode}</Button>{' '}
+        </p>
 
         </>
     )

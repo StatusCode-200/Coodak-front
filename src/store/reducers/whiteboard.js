@@ -6,7 +6,7 @@ const initialState = {
     isLoading: false,
     msg: "",
   };
-  
+
   export default function (state = initialState, action) {
     const {
       type,
@@ -25,25 +25,25 @@ const initialState = {
         };
 
         case "POST_WHITEBOARD_START": {
-            return { ...state, isLoading: true };
+            return { ...state };
           } case "POST_WHITEBOARD_SUCCESS":
             return {
-              ...state, whiteboard: payload.whiteboard, savedChallengeId:payload.savedChallengeId, userId:payload.userId, isLoading: false,
+              ...state, whiteboard: payload.whiteboard, savedChallengeId:payload.savedChallengeId, userId:payload.userId,
             };
           case "POST_WHITEBOARD_FAILED":
             return {
-              ...state, msg: payload, isLoading: false,
+              ...state, msg: payload,
             };
 
             case "PUT_WHITEBOARD_START": {// from server no data recieved so fix it from server
-                return { ...state, isLoading: true };
+                return { ...state };
               } case "PUT_WHITEBOARD_SUCCESS":
                 return {
-                  ...state, whiteboard: payload.whiteboard, savedChallengeId:payload.savedChallengeId, userId:payload.userId, isLoading: false,
+                  ...state, whiteboard: payload.whiteboard, savedChallengeId:payload.savedChallengeId, userId:payload.userId,
                 };
               case "PUT_WHITEBOARD_FAILED":
                 return {
-                  ...state, msg: payload, isLoading: false,
+                  ...state, msg: payload,
                 };
 
       default:

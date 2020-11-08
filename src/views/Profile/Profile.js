@@ -33,16 +33,19 @@ const useStyles = makeStyles((theme) => ({
 }));
 function profile(props) {
     const classes = useStyles();
-    console.log('propssssss', props);
-    const renderProjects = () => {
-        {
-            props.projects.map((project, idx) =>
-                <ul>
-                    <li key={idx}> {project.project_name} </li>
-                </ul>
-            )
-        }
-    }
+    console.log("challenge", props.challenges);
+    console.log("project", props.projects);
+    // const renderProjects = () => {
+    //     {
+    //         props.projects ? props.projects.map((project, idx) =>
+    //             <ul>
+    //                 <li key={idx}> {project.project_name} </li>
+    //             </ul>
+    //         )
+    //         : <br></br>
+    //     }
+    // }
+
     return (
         <main id="profilePage">
             <div className="container">
@@ -72,11 +75,13 @@ function profile(props) {
                             </AccordionSummary>
                             <AccordionDetails>
                                 <Typography>
-                                    {props.projects.map((project, idx) =>
+                                    { props.projects ? props.projects.map((project, idx) =>
                                         <Link key={idx} to={`/projects/${project._id}`}>
-                                            project Name: {project.project_name}
+                                            {project.name}
                                         </Link>
-                                    )}
+                                    )
+                                    : <> </>
+                                }
                                 </Typography>
                             </AccordionDetails>
                         </Accordion>
@@ -90,11 +95,13 @@ function profile(props) {
                             </AccordionSummary>
                             <AccordionDetails>
                                 <Typography>
-                                    {props.challenges.map((challenge, idx) =>
+                                    {props.challenges ? props.challenges.map((challenge, idx) =>
                                         <Link key={idx} to={`/challenges/${challenge._id}`}>
-                                            challenge name: {challenge.challenge_name}
+                                            {challenge.challenge_id.name}
                                         </Link>
-                                    )}
+                                    )
+                                    : <> </>
+                                }
                                 </Typography>
                             </AccordionDetails>
                         </Accordion>
