@@ -1,8 +1,11 @@
 /*eslint-disable */
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import Challenge from "./ChallengeDetails";
+import { getChallengeAction , postChallengeAction , putChallengeAction } from "../../store/actions/challengeDetails";
+// import { defaults } from "gh-pages";
 
-export default class ChallengesContainer extends Component {
+ class ChallengesContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,14 +27,28 @@ export default class ChallengesContainer extends Component {
 
   }
 
+  async componentWillMount() {
+    await this.props.getChallengeAction({ savedChallengeId: this.props.match.params.savedChallengeId , userId: this.props.userId, token: this.props.token});
+    this.setState({challenge: this.props.challenge, savedChallengeId: this.props.match.params.savedChallengeId});
+    console.log("componentWillMount---------------------");
+    console.log("inside componentWillMount this.props.challenge",this.props.challenge);
+  }
+
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ challenge: { ...this.state.challenge ,  [e.target.name]: e.target.value }});
     console.log('this.state >>', this.state);
   }
 
   handleSubmit = e => {
+    const { challenge , savedChallengeId} = this.state; 
+    const userId = this.props.userId;
     e.preventDefault();
+    if(this.props.challenge){
+      this.props.putChallengeAction({ challenge , savedChallengeId , userId });
+    }else {
+      this.props.postChallengeAction({ challenge, savedChallengeId , userId });
     console.log('contaxt>>>>',this.context);
+    }
 }
 
 /*
@@ -46,7 +63,33 @@ componentWillMount(){
 */
 
   render() {
+    console.log('props in details >>', this.props);
     const { challenge, solution, userId, savedChallengeId, stderr, stdout } = this.state;
     return <Challenge challenge={challenge} solution={solution} userId={userId} savedChallengeId={savedChallengeId} stderr={stderr} stdout={stdout} />;
   }
 }
+
+const mapDispatchToProps = {
+  getChallengeAction: getChallengeAction , 
+  postChallengeAction: postChallengeAction ,
+  putChallengeAction: putChallengeAction,
+}
+
+const mapStateToProps = store => ({
+  challenge: store.challenge.challenge, 
+  savedChallengeId:store.challenge.savedChallengeId,
+  isLoading: store.challenge.isLoading,
+  userId: store.auth.user._id,
+  token: store.auth.token,
+  msg: store.challenge.msg,
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChallengesContainer)
+
+
+
+
+
+
+
