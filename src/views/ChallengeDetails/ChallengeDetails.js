@@ -27,7 +27,7 @@ function Challenge(props) {
 
         <div id="challenge-description">
           <p id="descriptionHeader">description</p>
-          <p id="challengeDescription">
+          <p style={{whiteSpace: "pre-line"}} id="challengeDescription">
             { challenge.description }
           </p>
         </div>

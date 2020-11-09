@@ -67,7 +67,6 @@ export const postChallengeAction = ({ solution , userId, challengeId, token }) =
     });
 }
 
-//put
 const putChallengeStart = () => ({
     type: "PUT_CHALLENGE_START"
 });
