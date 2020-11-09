@@ -52,8 +52,8 @@ function Challenge(props) {
       <section id="checkResult">
       <button type="button" id="checkResultButton" onClick={checkResult}>check</button>
         <div id="results">
-          <div style={{whitSpace: "pre-line"}} id="result-failed-cases"> {stderr} </div>
-          <div style={{whitSpace: "pre-line"}} id="result-passed-cases"> {stdout} </div>
+          <div style={{whitSpace: "pre-line"}} id="result-failed-cases"> {stderr && stderr.split('\n').map(str => <p>{str}</p>)} </div>
+          <div style={{whitSpace: "pre-line"}} id="result-passed-cases"> {stdout && stdout.split('\n').map(str => <p>{str}</p>)} </div>
         </div>
       </section>
 
