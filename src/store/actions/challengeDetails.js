@@ -90,3 +90,30 @@ export const putChallengeAction = ({ solution , userId, challengeId , token}) =>
             dispatch(putChallengeFaild(err.message));
         });
 };
+
+//test solution
+
+const testChallengeStart = () => ({
+    type: "TEST_CHALLENGE_START"
+});
+
+const testChallengeSuccess = (data) => ({
+    type: "TEST_CHALLENGE_SUCCESS",
+    payload: data,
+});
+
+const testChallengeFaild = (msg) => ({
+    type: "TEST_CHALLENGE_FAILED",
+    payload: msg
+});
+
+export const checkSolutionAction = ({solution, challengeId, userId, token}) => (dispatch) => {
+    dispatch(testChallengeStart());
+    axios.post(`${API}/challenges/${challengeId}/test`, { solution: solution },
+    { headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` } })
+    .then(({ data })=> {
+        dispatch(testChallengeSuccess(data.result));
+    }).catch((err)=> {
+        dispatch(testChallengeFaild(err.message));
+    });
+}

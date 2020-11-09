@@ -4,6 +4,9 @@ const initialState = {
     solution: null,
     isLoading: false,
     msg: "",
+    stderr: null,
+    stdout: null,
+
 }
 
 export default function (state = initialState, action) {
@@ -35,6 +38,13 @@ export default function (state = initialState, action) {
             return {  ...state };
         case "PUT_CHALLENGE_FAILED":
             return {  ...state, msg: payload };
+
+        case "TEST_CHALLENGE_START":
+            return { ...state };
+        case "TEST_CHALLENGE_SUCCESS":
+            return { ...state, stderr: payload.stderr, stdout:payload.stdout };
+        case "TEST_CHALLENGE_FAILED":
+            return { ...state, msg: payload };
 
         default:
             return state;
