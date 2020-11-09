@@ -19,10 +19,10 @@ const fetchCommentFaild = (msg) => ({
     payload: msg
 })
 
-// :challengeId/comments/json
-export const getCommentAction = ({ challengeId, userId, token }) => (dispatch) => {
+// :challengeId/comments
+export const getCommentAction = ({ challengeId, token }) => (dispatch) => {
     dispatch(fetchCommentStart());
-    axios.get(`${API}/challenges/${challengeId}/comments/json`,
+    axios.get(`${API}/challenges/${challengeId}/comments`,
     { headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` } })
     .then(({ data })=> {
         dispatch(fetchCommentSuccess(data.data));
@@ -51,10 +51,10 @@ const postCommentFaild = (msg) => ({
 // :challengeId/comments/json
 export const postCommentAction = ({ newComment ,  challengeId, userId, token }) => (dispatch) => {
     dispatch(postCommentStart());
-    axios.post(`${API}/challenges/${challengeId}/comments`, { ...newComment },
+    axios.post(`${API}/challenges/${challengeId}/comments`, { comment : newComment},
     { headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` } })
     .then(({ data })=> {
-        dispatch(postCommentSuccess(data));
+        dispatch(postCommentSuccess(data.data));
     }).catch((err) =>{
         dispatch(postCommentFaild(err.message));
     });

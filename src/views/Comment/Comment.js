@@ -25,24 +25,32 @@ function comment(props) {
 
                 <div className="comments">
 
-                    {props.comments.map((item, idx) => (
+                    {props.comments.map((item, idx) => {
+                        console.log('item >>', item)
 
-                        <Alert variant="secondary" className="alertText" >
+                        return (
+                            <>
+                                <Alert key={idx} variant="secondary" className="alertText" >
 
-                            <Alert style={{ paddingRight: "30px" }}>
-                                {/* <img style={{ width: "50px", height: "50px", borderRadius: "50%", marginRight: "20px" }} src={item.img} /> */}
-                                {item.user_id.username}
+                                    <Alert style={{ paddingRight: "30px" }}>
+                                        {/* <img style={{ width: "50px", height: "50px", borderRadius: "50%", marginRight: "20px" }} src={item.img} /> */}
+                                        {item.user_id.username}
 
-                                {/* <span style={{ paddingLeft: "20px" }}>  {item.time}  </span> */}
-                            </Alert>
+                                        {/* <span style={{ paddingLeft: "20px" }}>  {item.time}  </span> */}
+                                    </Alert>
 
-                            <br />
-                            <Alert style={{ backgroundColor: "#ccc", marginLeft: "7%", marginRight: "5%", width: "80%", marginBottom: "4%" }}>
+                                    <br />
+                                    <Alert  style={{ whiteSpace: "pre-line", backgroundColor: "#ccc", marginLeft: "7%", marginRight: "5%", width: "80%", marginBottom: "4%" }}>
 
-                                {item.comment}
-                            </Alert>
-                        </Alert>
-                    ))}
+                                        {item.comment}
+                                    </Alert>
+                                </Alert>
+
+                            </>
+                        )
+
+                    })
+                    }
 
                     <Form onSubmit={props.handleSubmit}>
                         <Form.Group className="formComment" controlId="exampleForm.ControlTextarea1">

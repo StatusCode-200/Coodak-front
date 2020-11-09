@@ -28,7 +28,7 @@ export default function (state = initialState, action) {
         }
         case "POST_COMMENT_SUCCESS":
             return {
-                ...state, comments: payload.comments, isLoading: false
+                ...state, comments: [...state.comments , payload], isLoading: false
             }
 
         case "POST_COMMENT_FAILED":

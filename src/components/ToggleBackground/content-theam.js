@@ -12,7 +12,7 @@ function Content(props) {
     return (
         <> <p align="right">
 
-                <Button style={{borderColor: "none" , marginLeft: "225px"}}variant={themeContext.mode} className="toggleBtn" onClick={themeContext.toggleMode} >{themeContext.mode}</Button>{' '}
+                <Button style={{borderColor: "none" , marginLeft: "225px"}} variant={themeContext.mode} className="toggleBtn" onClick={themeContext.toggleMode} >{themeContext.mode}</Button>{' '}
         </p>
 
         </>
