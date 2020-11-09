@@ -60,6 +60,7 @@ export const postChallengeAction = ({ solution , userId, challengeId, token }) =
     axios.post(`${API}/users/${userId}/challenges`, { solution, challenge_id: challengeId },
     { headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` } })
     .then(({ data })=> {
+      alert("success");
         dispatch(postChallengeSuccess(data.data));
     }).catch((err)=> {
         dispatch(postChallengeFaild(err.message));
@@ -85,6 +86,7 @@ export const putChallengeAction = ({ solution , userId, challengeId , token}) =>
     dispatch(putChallengeStart());
     axios.put(`${API}/users/${userId}/challenges/${challengeId}`,  { solution },  { headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` } } )
         .then(({ data })=> {
+          alert("success");
             dispatch(putChallengeSuccess(data));
         }).catch((err) => {
             dispatch(putChallengeFaild(err.message));

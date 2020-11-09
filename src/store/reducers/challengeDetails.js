@@ -3,6 +3,7 @@ const initialState = {
     challenge: {},
     solution: null,
     isLoading: false,
+    isSavedBefore: false,
     msg: "",
 }
 
@@ -25,7 +26,7 @@ export default function (state = initialState, action) {
         case "POST_CHALLENGE_START":
             return { ...state };
         case "POST_CHALLENGE_SUCCESS":
-            return { ...state };
+            return { ...state, isSavedBefore: true };
         case "POST_CHALLENGE_FAILED":
             return { ...state, msg: payload };
 
