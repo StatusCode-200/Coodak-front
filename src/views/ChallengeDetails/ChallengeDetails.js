@@ -1,12 +1,24 @@
 /* eslint-disable */
 
 import React from "react";
+import ReactMarkdown from "react-markdown";
 import { Link } from "react-router-dom";
 import { If, Then, Else } from '../../components/If/If';
 import "./ChallengeDetails.scss"
 import ChallengeRate from "./challengeRate"
 
 function Challenge(props) {
+
+  const markdown = `
+  # Header 1
+  ## Header 2
+
+  _ italic _
+
+  ** bold **
+
+  <b> bold Html </b>
+  `;
 
   const {challenge, propSolution, isSavedBefore, solution, userId, savedChallengeId, handleSubmit, handleChange, checkResult, stderr, stdout} = props;
 
@@ -32,7 +44,7 @@ function Challenge(props) {
         <div id="challenge-description">
           <p id="descriptionHeader">description</p>
           <p style={{whiteSpace: "pre-line"}} id="challengeDescription">
-            { challenge.description }
+             <ReactMarkdown source={challenge.description} />
           </p>
         </div>
 
