@@ -43,9 +43,9 @@ function Challenge(props) {
 
         <div id="challenge-description">
           <p id="descriptionHeader">description</p>
-          <p style={{whiteSpace: "pre-line"}} id="challengeDescription">
+          <div style={{whiteSpace: "pre-line"}} id="challengeDescription">
              <ReactMarkdown source={challenge.description} />
-          </p>
+          </div>
         </div>
 
         <div id="work-area">
