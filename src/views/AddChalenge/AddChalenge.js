@@ -37,10 +37,10 @@ function AddChalenge(props) {
                         <br />
                         <InputGroup className="mb-3">
                             <FormControl
-                                placeholder="Challenge Name" aria-label="challenge Name" aria-describedby="basic-addon2" name="name" id="challengeName" required
+                                placeholder="Challenge Name" onChange={props.handleChange} aria-label="challenge Name" aria-describedby="basic-addon2" name="name" id="challengeName" required
                             />
                             <InputGroup.Append>
-                                <Button variant="outline-danger">Save Chalenge</Button>
+                                <Button type="submit" variant="outline-danger">Save Chalenge</Button>
                             </InputGroup.Append>
                         </InputGroup>
             

@@ -1,7 +1,13 @@
 /* eslint-disable */
 const initialState = {
-    project: {},
-    isLoading: false,
+    project: {
+      _id: null,
+      owner_id: null,
+      name: null,
+      code_html: null,
+      code_css: null,
+      code_js: null,},
+      isLoading: false,
     msg: "",
   };
 

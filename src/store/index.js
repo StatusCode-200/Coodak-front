@@ -11,6 +11,7 @@ import challengeDetails from "./reducers/challengeDetails";
 import comments from "./reducers/comment";
 
 import profile from "./reducers/profile";
+import addChallenge from "./reducers/addChallenge";
 
 const middlewares = [];
 middlewares.push(thunk);
@@ -18,7 +19,7 @@ if (process.env.NODE_ENV !== "production") {
   middlewares.push(logger);
 }
 
-const reducers = combineReducers({ auth, whiteboard, profile, challengeDetails, project, challenges, comments });
+const reducers = combineReducers({ auth, whiteboard, profile, challengeDetails, project, challenges, addChallenge ,comments });
 
 const store = () => createStore(reducers, applyMiddleware(...middlewares));
 
