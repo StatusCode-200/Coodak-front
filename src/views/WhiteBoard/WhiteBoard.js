@@ -2,6 +2,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./WhiteBoard.scss";
+import {  Button } from 'react-bootstrap';
 
 function WhiteBoard(props) {
   const { whiteboard, savedChallengeId, userId, handleChange, handleSubmit} = props;
@@ -11,12 +12,9 @@ function WhiteBoard(props) {
       <form action="#" id="whiteBoardForm" onSubmit={handleSubmit}>
         <input type="hidden" name="user_challenge_id" value={savedChallengeId} />
         <div className="grid-container">
-          <div className="grid-item" style={{background: "linear-gradient(-45deg, #f403d1, #0989f0)", borderRadius: "10PX"}}>
+          <div className="grid-item">
             <h3>Problem Domain</h3>
-            <textarea name="problem_domain" id="problemDomain" onChange={handleChange} style={{outline: "none",backgroundColor: "transparent",
-    boxShadow: "inset 2px 2px 5px black, inset -5px -5px 10px #ab41d5",
-    }}>
-              { whiteboard.problem_domain }
+            <textarea name="problem_domain" id="problemDomain" defaultValue={whiteboard.problem_domain} className="text" onChange={handleChange} >
             </textarea>
             
           </div>
@@ -31,7 +29,7 @@ function WhiteBoard(props) {
 
           <div className="grid-item">
             <h3>Algorithm</h3>
-            <textarea name="algorithm" id="algorithm" className="text" onChange={handleChange} style={{wordWrap: "break-word", resize: "none"}}>
+            <textarea name="algorithm" id="algorithm" defaultValue={whiteboard.algorithm} className="text" onChange={handleChange} >
 
             </textarea>
             {/* <textarea name="algorithm" id="algorithm">
@@ -41,26 +39,23 @@ function WhiteBoard(props) {
 
           <div className="grid-item">
             <h3>Edge Cases</h3>
-            <textarea name="edge_cases" id="edgeCases" onChange={handleChange}>
-              { whiteboard.edge_cases }
+            <textarea name="edge_cases" id="edgeCases" defaultValue={whiteboard.edge_cases} className="text" onChange={handleChange}>
             </textarea>
           </div>
 
           <div className="grid-item">
             <h3>pseudo Code</h3>
-            <textarea name="pseudo_code" id="pseudoCode" onChange={handleChange}>
-              { whiteboard.pseudo_code }
+            <textarea name="pseudo_code" id="pseudoCode" defaultValue={whiteboard.pseudo_code} className="text" onChange={handleChange}>
             </textarea>
           </div>
 
           <div className="grid-item">
             <h3>Big O</h3>
-            <textarea name="bigo" id="bigo" onChange={handleChange}>
-              { whiteboard.bigo }
+            <textarea name="bigo" id="bigo" className="text" defaultValue={whiteboard.bigo} onChange={handleChange}>
             </textarea>
           </div>
         </div>
-        <input type="submit" value="save" />
+        <Button type="submit" variant="danger">save</Button>{' '}
       </form>
     </main>
   );

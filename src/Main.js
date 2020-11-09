@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import Home from "./views/Home/Home";
 // import Login from "./views/Login/LoginContainer";
 import Signin from "./views/Signin/SigninContainer";
+import Signout from "./views/Signout/SignoutContainer";
 
 import Challenges from "./views/Challenges/ChallengesContainer";
 import Comments from "./views/Comment/CommentContainer";
@@ -25,17 +26,21 @@ function Main() {
   return (
     <main className={themeContext.mode}>
 
-      <Switch>
+      <Switch> 
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/signin" component={Signin} />
+        <Route exact path="/signout" component={Signout} />
         <Route exact path="/AboutUs" component={AboutUs} />
         <Route exact path="/editor" component={CodeEditor} />
+        <Route exact path="/projects/:projectId" component={CodeEditor} />
         <Route exact path="/challenges" component={Challenges} />
-        <Route exact path="/challenges/:id" component={ChallengeDetails} />
+        {/* <Route exact path="/user/challenges/:savedChallengeId" component={ChallengeDetails} />
+        <Route exact path="/challenges/:ChallengeId" component={ChallengeDetails} /> */}
+        <Route exact path="/challenges/:savedChallengeId" component={ChallengeDetails} />
         <Route exact path="/challenges/:id/comments" component={Comments} />
         <Route exact path="/addChallenge" component={AddChallenge} />
         <Route exact path="/" component={Home} />
-        <Route exact path="/whiteboard" component={WhiteBoard} />
+        <Route exact path="/challenges/:savedChallengeId/whiteboard" component={WhiteBoard} /> {/* /challenges/:savedChallengeId/whiteboard */}
         <Route path="*" component={PageNotFound} />
       </Switch>
     </main>

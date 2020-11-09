@@ -1,6 +1,7 @@
 /*eslint-disable */
 import React, { Component } from "react";
 import Signin from "./Signin";
+import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { loginAction, signupAction, setSwitchToSignupAction } from "./../../store/actions";
 
@@ -30,15 +31,23 @@ class SigninContainer extends Component {
     }
 
     render() {
-
-        return <Signin
-        handleChange={this.handleChange}
-        handleSubmit={this.handleSubmit}
-        setSwitchToSignup={this.props.setSwitchToSignup}
-        switchToSignup={this.props.switchToSignup}
-        isLoading={this.props.isLoading}
-        msg={this.props.msg}
-         />;
+        return (
+        <>
+        {
+          this.props.user.username ?
+            <Redirect to="/" />
+            :
+            <Signin
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+            setSwitchToSignup={this.props.setSwitchToSignup}
+            switchToSignup={this.props.switchToSignup}
+            isLoading={this.props.isLoading}
+            msg={this.props.msg}
+             />
+        }
+        </>
+      )
     }
 }
 
