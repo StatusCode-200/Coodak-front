@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import Profile from "./Profile";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { getUserProjectsAction, getUserChallengesAction } from "./../../store/actions/profile";
+import { getUserProjectsAction, getUserChallengesAction, deleteUserChallengeAction, deleteUserProjectAction } from "./../../store/actions/profile";
 
 class ProfileContainer extends Component {
   constructor(props) {
@@ -19,6 +19,18 @@ class ProfileContainer extends Component {
      this.props.getUserChallengesAction({ userId : this.props.user_id, token: this.props.token});
 }
 
+handleDelete = (type, id) => {
+  const userId = this.props.user_id;
+  console.log("data id to be sent>>>>" ,id);
+  if(type == "project"){
+    this.props.deleteUserProjectAction({ id, userId, token: this.props.token });
+  }
+  if(type == "challenge"){
+    this.props.deleteUserChallengeAction({ id, userId, token: this.props.token });
+  }
+
+}
+
   render() {
     const { challenges, projects, username,  user_id } = this.props;
 
@@ -27,7 +39,7 @@ class ProfileContainer extends Component {
        { !username ?
           <Redirect to="/signin" />
           :
-         <Profile projects={projects} challenges={challenges} username={username} user_id={user_id}/>
+         <Profile projects={projects} challenges={challenges} username={username} user_id={user_id} handleDelete={this.handleDelete}/>
        }
       </>
     )
@@ -37,7 +49,8 @@ class ProfileContainer extends Component {
 const mapDispatchToProps = {
   getUserProjectsAction: getUserProjectsAction,
   getUserChallengesAction: getUserChallengesAction,
-
+  deleteUserProjectAction: deleteUserProjectAction,
+  deleteUserChallengeAction: deleteUserChallengeAction,
 }
 
 const mapStateToProps = store => ({

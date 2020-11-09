@@ -53,3 +53,54 @@ const fetchUserChallenges = () => ({
         dispatch(fetchUserChallengesFailed(err.message));
       });
   };
+
+//delete User Project
+const deleteUserProject = () => ({
+  type: "DELETE_USERPROJECT_START",
+});
+
+const deleteUserProjectSuccess = (data) => ({
+  type: "DELETE_USERPROJECT_SUCCESS",
+  payload: data,
+});
+
+const deleteUserProjectFailed = (msg) => ({
+  type: "DELETE_USERPROJECT_FAILED",
+  payload: msg,
+});
+export const deleteUserProjectAction = ({id ,userId, token }) => (dispatch) => {
+  dispatch(deleteUserProject());
+  axios.delete(`${API}/users/${userId}/projects/${id}`, { headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` } })
+     .then(({ data }) => {
+         console.log('dataaaa project Action', data);
+      dispatch(deleteUserProjectSuccess(id));
+    }).catch((err) => {
+      dispatch(deleteUserProjectFailed(err.message));
+    });
+};
+
+//delete User challenge
+const deleteUserChallenge = () => ({
+  type: "DELETE_USERCHALLENGE_START",
+});
+
+const deleteUserChallengeSuccess = (data) => ({
+  type: "DELETE_USERCHALLENGE_SUCCESS",
+  payload: data,
+});
+
+const deleteUserChallengeFailed = (msg) => ({
+  type: "DELETE_USERCHALLENGE_FAILED",
+  payload: msg,
+});
+
+export const deleteUserChallengeAction = ({ id ,userId, token }) => (dispatch) => {
+  dispatch(deleteUserChallenge());
+  axios.get(`${API}/users/${userId}/challenges/${id}`, { headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` } })
+    .then(({ data }) => {
+      console.log('dataaaa challenge Action', data);
+      dispatch(deleteUserChallengeSuccess(id));
+    }).catch((err) => {
+      dispatch(deleteUserChallengeFailed(err.message));
+    });
+};
