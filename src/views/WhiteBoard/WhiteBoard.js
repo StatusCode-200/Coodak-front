@@ -5,31 +5,30 @@ import "./WhiteBoard.scss";
 import {  Button } from 'react-bootstrap';
 
 function WhiteBoard(props) {
-  const { whiteboard, savedChallengeId, userId, handleChange, handleSubmit} = props;
+  const { whiteboard, userId, handleChange, handleSubmit} = props;
   return (
     <main id="whiteboard">
       <h2 id="titleW">Whiteboard</h2>
       <form action="#" id="whiteBoardForm" onSubmit={handleSubmit}>
-        <input type="hidden" name="user_challenge_id" value={savedChallengeId} />
         <div className="grid-container">
           <div className="grid-item">
             <h3>Problem Domain</h3>
             <textarea name="problem_domain" id="problemDomain" defaultValue={whiteboard.problem_domain} className="text" onChange={handleChange} >
             </textarea>
-            
+
           </div>
 
           <div className="grid-item inputAndOutput">
             <h3>Input and output</h3>
             <label htmlFor="input">Input: <input name="input" id="input" onChange={handleChange} type="text" value={whiteboard.input} /> </label>
-            
+
             <label htmlFor="output">Output: <input name="output" id="output" onChange={handleChange} type="text" value={whiteboard.output} /> </label>
-            
+
           </div>
 
           <div className="grid-item">
             <h3>Algorithm</h3>
-            <textarea name="algorithm" id="algorithm" defaultValue={whiteboard.algorithm} className="text" onChange={handleChange} >
+            <textarea name="algorithm" id="algorithm" required defaultValue={whiteboard.algorithm} className="text" onChange={handleChange} >
 
             </textarea>
             {/* <textarea name="algorithm" id="algorithm">
@@ -51,7 +50,7 @@ function WhiteBoard(props) {
 
           <div className="grid-item">
             <h3>Big O</h3>
-            <textarea name="bigo" id="bigo" className="text" defaultValue={whiteboard.bigo} onChange={handleChange}>
+            <textarea name="bigo" id="bigo" required className="text" defaultValue={whiteboard.bigo} onChange={handleChange}>
             </textarea>
           </div>
         </div>
