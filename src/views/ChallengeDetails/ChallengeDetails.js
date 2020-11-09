@@ -8,20 +8,7 @@ import "./ChallengeDetails.scss"
 import ChallengeRate from "./challengeRate"
 
 function Challenge(props) {
-
-  const markdown = `
-  # Header 1
-  ## Header 2
-
-  _ italic _
-
-  ** bold **
-
-  <b> bold Html </b>
-  `;
-
   const {challenge, propSolution, isSavedBefore, solution, userId, savedChallengeId, handleSubmit, handleChange, checkResult, stderr, stdout} = props;
-
 
   return (
     <main id="ChallengeDetails">
