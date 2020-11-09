@@ -70,6 +70,7 @@ const deleteUserProjectFailed = (msg) => ({
 });
 export const deleteUserProjectAction = ({id ,userId, token }) => (dispatch) => {
   dispatch(deleteUserProject());
+  console.log("project id to delete" ,`${API}/users/${userId}/projects/${id}`);
   axios.delete(`${API}/users/${userId}/projects/${id}`, { headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` } })
      .then(({ data }) => {
          console.log('dataaaa project Action', data);
@@ -96,7 +97,8 @@ const deleteUserChallengeFailed = (msg) => ({
 
 export const deleteUserChallengeAction = ({ id ,userId, token }) => (dispatch) => {
   dispatch(deleteUserChallenge());
-  axios.get(`${API}/users/${userId}/challenges/${id}`, { headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` } })
+  console.log("delete route: ",`${API}/users/${userId}/challenges/${id}`);
+  axios.delete(`${API}/users/${userId}/challenges/${id}`, { headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` } })
     .then(({ data }) => {
       console.log('dataaaa challenge Action', data);
       dispatch(deleteUserChallengeSuccess(id));

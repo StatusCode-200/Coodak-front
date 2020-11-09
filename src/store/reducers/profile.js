@@ -46,7 +46,7 @@ const initialState = {
                 return { ...state, isLoading: true };
               } case "DELETE_USERCHALLENGE_SUCCESS":
                 return {
-                  ...state, userChallenges : state.userChallenges.filter(challenge => challenge._id !== payload),isLoading: false,
+                  ...state, userChallenges : state.userChallenges.filter(challenge => challenge.challenge_id._id !== payload),isLoading: false,
                 };
               case "DELETE_USERCHALLENGE_FAILED":
                 return {

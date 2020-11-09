@@ -107,7 +107,7 @@ function profile(props) {
                                                 <Link key={idx} to={`/challenges/${challenge.challenge_id._id}`}>
                                                     {challenge.challenge_id.name}
                                                 </Link>
-                                                <button onClick={() => props.handleDelete("challenge",challenge._id)} class="deleteButton">x</button>
+                                                <button onClick={() => props.handleDelete("challenge",challenge.challenge_id._id)} class="deleteButton">x</button>
                                             </ul>
                                         )
                                             : <> </>
