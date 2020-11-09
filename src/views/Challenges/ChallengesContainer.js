@@ -15,7 +15,7 @@ class ChallengesContainer extends Component {
 
   render() {
     const { challenges } = this.props;
-    return <Challenges challenges={challenges} />;
+    return <Challenges challenges={challenges} user={this.props.user} />;
   }
 }
 
@@ -27,6 +27,7 @@ const mapStateToProps = store => ({
   challenges: store.challenges.challenges,
   isLoading: store.challenges.isLoading,
   userId: store.auth.user._id,
+  user: store.auth.user,
   token: store.auth.token,
   msg: store.whiteboard.msg,
 });
