@@ -10,7 +10,7 @@ import Loading from "../../components/Loading/Loading";
   constructor(props) {
     super(props);
     this.state = {
-      solution: null,  //null //if opening saved challenge it will be fetched
+      solution: null  //null //if opening saved challenge it will be fetched
     };
 
   }
@@ -52,14 +52,14 @@ import Loading from "../../components/Loading/Loading";
 
   render() {
     const { solution } = this.state;
-    const { isLoading, challenge, stderr, stdout } = this.props;
+    const { isLoading, challenge, solution: propSolution, isSavedBefore, stderr, stdout } = this.props;
     return (
       <>
       {isLoading ?
           // <h1>loading</h1>
           <Loading/>
         :
-      <Challenge challenge={challenge} solution={solution} challengeId={this.props.match.params.challengeId} handleChange={this.handleChange} handleSubmit={this.handleSubmit}  checkResult={this.checkResult} stderr={stderr} stdout={stdout} />
+      <Challenge challenge={challenge} propSolution={propSolution} isSavedBefore={isSavedBefore} solution={solution} challengeId={this.props.match.params.challengeId} handleChange={this.handleChange} handleSubmit={this.handleSubmit}  checkResult={this.checkResult} stderr={stderr} stdout={stdout} />
         }
       </>
     )
