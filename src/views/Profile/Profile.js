@@ -49,7 +49,7 @@ function profile(props) {
 
     return (
         <main id="profilePage">
-        
+
             <Card bg="light" border="danger" style={{ width: '40rem', marginLeft: "28%", paddingTop: "5%" }} >
                 <div className="container">
 
@@ -103,7 +103,7 @@ function profile(props) {
                                     <Typography>
                                         {props.challenges ? props.challenges.map((challenge, idx) =>
                                             <ul>
-                                                <Link key={idx} to={`/challenges/${challenge._id}`}>
+                                                <Link key={idx} to={`/challenges/${challenge.challenge_id._id}`}>
                                                     {challenge.challenge_id.name}
                                                 </Link>
                                             </ul>

@@ -7,38 +7,26 @@ import "./ChallengeDetails.scss"
 import ChallengeRate from "./challengeRate"
 
 function Challenge(props) {
-  // const WhiteboardLink = (props) => {
-  //   if (savedChallengeId) {
-  //     return (
-  //       <Link to={`/challenges/${savedChallengeId}/whiteboard`}>
-  //         white board
-  //       </Link>
-  //     );
-  //   } else {
-  //     return (
-  //       null
-  //     )
-  //   }
-  // };
 
-  const {challenge, solution, userId, savedChallengeId, handleSubmit, handleChange, checkResult, stderr, stdout} = props;
+  const {challenge, propSolution, isSavedBefore, solution, userId, savedChallengeId, handleSubmit, handleChange, checkResult, stderr, stdout} = props;
 
 
   return (
     <main id="ChallengeDetails">
-    { challenge && (
       <section id="forumAndWhiteboard">
         <div>
           <Link to={`/challenges/${challenge._id}/comments`}>
             Forum
           </Link>
+          { (propSolution || isSavedBefore) && (
           <Link to={`/challenges/${challenge._id}/whiteboard`}>
             white board
           </Link>
+        )
+      }
         </div>
       </section>
-    )
-  }
+
       <section id="started-challenge">
 
         <div id="challenge-description">
