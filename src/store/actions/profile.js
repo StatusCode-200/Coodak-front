@@ -5,16 +5,16 @@ import { API } from "../config";
 
 //get User Projects
 const fetchUserProjects = () => ({
-  type: "FETCH_UserProjects_START",
+  type: "FETCH_USERPROJECTS_START",
 });
 
 const fetchUserProjectsSuccess = (data) => ({
-  type: "FETCH_UserProjects_SUCCESS",
+  type: "FETCH_USERPROJECTS_SUCCESS",
   payload: data,
 });
 
 const fetchUserProjectsFailed = (msg) => ({
-  type: "FETCH_UserProjects_FAILED",
+  type: "FETCH_USERPROJECTS_FAILED",
   payload: msg,
 });
 export const getUserProjectsAction = ({ userId, token }) => (dispatch) => {
@@ -30,16 +30,16 @@ export const getUserProjectsAction = ({ userId, token }) => (dispatch) => {
 
 //get User Challenges
 const fetchUserChallenges = () => ({
-    type: "FETCH_UserChallenges_START",
+    type: "FETCH_USERCHALLENGES_START",
   });
 
   const fetchUserChallengesSuccess = (data) => ({
-    type: "FETCH_UserChallenges_SUCCESS",
+    type: "FETCH_USERCHALLENGES_SUCCESS",
     payload: data,
   });
 
   const fetchUserChallengesFailed = (msg) => ({
-    type: "FETCH_UserChallenges_FAILED",
+    type: "FETCH_USERCHALLENGES_FAILED",
     payload: msg,
   });
 

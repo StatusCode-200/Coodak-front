@@ -903,11 +903,20 @@ main#homePage {
 
 /* <<<< end Nav >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  */
 
+.img-div {
+  // width: 100%; /* width of container */
+  height: 520px; /* height of container */
+  overflow: hidden;
+  // border: 5px solid black;
+}
 
+.img-div img {
+  margin-top: -190px;
+}
   /* center the blockquote in the page */
   .blockquote-wrapper {
      display: flex;
-     height: 85vh;
+     height: 50vh;
      padding: 0 20px;
   }
   
@@ -916,7 +925,7 @@ main#homePage {
       position: relative;
       font-family: 'Barlow Condensed', sans-serif;
       max-width: 620px;
-      margin: 80px auto;
+      margin: 50px auto;
       align-self: center;
   }
   
@@ -932,7 +941,7 @@ main#homePage {
       border: 2px solid #fff;
       border: solid 2px;
       border-radius:20px;
-      padding: 25px;
+      padding: 5px;
       margin-top: 160px;
       // background-color: #191a1d;
   }
@@ -1011,6 +1020,7 @@ main#homePage {
   text-decoration: none;
   position: relative;
   display: block;
+  padding-top: 5rem;
 }
 
 [class^="linkDiv"] {

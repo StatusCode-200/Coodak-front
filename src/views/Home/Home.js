@@ -9,6 +9,10 @@ function Home() {
 
   return (
     <main id="homePage">
+      <div className=" img-div">
+      <img className=" img-fluid" src="https://www.infiniticreation.co.uk/wp-content/uploads/2014/03/home_sec.jpg" alt="card image" />
+
+      </div>
       <div className="blockquote-wrapper">
         <div className="blockquote">
           <h1>

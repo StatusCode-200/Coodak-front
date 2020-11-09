@@ -9,24 +9,24 @@ const initialState = {
   export default function (state = initialState, action) {
     const { type, payload } = action;
     switch (type) {
-      case "FETCH_UserProjects_START": {
+      case "FETCH_USERPROJECTS_START": {
         return { ...state, isLoading: true };
-      } case "FETCH_UserProjects_SUCCESS":
+      } case "FETCH_USERPROJECTS_SUCCESS":
         return {
           ...state, userProjects: [...payload], isLoading: false,
         };
-      case "FETCH_UserProjects_FAILED":
+      case "FETCH_USERPROJECTS_FAILED":
         return {
           ...state, msg: payload, isLoading: false,
         };
 
-        case "FETCH_UserChallenges_START": {
+        case "FETCH_USERCHALLENGES_START": {
             return { ...state, isLoading: true };
-          } case "FETCH_UserChallenges_SUCCESS":
+          } case "FETCH_USERCHALLENGES_SUCCESS":
             return {
               ...state, userChallenges: [...payload], isLoading: false,
             };
-          case "FETCH_UserChallenges_FAILED":
+          case "FETCH_USERCHALLENGES_FAILED":
             return {
               ...state, msg: payload, isLoading: false,
             };

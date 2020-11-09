@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React from "react";
 import "./Profile.scss";
+import { CardDeck, Card, Button, InputGroup, FormControl } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
@@ -48,66 +49,74 @@ function profile(props) {
 
     return (
         <main id="profilePage">
-            <div className="container">
-                <h1>USER INFORMATION</h1>
-                <section id="user-info">
-                    <img src="https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png" alt="" style={{ width: "200px", height: "200px" }} />
-                    <div>
-                        <h1>
-                            {props.username}
-                        </h1>
-                    </div>
-                </section>
-            </div>
-            <Container maxWidth='sm' className={classes.container}>
-                <Grid container>
-                    <Grid className={classes.margin} item xs={12}>
-                        <Typography variant='h5'>Project Details</Typography>
+        
+            <Card bg="light" border="danger" style={{ width: '40rem', marginLeft: "28%", paddingTop: "5%" }} >
+                <div className="container">
+
+                    <h2>USER INFORMATION</h2>
+                    <section id="user-info">
+                        <img src="https://cdn0.iconfinder.com/data/icons/social-media-network-4/48/male_avatar-512.png" alt="" style={{ width: "200px", height: "200px" }} />
+                        <div>
+                            <h1>
+                                {props.username}
+                            </h1>
+                        </div>
+                    </section>
+                </div>
+                <Container maxWidth='sm' className={classes.container}>
+                    <Grid container>
+                        <Grid className={classes.margin} item xs={12}>
+                            <Typography variant='h5'>Project Details</Typography>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Accordion>
+                                <AccordionSummary
+                                    expandIcon={<ExpandMoreIcon />}
+                                    aria-controls='panel1a-content'
+                                    id='panel1a-header'
+                                >
+                                    <Typography>My Projects</Typography>
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                    <Typography>
+                                        {props.projects ? props.projects.map((project, idx) =>
+                                            <ul>
+                                                <Link key={idx} to={`/projects/${project._id}`}>
+                                                    {project.name}
+                                                </Link>
+                                            </ul>
+                                        )
+                                            : <> </>
+                                        }
+                                    </Typography>
+                                </AccordionDetails>
+                            </Accordion>
+                            <Accordion>
+                                <AccordionSummary
+                                    expandIcon={<ExpandMoreIcon />}
+                                    aria-controls='panel2a-content'
+                                    id='panel2a-header'
+                                >
+                                    <Typography>My Challenges</Typography>
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                    <Typography>
+                                        {props.challenges ? props.challenges.map((challenge, idx) =>
+                                            <ul>
+                                                <Link key={idx} to={`/challenges/${challenge._id}`}>
+                                                    {challenge.challenge_id.name}
+                                                </Link>
+                                            </ul>
+                                        )
+                                            : <> </>
+                                        }
+                                    </Typography>
+                                </AccordionDetails>
+                            </Accordion>
+                        </Grid>
                     </Grid>
-                    <Grid item xs={12}>
-                        <Accordion>
-                            <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
-                                aria-controls='panel1a-content'
-                                id='panel1a-header'
-                            >
-                                <Typography>My Projects</Typography>
-                            </AccordionSummary>
-                            <AccordionDetails>
-                                <Typography>
-                                    { props.projects ? props.projects.map((project, idx) =>
-                                        <Link key={idx} to={`/projects/${project._id}`}>
-                                            {project.name}
-                                        </Link>
-                                    )
-                                    : <> </>
-                                }
-                                </Typography>
-                            </AccordionDetails>
-                        </Accordion>
-                        <Accordion>
-                            <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
-                                aria-controls='panel2a-content'
-                                id='panel2a-header'
-                            >
-                                <Typography>My Challenges</Typography>
-                            </AccordionSummary>
-                            <AccordionDetails>
-                                <Typography>
-                                    {props.challenges ? props.challenges.map((challenge, idx) =>
-                                        <Link key={idx} to={`/challenges/${challenge.challenge_id._id}`}>
-                                            {challenge.challenge_id.name}
-                                        </Link>
-                                    )
-                                    : <> </>
-                                }
-                                </Typography>
-                            </AccordionDetails>
-                        </Accordion>
-                    </Grid>
-                </Grid>
-            </Container>
+                </Container>
+            </Card>
         </main>
     );
 }

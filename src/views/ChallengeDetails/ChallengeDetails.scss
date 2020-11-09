@@ -56,7 +56,7 @@ main#ChallengeDetails{
         }
     }
     #checkResult{
-        width: 48%;
+        width: 40%;
 
         #checkResultButton{
             margin-bottom: 30px;
@@ -79,7 +79,7 @@ main#ChallengeDetails{
       //   height: 100vh;
         align-items: center;
         justify-content: center;
-        padding: 0 20px;
+        // padding: 0 20px;
       }
       
       .rating {
@@ -193,7 +193,10 @@ main#ChallengeDetails{
 /* _____________________ cards__________________________________ */
 
 .rateDiv {
-    padding-bottom: 10%;
+    
+    padding-bottom: 2%;
+    padding-right: 0%;
+    padding-right: 0%;
     padding-top: 0%;
     margin-top: 0%;
 
@@ -268,7 +271,7 @@ main#ChallengeDetails{
 }
 .blog-card .description {
     padding: 1rem;
-    background: #fff;
+    background: #5d50501f;
     position: relative;
     z-index: 1;
 }
@@ -279,6 +282,7 @@ main#ChallengeDetails{
     line-height: 1;
     margin: 0;
     font-size: 1.7rem;
+    color: #db0b0be0;
 }
 .blog-card .description h2 {
     font-size: 1rem;
@@ -334,9 +338,9 @@ main#ChallengeDetails{
 
    }
 
-    .blog-card .description {
-        flex-basis: 60%;
-   }
+//     .blog-card .description {
+//         flex-basis: 60%;
+//    }
     .blog-card .description:before {
         transform: skewX(-3deg);
         content: "";
@@ -350,7 +354,9 @@ main#ChallengeDetails{
    }
     .blog-card.alt {
         flex-direction: row-reverse;
-        margin: 0px 70px 0px 340px;
+        margin-top: 0px;
+        margin-left: auto;
+        // margin-right: 10px;
         // padding-bottom: 50px;
    }
     .blog-card.alt .description:before {
