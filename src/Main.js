@@ -26,7 +26,7 @@ function Main() {
   return (
     <main className={themeContext.mode}>
 
-      <Switch> 
+      <Switch>
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/signout" component={Signout} />
@@ -36,8 +36,10 @@ function Main() {
         <Route exact path="/challenges" component={Challenges} />
         {/* <Route exact path="/user/challenges/:savedChallengeId" component={ChallengeDetails} />
         <Route exact path="/challenges/:ChallengeId" component={ChallengeDetails} /> */}
-        <Route exact path="/challenges/:savedChallengeId" component={ChallengeDetails} />
+
         <Route exact path="/challenges/:challengeId/comments" component={Comments} />
+        <Route exact path="/challenges/:challengeId" component={ChallengeDetails} />
+
         <Route exact path="/addChallenge" component={AddChallenge} />
         <Route exact path="/" component={Home} />
         <Route exact path="/challenges/:savedChallengeId/whiteboard" component={WhiteBoard} /> {/* /challenges/:savedChallengeId/whiteboard */}
