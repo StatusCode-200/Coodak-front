@@ -1,12 +1,14 @@
 /*eslint-disable*/
 import { Height } from '@material-ui/icons';
 import React from 'react';
-import { Nav, Navbar, secondary, Alert, dark, Form, Button } from 'react-bootstrap';
+import { Alert, Form, Button } from 'react-bootstrap';
+import Moment from 'react-moment';
+import moment from "moment";
 
 import './Comment.scss';
 
 function comment(props) {
-    console.log('props in comment compon >>>', props);
+
     return (
         <>
             <main id="commentPage">
@@ -32,15 +34,19 @@ function comment(props) {
                             <>
                                 <Alert key={idx} variant="secondary" className="alertText" >
 
-                                    <Alert style={{ paddingRight: "30px" }}>
-                                        {/* <img style={{ width: "50px", height: "50px", borderRadius: "50%", marginRight: "20px" }} src={item.img} /> */}
+                                    <Alert style={{ padding: "0px" }}>
+                                        <img style={{ width: "50px", height: "50px", borderRadius: "50%", marginRight: "20px" }} src={"https://cdn0.iconfinder.com/data/icons/social-media-network-4/48/male_avatar-512.png"} />
                                         {item.user_id.username}
 
-                                        {/* <span style={{ paddingLeft: "20px" }}>  {item.time}  </span> */}
+                                        {/* <span style={{ paddingLeft: "20px" }}>  {item.created_at}  </span> */}
+
+                                        <span style={{ fontSize: "11px", marginLeft: "5px" }}>
+                                            {moment.duration(moment().diff(moment(item.created_at))).humanize()} ago  </span>
+
                                     </Alert>
 
                                     <br />
-                                    <Alert  style={{ whiteSpace: "pre-line", backgroundColor: "#ccc", marginLeft: "7%", marginRight: "5%", width: "80%", marginBottom: "4%" }}>
+                                    <Alert style={{ whiteSpace: "pre-line", backgroundColor: "#ccc", marginLeft: "3%",  width: "93%", marginBottom: "4%" }}>
 
                                         {item.comment}
                                     </Alert>
