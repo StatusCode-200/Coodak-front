@@ -6,6 +6,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Main from "./Main";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import Loading from "./components/Loading/Loading";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import ThemeContext from './views/context/TheamContainer';
 import { validateTokenAction } from "./store/actions";
@@ -19,7 +20,8 @@ class App extends Component {
     return (
       <div className="App">
         { this.props.isValidateToken ?
-          <h1>loading</h1>
+          // <h1>loading</h1>
+          <Loading />
             :
             <>
             <Router>

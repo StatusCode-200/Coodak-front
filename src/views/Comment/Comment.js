@@ -6,7 +6,7 @@ import { Nav, Navbar, secondary, Alert, dark, Form, Button } from 'react-bootstr
 import './Comment.scss';
 
 function comment(props) {
-    console.log('props>>>', props);
+    console.log('props in comment compon >>>', props);
     return (
         <>
             <main id="commentPage">
@@ -25,32 +25,40 @@ function comment(props) {
 
                 <div className="comments">
 
-                    {props.comments.map((item, idx) => (
+                    {props.comments.map((item, idx) => {
+                        console.log('item >>', item)
 
-                        <Alert variant="secondary" className="alertText" >
+                        return (
+                            <>
+                                <Alert key={idx} variant="secondary" className="alertText" >
 
-                            <Alert style={{ paddingRight: "30px" }}>
-                                <img style={{ width: "50px", height: "50px", borderRadius: "50%", marginRight: "20px" }} src={item.img} />
-                                {item.user_id.username}
+                                    <Alert style={{ paddingRight: "30px" }}>
+                                        {/* <img style={{ width: "50px", height: "50px", borderRadius: "50%", marginRight: "20px" }} src={item.img} /> */}
+                                        {item.user_id.username}
 
-                                <span style={{ paddingLeft: "20px" }}> {item.time} </span>
-                            </Alert>
+                                        {/* <span style={{ paddingLeft: "20px" }}>  {item.time}  </span> */}
+                                    </Alert>
 
-                            <br />
-                            <Alert style={{backgroundColor: "#ccc" , marginLeft: "7%", marginRight: "5%", width: "80%" , marginBottom: "4%"}}>
+                                    <br />
+                                    <Alert  style={{ whiteSpace: "pre-line", backgroundColor: "#ccc", marginLeft: "7%", marginRight: "5%", width: "80%", marginBottom: "4%" }}>
 
-                            {item.comment}
-                            </Alert>
-                        </Alert>
-                    ))}
+                                        {item.comment}
+                                    </Alert>
+                                </Alert>
 
-                    <Form>
+                            </>
+                        )
+
+                    })
+                    }
+
+                    <Form onSubmit={props.handleSubmit}>
                         <Form.Group className="formComment" controlId="exampleForm.ControlTextarea1">
-                            <Form.Label style={{fontSize: "1.2em" , fontWeight: "bold"}} className="commentText">WRITE YOUR COMMENT</Form.Label>
-                            <Form.Control as="textarea" rows={3} className="textAria" />
+                            <Form.Label style={{ fontSize: "1.2em", fontWeight: "bold" }} className="commentText">WRITE YOUR COMMENT</Form.Label>
+                            <Form.Control onChange={props.handleChange} as="textarea" rows={3} className="textAria" name="coment" />
                         </Form.Group>
+                        <Button type="submit" className="commentBtn" variant="danger">Comment</Button>{' '}
                     </Form>
-                    <Button className="commentBtn" variant="danger">Comment</Button>{' '}
                 </div>
 
             </main>

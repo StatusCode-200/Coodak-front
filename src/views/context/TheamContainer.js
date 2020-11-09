@@ -9,11 +9,19 @@ class ThemeProvider extends React.Component {
         super(props);
         this.state = {
             mode: 'light',
-            toggleMode: this.toggleMode
+            toggleMode: this.toggleMode ,
         }
     }
 
-    toggleMode = () => this.setState({mode : this.state.mode == 'dark' ? 'light' : 'dark'});
+    componentWillMount(){
+       let savedTheam = localStorage.getItem('theam');
+        this.setState({...this.state , mode: savedTheam ? savedTheam : 'light' });
+    }
+
+    toggleMode = () => { 
+        this.setState({mode : this.state.mode == 'dark' ? 'light' : 'dark'});
+        localStorage.setItem('theam', this.state.mode == 'dark' ? 'light' : 'dark');
+     };
 
     render() {
         return (
