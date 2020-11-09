@@ -9,10 +9,10 @@ function Challenges(props) {
   const {challenges} = props;
   return (
     <main id="Challenges">
-      <div className=" img-div">
+      {/* <div className=" img-div">
       <img className=" img-fluid" src="https://www.infiniticreation.co.uk/wp-content/uploads/2014/03/home_sec.jpg" alt="card image" />
 
-      </div>
+      </div> */}
 
       <div className="wrapper">
 

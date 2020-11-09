@@ -14,17 +14,17 @@ function CodeEdotor(props) {
         <Card bg="dark" text="white" style={{ width: '25.5rem', marginRight: "15px" }}  >
           <Card.Header className="codeName">HTML</Card.Header>
 
-          <textarea onChange={props.handleChange}  name="code_html" id="html" onKeyUp={onKeyUp} placeholder="HTML" />
+          <textarea onChange={props.handleChange} defaultValue={project.code_html}  name="code_html" id="html" onKeyUp={onKeyUp} placeholder="HTML" />
         </Card>
 
         <Card bg="dark" text="white" style={{ width: '25.5rem', marginRight: "15px" }}  >
           <Card.Header className="codeName">CSS</Card.Header>
-          <textarea onChange={props.handleChange} name="code_css" id="css" onKeyUp={onKeyUp} placeholder="CSS" />
+          <textarea onChange={props.handleChange} defaultValue={project.code_css} name="code_css" id="css" onKeyUp={onKeyUp} placeholder="CSS" />
 
         </Card>
         <Card bg="dark" text="white" style={{ width: '25.5rem' }}  >
           <Card.Header className="codeName">JAVASCRIPT</Card.Header>
-          <textarea onChange={props.handleChange} name="code_js" id="js" onKeyUp={onKeyUp} placeholder="JavaScript" />
+          <textarea onChange={props.handleChange} defaultValue={project.code_js} name="code_js" id="js" onKeyUp={onKeyUp} placeholder="JavaScript" />
 
         </Card>
       </CardGroup>
@@ -34,7 +34,7 @@ function CodeEdotor(props) {
       <div id="saveProject" >
 
         <label htmlFor="name"> PROJECT NAME  :  </label>
-        <input onChange={props.handleChange} type="text" name="name" id="projectName" defaultValue={project.name} required />
+        <input onChange={props.handleChange} defaultValue={project.name} type="text" name="name" id="projectName" defaultValue={project.name} required />
        
       <Button variant="danger" onClick={props.handleSubmit}>Save</Button>
       </div>

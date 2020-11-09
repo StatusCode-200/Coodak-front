@@ -19,7 +19,6 @@ const fetchUserProjectsFailed = (msg) => ({
 });
 export const getUserProjectsAction = ({ userId, token }) => (dispatch) => {
   dispatch(fetchUserProjects());
-  console.log(`${API}/users/${userId}/projects`);
   axios.get(`${API}/users/${userId}/projects`, { headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` } })
      .then(({ data }) => {
          console.log('dataaaa project Action', data);
@@ -33,12 +32,12 @@ export const getUserProjectsAction = ({ userId, token }) => (dispatch) => {
 const fetchUserChallenges = () => ({
     type: "FETCH_USERCHALLENGES_START",
   });
-  
+
   const fetchUserChallengesSuccess = (data) => ({
     type: "FETCH_USERCHALLENGES_SUCCESS",
     payload: data,
   });
-  
+
   const fetchUserChallengesFailed = (msg) => ({
     type: "FETCH_USERCHALLENGES_FAILED",
     payload: msg,
@@ -54,4 +53,3 @@ const fetchUserChallenges = () => ({
         dispatch(fetchUserChallengesFailed(err.message));
       });
   };
-  

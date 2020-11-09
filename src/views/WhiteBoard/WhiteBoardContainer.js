@@ -9,25 +9,21 @@ class WhiteBoardContainer extends Component {
     super(props);
     this.state = {
       whiteboard: {
-        user_challenge_id: "987",
-        problem_domain: "adnan",
-        algorithm: "some algorithm for the challenge",
-        bigo: null,
-        edge_cases: "empty tree",
-        pseudo_code: null,
-        input: "tree",
-        output: "tree",
       },
-      savedChallengeId: "987",// it will be getted from route(link) (this.props.match.params.savedChallengeId)
+      savedChallengeId: "",// it will be getted from route(link) (this.props.match.params.savedChallengeId)
     };
   }
 
-  async componentWillMount() {
-    await this.props.getWhiteboradAction({savedChallengeId : this.props.match.params.savedChallengeId,userId : this.props.userId, token: this.props.token});
-    this.setState({whiteboard: this.props.whiteboard, savedChallengeId: this.props.match.params.savedChallengeId});
-    console.log("componentWillMount---------------------");
-    console.log("inside componentWillMount this.props.whiteboard",this.props.whiteboard);
-}
+    componentWillMount() {
+      this.props.getWhiteboradAction({savedChallengeId : this.props.match.params.savedChallengeId,userId : this.props.userId, token: this.props.token});
+  }
+
+  componentWillReceiveProps(nextProps){
+    // set state WhiteBoard at the firstTime (after loaded success)
+    if (JSON.stringify(nextProps.whiteboard) !== JSON.stringify(this.props.whiteboard)){
+      this.setState({ whiteboard: {...nextProps.whiteboard} })
+    }
+  }
 
   handleChange = e => {
     this.setState({ whiteboard: {...this.state.whiteboard, [e.target.name]: e.target.value}});
@@ -41,18 +37,26 @@ class WhiteBoardContainer extends Component {
     console.log("whiteboard data to be sent>>>>", this.state.whiteboard);
     // do a fetch to send data to the server then redirect to some page
     if(this.props.whiteboard){
-      this.props.putWhiteboardAction({ whiteboard, savedChallengeId, userId });
+      this.props.putWhiteboardAction({ whiteboard, savedChallengeId, userId, token: this.props.token });
     }else{
-      this.props.postWhiteboardAction({ whiteboard, savedChallengeId, userId });
+      this.props.postWhiteboardAction({ whiteboard, savedChallengeId, userId, token: this.props.token });
     }
 
   }
 
   render() {
-    console.log("after render---this.state--->",this.state);
-    // const { whiteboard, savedChallengeId } = this.state;
-    return <WhiteBoard whiteboard={this.state.whiteboard} savedChallengeId={this.state.savedChallengeId} userId={this.props.userId} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />;
+    const { whiteboard, savedChallengeId } = this.state;
+    const { isLoading } = this.props;
+    return (
+      <>
+      { isLoading ?
+        <h1>loadingWhiteBoard</h1>
+        :
+        <WhiteBoard whiteboard={whiteboard} savedChallengeId={savedChallengeId} userId={this.props.userId} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
   }
+    </>
+  )
+}
 }
 
 const mapDispatchToProps = {
