@@ -48,8 +48,8 @@ function Challenge(props) {
       <section id="checkResult">
       <button type="button" id="checkResultButton" onClick={checkResult}>check</button>
         <div id="results">
-          <div id="result-failed-cases"> {stderr} </div>
-          <div id="result-passed-cases"> {stdout} </div>
+          <div style={{whitSpace: "pre-line"}} id="result-failed-cases"> {stderr} </div>
+          <div style={{whitSpace: "pre-line"}} id="result-passed-cases"> {stdout} </div>
         </div>
       </section>
 
