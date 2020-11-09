@@ -7,36 +7,38 @@ import "./ChallengeDetails.scss"
 import ChallengeRate from "./challengeRate"
 
 function Challenge(props) {
-  const { challenge, solution, userId, savedChallengeId, stderr, stdout } = props;
+  // const WhiteboardLink = (props) => {
+  //   if (savedChallengeId) {
+  //     return (
+  //       <Link to={`/challenges/${savedChallengeId}/whiteboard`}>
+  //         white board
+  //       </Link>
+  //     );
+  //   } else {
+  //     return (
+  //       null
+  //     )
+  //   }
+  // };
 
-  const WhiteboardLink = (props) => {
-    if (savedChallengeId) {
-      return (
-        <Link to={`/challenges/${savedChallengeId}/whiteboard`}>
-          white board
-        </Link>
-      );
-    } else {
-      return (
-        null
-      )
-    }
-  };
+  const {challenge, solution, userId, savedChallengeId, handleSubmit, handleChange, checkResult, stderr, stdout} = props;
+
 
   return (
     <main id="ChallengeDetails">
+    { challenge && (
       <section id="forumAndWhiteboard">
         <div>
           <Link to={`/challenges/${challenge._id}/comments`}>
             Forum
           </Link>
           <Link to={`/challenges/${challenge._id}/whiteboard`}>
-            whiteboard
+            white board
           </Link>
-          <WhiteboardLink />
         </div>
-
       </section>
+    )
+  }
       <section id="started-challenge">
 
         <div id="challenge-description">
@@ -48,8 +50,8 @@ function Challenge(props) {
 
         <div id="work-area">
           <p id="solutionHeader">code here</p>
-          <form id="saveChallenge" onSubmit={props.handleSubmit}>
-            <textarea name="solution" id="userSolution">
+          <form id="saveChallenge" onSubmit={handleSubmit}>
+            <textarea name="solution" onChange={handleChange} id="userSolution">
               { solution }
             </textarea>
             <input type="submit" value="save" />
@@ -60,7 +62,7 @@ function Challenge(props) {
       </section>
 
       <section id="checkResult">
-      <button type="button" id="checkResultButton" onClick={props.checkResult}>check</button>
+      <button type="button" id="checkResultButton" onClick={checkResult}>check</button>
         <div id="results">
           <div id="result-failed-cases"> {stderr} </div>
           <div id="result-passed-cases"> {stdout} </div>

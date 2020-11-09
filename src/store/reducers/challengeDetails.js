@@ -15,37 +15,26 @@ export default function (state = initialState, action) {
         }
         case "FETCH_CHALLENGE_SUCCESS":
             return {
-                ...state, challenge: payload.challenge,  isLoading: false
+                ...state, challenge: payload.challenge, solution: payload.solution,  isLoading: false
             };
         case "FETCH_CHALLENGE_FAILED":
             return {
                 ...state, msg: payload, isLoading: false,
             };
 
-        case "POST_CHALLENGE_START": {
+        case "POST_CHALLENGE_START":
             return { ...state };
-        }
         case "POST_CHALLENGE_SUCCESS":
-            return {
-                ...state, challenge: payload.challenge,
-            };
+            return { ...state };
         case "POST_CHALLENGE_FAILED":
-            return {
-                ...state, msg: payload,
-            };
+            return { ...state, msg: payload };
 
-
-        case "PUT_CHALLENGE_START": {
-            return { ...state, isLoading: true };
-        }
+        case "PUT_CHALLENGE_START":
+            return { ...state };
         case "PUT_CHALLENGE_SUCCESS":
-            return {
-                ...state, challenge: payload.challenge,  isLoading: false
-            };
+            return {  ...state };
         case "PUT_CHALLENGE_FAILED":
-            return {
-                ...state, msg: payload, isLoading: false,
-            };
+            return {  ...state, msg: payload };
 
         default:
             return state;

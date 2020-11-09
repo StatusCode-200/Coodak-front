@@ -6,7 +6,25 @@ import "./Challenges.scss";
 import {  Button } from 'react-bootstrap';
 
 function Challenges(props) {
-  const {challenges} = props;
+  const {challenges, user} = props;
+  const addChallengeLink =(props) => {
+    console.log("inside the button----->", user);
+    if (user.role =="admin") {
+      return (
+        <div className="linkDiv">
+          <Link to="/addChallenge">
+            <span className="thin" />
+            <Button className="addChallengBtn" style={{textAlign:"center"}} variant="danger">ADD CHALLENGE</Button>{' '}
+
+          </Link>
+        </div>
+      );
+    } else {
+        return (
+          null
+      )
+    }
+  };
   return (
     <main id="Challenges">
       {/* <div className=" img-div">
@@ -51,14 +69,8 @@ Here you will find some curated challenges to help you preparing for leading tec
   ))}
     </div>
   </div>
-  <div className="linkDiv">
-    <Link to="/addChallenge">
-      <span className="thin" />
-      {/* <span className="thick">ADD CHALLENGE</span> */}
-      <Button className="addChallengBtn" style={{textAlign:"center"}} variant="danger">ADD CHALLENGE</Button>{' '}
 
-    </Link>
-  </div>
+  {addChallengeLink()}
   
 </section>
 </div>
