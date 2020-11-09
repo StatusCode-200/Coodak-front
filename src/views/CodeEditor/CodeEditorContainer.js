@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import CodeEditor from "./CodeEditor";
 import { connect } from "react-redux";
 import { getProjectAction, postProjectAction, putProjectAction } from "./../../store/actions/project.js"
+import Loading from "../../components/Loading/Loading";
 
 class CodeEdotorContainer extends Component {
   constructor(props) {
@@ -83,7 +84,8 @@ componentWillReceiveProps(nextProps){
     return (
       <>
         { isLoading ?
-          <h1>loading Project</h1>
+          // <h1>loading Project</h1>
+          <Loading/>
           :
           <CodeEditor project={project} handleChange={this.handleChange} onKeyUp={this.onKeyUp} userId={this.props.userId} handleSubmit={this.handleSubmit} />
         }

@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import Challenge from "./ChallengeDetails";
 import { getChallengeAction , postChallengeAction , putChallengeAction } from "../../store/actions/challengeDetails";
 // import { defaults } from "gh-pages";
+import Loading from "../../components/Loading/Loading";
 
  class ChallengesContainer extends Component {
   constructor(props) {
@@ -64,7 +65,8 @@ componentWillMount(){
     return (
       <>
       {isLoading ?
-          <h1>loading</h1>
+          // <h1>loading</h1>
+          <Loading/>
         :
       <Challenge challenge={challenge} solution={solution} handleSubmit={this.handleSubmit}  checkResult={this.checkResult} stderr={stderr} stdout={stdout} />
         }
