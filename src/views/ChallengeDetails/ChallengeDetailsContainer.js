@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Challenge from "./ChallengeDetails";
-import { getChallengeAction , postChallengeAction , putChallengeAction } from "../../store/actions/challengeDetails";
+import { getChallengeAction , postChallengeAction , putChallengeAction, checkSolutionAction } from "../../store/actions/challengeDetails";
 // import { defaults } from "gh-pages";
 import Loading from "../../components/Loading/Loading";
 
@@ -11,9 +11,6 @@ import Loading from "../../components/Loading/Loading";
     super(props);
     this.state = {
       solution: null,  //null //if opening saved challenge it will be fetched
-      //saved
-      stderr: "your solution is wrong because of the following test cases : bla bla bla",  //null untill the check button is pressed then if there is error or solution is false then goes here
-      stdout: "your solution have passed the following test cases",  //null untill the check button is pressed then if solution is true then goes here
     };
 
   }
@@ -38,7 +35,7 @@ import Loading from "../../components/Loading/Loading";
     const { solution } = this.state;
     const { userId, token } = this.props;
     e.preventDefault();
-    if(this.props.solution){
+    if(this.props.solution || this.props.isSavedBefore){ // is Saved before to handle the first case
       this.props.putChallenge({ solution, userId, challengeId: this.props.match.params.challengeId, token });
     }else {
       this.props.postChallenge({ solution, userId, challengeId: this.props.match.params.challengeId, token });
@@ -46,7 +43,11 @@ import Loading from "../../components/Loading/Loading";
 }
 
     checkResult = () => {
-      console.log("checkResult");
+    const { solution } = this.state;
+    const { userId, token } = this.props;
+    const challengeId = this.props.match.params.challengeId;
+      // console.log("checkResult");
+      this.props.checkSolution({solution, challengeId, userId, token});
     };
 
   render() {
@@ -69,15 +70,19 @@ const mapDispatchToProps = {
   getChallenge: getChallengeAction ,
   postChallenge: postChallengeAction ,
   putChallenge: putChallengeAction,
+  checkSolution: checkSolutionAction,
 }
 
 const mapStateToProps = store => ({
   challenge: store.challengeDetails.challenge,
   solution: store.challengeDetails.solution,
+  isSavedBefore: store.challengeDetails.isSavedBefore,
   isLoading: store.challengeDetails.isLoading,
   userId:  store.auth.user ? store.auth.user._id : "",
   token: store.auth.token,
   msg: store.challengeDetails.msg,
+  stderr: store.challengeDetails.stderr,
+  stdout: store.challengeDetails.stdout,
 })
 
 
