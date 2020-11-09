@@ -34,7 +34,7 @@ import { getChallengeAction , postChallengeAction , putChallengeAction, checkSol
     const { solution } = this.state;
     const { userId, token } = this.props;
     e.preventDefault();
-    if(this.props.solution){
+    if(this.props.solution || this.props.isSavedBefore){ // is Saved before to handle the first case
       this.props.putChallenge({ solution, userId, challengeId: this.props.match.params.challengeId, token });
     }else {
       this.props.postChallenge({ solution, userId, challengeId: this.props.match.params.challengeId, token });
@@ -74,6 +74,7 @@ const mapDispatchToProps = {
 const mapStateToProps = store => ({
   challenge: store.challengeDetails.challenge,
   solution: store.challengeDetails.solution,
+  isSavedBefore: store.challengeDetails.isSavedBefore,
   isLoading: store.challengeDetails.isLoading,
   userId:  store.auth.user ? store.auth.user._id : "",
   token: store.auth.token,
