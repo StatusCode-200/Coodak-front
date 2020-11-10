@@ -6,7 +6,9 @@ const initialState = {
       name: null,
       code_html: null,
       code_css: null,
-      code_js: null,},
+      code_js: null,
+    },
+      insertedId: "",
       isLoading: false,
     msg: "",
   };
@@ -32,7 +34,7 @@ const initialState = {
             return { ...state };
           } case "POST_PROJECT_SUCCESS":
             return {
-              ...state, project: payload.project,
+              ...state, project: payload.project, insertedId: payload.project._id,
             };
           case "POST_PROJECT_FAILED":
             return {
@@ -43,7 +45,7 @@ const initialState = {
                 return { ...state };
               } case "PUT_PROJECT_SUCCESS":
                 return {
-                  ...state, project: payload.whiteboard,
+                  ...state, project: payload.project,
                 };
               case "PUT_PROJECT_FAILED":
                 return {
