@@ -2,7 +2,23 @@ main#profilePage{
 
   padding-bottom: 130px;
   padding-top: 100px;
-    
+   
+  .profileList{
+    //   display: inline;
+      width: 30rem;
+    // justify-content: space-between;
+  }
+  .profileList .deleteButton {
+    // align-self: flex-end;
+    // margin-left: 80%;
+    padding: 0px;
+    width: 2rem;
+    height: 1.5rem;
+    margin-left: 30rem;
+    border: none !important;
+    outline-offset: none !important;
+
+  }
     .padding {
         padding: 3rem !important
     }

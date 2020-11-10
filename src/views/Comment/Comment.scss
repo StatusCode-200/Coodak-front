@@ -6,34 +6,41 @@
   padding-bottom: 130px;
   padding-top: 130px;
 
+  .alert-secondary {
+    color: #26292c;
+    background-color: #ecedef;
+}
+  
 .formComment {
-  padding: 50px;
+  padding: 28px;
 }
 .comments {
-  margin-top: 10%;
+  margin-top: 6%;
 }
 .commentText {
   font-size: 2rem;
 }
 .commentBtn {
-  margin-left: 30%;
-  margin-right: 26%;
+  // margin-left: 30%;
+  // margin-right: 26%;
+  margin-left: 31%;
+    margin-top: -5%;
 
 }
   .textAria {
-    width: 65%;
-    box-shadow: 5px 10px 8px #888888;
+    width: 35%;
+    // box-shadow: 5px 10px 8px #888888;
     border: 1px solid;
 
   }
   .alertText {
     width: 65%;
-    border-radius: 8px;
+    border-radius: 2px;
     text-align: left;
-    border: 1px solid;
+    border: 1px;
     padding: 10px;
     margin-left: 2%;
-    box-shadow: 5px 10px 8px #888888;
+    // box-shadow: 5px 10px 8px #888888;
   }
 
   @import url(https://fonts.googleapis.com/css?family=Open+Sans:800,300);

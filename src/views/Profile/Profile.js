@@ -78,11 +78,12 @@ function profile(props) {
                                 <AccordionDetails>
                                     <Typography>
                                         {props.projects ? props.projects.map((project, idx) =>
-                                            <ul>
+                                            <ul className="profileList">
                                                 <Link key={idx} to={`/projects/${project._id}`}>
                                                     {project.name}
                                                 </Link>
-                                                <button onClick={() => props.handleDelete("project",project._id)} class="deleteButton">x</button>
+                                                {/*  style={{padding: "0px" , width: "2rem", height: "1.5rem", marginRight: "20px" }} */}
+                                                <Button variant="outline-danger" onClick={() => props.handleDelete("project",project._id)} className="deleteButton" ><i class="fa fa-trash"></i></Button>
                                             </ul>
                                         )
                                             : <> </>
@@ -101,11 +102,11 @@ function profile(props) {
                                 <AccordionDetails>
                                     <Typography>
                                         {props.challenges ? props.challenges.map((challenge, idx) =>
-                                            <ul>
+                                            <ul className="profileList">
                                                 <Link key={idx} to={`/challenges/${challenge.challenge_id._id}`}>
                                                     {challenge.challenge_id.name}
                                                 </Link>
-                                                <button onClick={() => props.handleDelete("challenge",challenge.challenge_id._id)} class="deleteButton">x</button>
+                                                <Button variant="outline-danger" onClick={() => props.handleDelete("challenge",challenge.challenge_id._id)} className="deleteButton"><i class="fa fa-trash"></i></Button>
                                             </ul>
                                         )
                                             : <> </>
