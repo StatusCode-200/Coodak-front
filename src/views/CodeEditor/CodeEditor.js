@@ -33,10 +33,16 @@ function CodeEdotor(props) {
 
       <div id="saveProject" >
 
+        {/* <label className="projectName" htmlFor="name"> PROJECT NAME   </label>
+        <input onChange={props.handleChange} defaultValue={project.name} type="text" name="name" id="projectName" defaultValue={project.name} required /> */}
+        { props.userId && 
+        <>
         <label className="projectName" htmlFor="name"> PROJECT NAME   </label>
         <input onChange={props.handleChange} defaultValue={project.name} type="text" name="name" id="projectName" defaultValue={project.name} required />
-       
-      <Button variant="danger" style={{marginLeft: "10px", padding: "3px 8px"}} onClick={props.handleSubmit}>Save</Button>
+        <Button variant="danger" style={{marginLeft: "10px", padding: "3px 8px"}} onClick={props.handleSubmit}>Save</Button>
+        </>
+        }
+      {/* <Button variant="danger" style={{marginLeft: "10px", padding: "3px 8px"}} onClick={props.handleSubmit}>Save</Button> */}
       </div>
 
 
