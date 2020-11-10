@@ -8,14 +8,12 @@ import {  Button } from 'react-bootstrap';
 function Challenges(props) {
   const {challenges, user} = props;
   const addChallengeLink =(props) => {
-    console.log("inside the button----->", user);
     if (user.role =="admin") {
       return (
         <div className="linkDiv">
           <Link to="/addChallenge">
             <span className="thin" />
             <Button className="addChallengBtn" style={{textAlign:"center"}} variant="danger">ADD CHALLENGE</Button>{' '}
-
           </Link>
         </div>
       );
@@ -45,7 +43,7 @@ Here you will find some curated challenges to help you preparing for leading tec
     </div>
   </div>
 
-  
+
   <div className="bigContainer">
     <div className="subContainer">
     {challenges.map((challenge, idx) => (
@@ -71,7 +69,7 @@ Here you will find some curated challenges to help you preparing for leading tec
   </div>
 
   {addChallengeLink()}
-  
+
 </section>
 </div>
     </main>

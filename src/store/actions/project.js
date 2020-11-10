@@ -46,6 +46,7 @@ export const postProjectAction = ({ project, userId, token }) => (dispatch) => {
   dispatch(postProjectStart());
   axios.post(`${API}/users/${userId}/projects`, { ...project }, { headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` } })
     .then(({ data }) => {
+      alert("success");
       dispatch(postProjectSuccess(data));//whiteboard: results//the posted whiteboard after saving to database , savedChallengeId : userChallengeId, userId : userId
     }).catch((err) => {
       dispatch(postProjectFailed(err.message));
@@ -70,7 +71,7 @@ const putProjectStart = () => ({
     dispatch(putProjectStart());
     axios.put(`${API}/users/${userId}/projects/${projectId}`, { ...project }, { headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` } })//whiteboard must be destructured because all of its key:value pairs are expected to be in the req.body
       .then(({ data }) => {
-        console.log("data return from put", data);
+        alert("success");
         dispatch(putProjectSuccess(data));//no data is recieved it just redirects to the same whiteboard page (refresh it)
       }).catch((err) => {
         dispatch(putProjectFailed(err.message));

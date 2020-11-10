@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import "./index.scss";
 import { Link } from "react-router-dom";
 import { ThemeContext } from '../../views/context/TheamContainer.js';
+import Background from './comment.jpg';
 
 function Home() {
   const themeContext = useContext(ThemeContext);
@@ -108,6 +109,69 @@ function Home() {
           </p>
         </div>
       </div>
+
+      <div className="blog-card">
+        <div className="meta">
+          <div
+            className="photo"
+
+          />
+          <ul className="details">
+            <li className="author">Coodak</li>
+            <li className="tags">
+              <ul>
+                <li>Learn</li>
+                <li>Code</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JS</li>
+
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div className="description">
+        <h1>Create Your Account</h1>
+          <h2>Have your account to Have more features</h2>
+          <p> in an Easy way you will have an account in our website to have your own profile ..</p>
+          <p className="read-more">
+            <Link to="/signin" className="Link">
+              Read More
+            </Link>
+          </p>
+        </div>
+      </div>
+      <div className="blog-card alt">
+        <div className="meta">
+          <div
+            className="photo"
+            style={{
+              backgroundImage: "url(https://admin.workforce.com/wp-content/uploads/sites/2/2014/12/wf_120314_LastWord_Comments680x300.jpg)",
+            }}
+          />
+          <ul className="details">
+            <li className="author">Coodak</li>
+            <li className="tags">
+              <ul>
+                <li>Learn</li>
+                <li>Code</li>
+                <li>Do your Challenges</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div className="description">
+          <h1>Start Your Comments</h1>
+          <h2> Discuss solutions with the community & Learn from senior developers..</h2>
+          <p> If you are stuck or feel you need help, use the Discussion section and ask for hints and solutions.!!..</p>
+          <p className="read-more">
+            <Link to="/challenges" className="Link">
+              Read More
+            </Link>
+          </p>
+        </div>
+      </div>
+      
     </main>
   );
 }

@@ -37,12 +37,12 @@ function Main() {
         {/* <Route exact path="/user/challenges/:savedChallengeId" component={ChallengeDetails} />
         <Route exact path="/challenges/:ChallengeId" component={ChallengeDetails} /> */}
 
-        <Route exact path="/challenges/:challengeId/comments" component={Comments} />
         <Route exact path="/challenges/:challengeId" component={ChallengeDetails} />
+        <Route exact path="/challenges/:challengeId/comments" component={Comments} />
+        <Route exact path="/challenges/:challengeId/whiteboard" component={WhiteBoard} /> {/* /challenges/:savedChallengeId/whiteboard */}
 
         <Route exact path="/addChallenge" component={AddChallenge} />
         <Route exact path="/" component={Home} />
-        <Route exact path="/challenges/:savedChallengeId/whiteboard" component={WhiteBoard} /> {/* /challenges/:savedChallengeId/whiteboard */}
         <Route path="*" component={PageNotFound} />
       </Switch>
     </main>

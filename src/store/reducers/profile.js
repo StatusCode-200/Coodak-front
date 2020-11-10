@@ -30,6 +30,29 @@ const initialState = {
             return {
               ...state, msg: payload, isLoading: false,
             };
+
+            case "DELETE_USERPROJECT_START": {
+              return { ...state, isLoading: true };
+            } case "DELETE_USERPROJECT_SUCCESS":
+              return {
+                ...state, userProjects : state.userProjects.filter(project => project._id !== payload),isLoading: false,
+              };
+            case "DELETE_USERPROJECT_FAILED":
+              return {
+                ...state, msg: payload, isLoading: false,
+              };
+
+              case "DELETE_USERCHALLENGE_START": {
+                return { ...state, isLoading: true };
+              } case "DELETE_USERCHALLENGE_SUCCESS":
+                return {
+                  ...state, userChallenges : state.userChallenges.filter(challenge => challenge.challenge_id._id !== payload),isLoading: false,
+                };
+              case "DELETE_USERCHALLENGE_FAILED":
+                return {
+                  ...state, msg: payload, isLoading: false,
+                };
+
       default:
         return state;
     }

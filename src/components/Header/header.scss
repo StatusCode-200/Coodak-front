@@ -12,6 +12,7 @@
 
   .menuItems {
     display: flex;
+    flex: auto;
     height: 85px;
     list-style: none;
     font-family: "Kadwa";
@@ -70,7 +71,7 @@
   /* ///////////////////////// */
 
   .links {
-    margin-left: 40px;
+    margin-left: 17px;
   }
 
   .menuItems .links {

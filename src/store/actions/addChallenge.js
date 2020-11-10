@@ -22,7 +22,7 @@ export const postChallengeAction = ({ challenge, token }) => (dispatch) => {
   dispatch(postChallengeStart());
   axios.post(`${API}/challenges`, { ...challenge }, { headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` } })
     .then(({ data }) => {
-      dispatch(postChallengeSuccess(data));//whiteboard: results//the posted whiteboard after saving to database , savedChallengeId : userChallengeId, userId : userId
+      dispatch(postChallengeSuccess(data.data));//whiteboard: results//the posted whiteboard after saving to database , savedChallengeId : userChallengeId, userId : userId
     }).catch((err) => {
       dispatch(postChallengeFailed(err.message));
     });
