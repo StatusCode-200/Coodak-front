@@ -3,7 +3,6 @@ import React, { useContext } from "react";
 import "./index.scss";
 import { Link } from "react-router-dom";
 import { ThemeContext } from '../../views/context/TheamContainer.js';
-import Background from './comment.jpg';
 import ControlledCarousel from "./slider";
 
 function Home() {
@@ -11,69 +10,7 @@ function Home() {
 
   return (
     <main id="homePage">
-      {/* <div className=" img-div">
-      <img className=" img-fluid" src="https://www.infiniticreation.co.uk/wp-content/uploads/2014/03/home_sec.jpg" alt="card image" />
-
-      </div> */}
     <ControlledCarousel />
-{/* 
-      <div className="containerHeader">
-
-        <div id="carousel-example-generic" className="carousel slide" data-ride="carousel">
-
-          <ol className="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" className="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-          </ol>
-
-          <div className="carousel-inner" role="listbox">
-
-            <div className="item active">
-
-              <img src="https://images.unsplash.com/photo-1480506132288-68f7705954bd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=793&q=80" alt="..." />
-              <div className="carousel-caption">
-                <h2 className="animated bounceInRight" style={{ animationDelay: "1s" }}>Code Editor</h2>
-                <h3 className="animated bounceInLeft" style={{ animationDelay: "2s" }}>Run Your Code.</h3>
-              </div>
-
-
-              <div className="item">
-                <img src="https://images.unsplash.com/photo-1593642532400-2682810df593?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="..." />
-                <div className="carousel-caption">
-                  <h2 className="animated slideInDown" style={{ animationDelay: "1s" }}>Test Your Logical Thinking</h2>
-                  <h3 className="animated slideInRight" style={{ animationDelay: "2s" }}>Lorem ipsum dolor sit amet.</h3>
-                </div>
-
-                <div className="item">
-                  <img src="https://images.unsplash.com/photo-1503437313881-503a91226402?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=889&q=80" alt="..." />
-                  <div className="carousel-caption">
-                    <h2 className="animated zoomIn" style={{ animationDelay: "1s" }}>Best Customer Support</h2>
-                    <h3 className="animated zoomIn" style={{ animationDelay: "2s" }}>Lorem ipsum dolor sit amet.</h3>
-                  </div>
-
-
-                </div>
-
-              </div>
-
-              <a className="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                <span className="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span className="sr-only">Previous</span>
-              </a>
-              <a className="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                <span className="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span className="sr-only">Next</span>
-              </a>
-            </div>
-
-
-          </div>
-
-        </div>
-
-      </div> */}
-
 
 
       <div className="blockquote-wrapper">
