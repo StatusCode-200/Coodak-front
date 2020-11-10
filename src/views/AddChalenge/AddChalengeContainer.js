@@ -1,6 +1,7 @@
 /*eslint-disable */
 import React, { Component } from "react";
 import AddChallenge from "./AddChalenge";
+import { Redirect } from 'react-router-dom';
 import { connect } from "react-redux";
 import { postChallengeAction } from "./../../store/actions/addChallenge.js"
 
@@ -8,7 +9,7 @@ import { postChallengeAction } from "./../../store/actions/addChallenge.js"
 class AddChallengeContainer extends Component {
 
     constructor(props) {
-        
+
         super(props);
         this.state = {
             name: '',
@@ -21,36 +22,38 @@ class AddChallengeContainer extends Component {
 
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value });
-        console.log('this.state >>', this.state);
     }
 
     handleSubmit = e => {
         e.preventDefault();
         const challenge = this.state;
-        // if(challenge.name && challenge.summary && challenge.description && challenge.starter_code && challenge.test){
-            console.log('start submitting'); 
-            this.props.postChallengeAction({ challenge, token: this.props.token });
-        // }
-        // console.log('no submit brcause of missing fields');
+        this.props.postChallengeAction({ challenge, token: this.props.token });
 
     }
 
     render() {
-        console.log('props in AddChallenge container >>', this.props);
-
-        return <AddChallenge handleChange={this.handleChange} handleSubmit={this.handleSubmit} />;
+      const { challengeId } = this.props;
+        return (
+          <>
+          {challengeId ?
+            <Redirect to="/challenges" />
+            :
+             <AddChallenge handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
+           }
+           </>
+      )
     }
 }
 
 const mapDispatchToProps = {
     postChallengeAction: postChallengeAction,
   }
-  
+
   const mapStateToProps = store => ({
-    isLoading: store.whiteboard.isLoading,
-    //userId: store.auth.user._id,//you might get it from auth from user object
+    isLoading: store.addChallenge.isLoading,
+    challengeId: store.addChallenge.challenge._id,
     token: store.auth.token,
-    msg: store.whiteboard.msg,
+    msg: store.addChallenge.msg,
   });
-  
+
   export default connect(mapStateToProps, mapDispatchToProps) (AddChallengeContainer);

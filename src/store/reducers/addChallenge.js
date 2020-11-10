@@ -1,6 +1,7 @@
 /* eslint-disable */
 const initialState = {
     challenge: {
+        _id: "",
         name: '',
         summary: '',
         description:'',
@@ -19,10 +20,10 @@ const initialState = {
     switch (type) {
 
         case "POST_CHALLENGE_START": {
-            return { ...state };
+            return { ...initialState };
           } case "POST_CHALLENGE_SUCCESS":
             return {
-              ...state, challenge: payload.challenge,
+              ...state, challenge: payload,
             };
           case "POST_CHALLENGE_FAILED":
             return {

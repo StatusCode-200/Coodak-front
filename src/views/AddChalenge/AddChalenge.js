@@ -5,7 +5,6 @@ import './AddChalenge.scss';
 
 
 function AddChalenge(props) {
-    console.log('propppps', props);
     return (
         <>
             <main id="addChallengePage">
@@ -43,7 +42,7 @@ function AddChalenge(props) {
                                 <Button type="submit" variant="outline-danger">Save Chalenge</Button>
                             </InputGroup.Append>
                         </InputGroup>
-            
+
 
                     </form>
 
@@ -58,7 +57,7 @@ function AddChalenge(props) {
 export default AddChalenge;
 
 {/* <main id="addChallengePage">
-                
+
 <div className="container" id="container">
 
     <form onSubmit={props.handleSubmit} action="#">
