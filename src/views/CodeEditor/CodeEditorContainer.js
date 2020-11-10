@@ -28,7 +28,7 @@ class CodeEdotorContainer extends Component {
     }else{
       this.setState({ project: {...this.state.project, owner_id: this.props.userId} });
     }
-    
+
 }
 
 componentWillReceiveProps(nextProps){
@@ -45,8 +45,12 @@ componentWillReceiveProps(nextProps){
   }
 }
 
+ componentWillUnmount(){
+   console.log("adnan");
+   console.log("adnan");
+ }
+
   handleSubmit = (e) => {
-    console.log('saved project');
     const { project } = this.state;
     const { userId, token } = this.props;
     e.preventDefault();
@@ -57,7 +61,6 @@ componentWillReceiveProps(nextProps){
     }
   }
   handleChange = e => {
-    // console.log(' >> ', this.state);
     this.setState({ project: { ...this.state.project , [e.target.name]: e.target.value }});
   }
 
@@ -88,7 +91,7 @@ componentWillReceiveProps(nextProps){
   render() {
     const { isLoading } = this.props;
     const { project } = this.state;
-    console.log(' >> ', this.state);
+    console.log("params", this.props.match.params.projectId);
     return (
       <>
         { isLoading ?

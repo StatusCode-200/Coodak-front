@@ -35,7 +35,7 @@ import Loading from "../../components/Loading/Loading";
     const { solution } = this.state;
     const { userId, token } = this.props;
     e.preventDefault();
-    if(this.props.solution || this.props.isSavedBefore){ // is Saved before to handle the first case
+    if(this.props.solution || this.props.insertedId){ // is Saved before to handle the first case
       this.props.putChallenge({ solution, userId, challengeId: this.props.match.params.challengeId, token });
     }else {
       this.props.postChallenge({ solution, userId, challengeId: this.props.match.params.challengeId, token });
@@ -52,14 +52,14 @@ import Loading from "../../components/Loading/Loading";
 
   render() {
     const { solution } = this.state;
-    const { isLoading, challenge, solution: propSolution, isSavedBefore, stderr, stdout } = this.props;
+    const { isLoading, challenge, solution: propSolution, insertedId, stderr, stdout } = this.props;
     return (
       <>
       {isLoading ?
           // <h1>loading</h1>
           <Loading/>
         :
-      <Challenge challenge={challenge} propSolution={propSolution} isSavedBefore={isSavedBefore} solution={solution} challengeId={this.props.match.params.challengeId} handleChange={this.handleChange} handleSubmit={this.handleSubmit}  checkResult={this.checkResult} stderr={stderr} stdout={stdout} />
+      <Challenge challenge={challenge} propSolution={propSolution} insertedId={insertedId} solution={solution} challengeId={this.props.match.params.challengeId} handleChange={this.handleChange} handleSubmit={this.handleSubmit}  checkResult={this.checkResult} stderr={stderr} stdout={stdout} />
         }
       </>
     )
@@ -76,7 +76,7 @@ const mapDispatchToProps = {
 const mapStateToProps = store => ({
   challenge: store.challengeDetails.challenge,
   solution: store.challengeDetails.solution,
-  isSavedBefore: store.challengeDetails.isSavedBefore,
+  insertedId: store.challengeDetails.insertedId,
   isLoading: store.challengeDetails.isLoading,
   userId:  store.auth.user ? store.auth.user._id : "",
   token: store.auth.token,

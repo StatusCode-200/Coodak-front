@@ -3,19 +3,18 @@ import React, { Component } from "react";
 import WhiteBoard from "./WhiteBoard";
 import { connect } from "react-redux";
 import { getWhiteboradAction, postWhiteboardAction, putWhiteboardAction } from "./../../store/actions/whiteboard.js"
+import Loading from "../../components/Loading/Loading";
 
 class WhiteBoardContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      whiteboard: {
-      },
-      savedChallengeId: "",// it will be getted from route(link) (this.props.match.params.savedChallengeId)
+      whiteboard: {}
     };
   }
 
     componentWillMount() {
-      this.props.getWhiteboradAction({savedChallengeId : this.props.match.params.savedChallengeId,userId : this.props.userId, token: this.props.token});
+      this.props.getWhiteboradAction({challengeId : this.props.match.params.challengeId,userId : this.props.userId, token: this.props.token});
   }
 
   componentWillReceiveProps(nextProps){
@@ -31,28 +30,29 @@ class WhiteBoardContainer extends Component {
   }
 
   handleSubmit = e => {
-    const { whiteboard, savedChallengeId } = this.state;
-    const userId = this.props.userId;
+    const { whiteboard } = this.state;
+    const challengeId =  this.props.match.params.challengeId;
+    const {userId } = this.props;
     e.preventDefault();
-    console.log("whiteboard data to be sent>>>>", this.state.whiteboard);
     // do a fetch to send data to the server then redirect to some page
     if(this.props.whiteboard){
-      this.props.putWhiteboardAction({ whiteboard, savedChallengeId, userId, token: this.props.token });
+      this.props.putWhiteboardAction({ whiteboard, challengeId, userId, token: this.props.token });
     }else{
-      this.props.postWhiteboardAction({ whiteboard, savedChallengeId, userId, token: this.props.token });
+      this.props.postWhiteboardAction({ whiteboard, challengeId, userId, token: this.props.token });
     }
 
   }
 
   render() {
-    const { whiteboard, savedChallengeId } = this.state;
+    const { whiteboard } = this.state;
     const { isLoading } = this.props;
     return (
       <>
       { isLoading ?
-        <h1>loadingWhiteBoard</h1>
+        // <h1>loadingWhiteBoard</h1>
+        <Loading />
         :
-        <WhiteBoard whiteboard={whiteboard} savedChallengeId={savedChallengeId} userId={this.props.userId} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
+        <WhiteBoard whiteboard={whiteboard} userId={this.props.userId} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
   }
     </>
   )
@@ -67,7 +67,6 @@ const mapDispatchToProps = {
 
 const mapStateToProps = store => ({
   whiteboard: store.whiteboard.whiteboard,
-  savedChallengeId:store.whiteboard.savedChallengeId,
   isLoading: store.whiteboard.isLoading,
   userId: store.auth.user._id,//you might get it from auth from user object
   token: store.auth.token,

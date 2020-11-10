@@ -1,15 +1,14 @@
 /* eslint-disable */
 
 import React from "react";
+import ReactMarkdown from "react-markdown";
 import { Link } from "react-router-dom";
-import { If, Then, Else } from '../../components/If/If';
 import "./ChallengeDetails.scss"
-import ChallengeRate from "./challengeRate"
+import ChallengeRate from "./challengeRate";
+import {  Button } from 'react-bootstrap';
 
 function Challenge(props) {
-
-  const {challenge, propSolution, isSavedBefore, solution, userId, savedChallengeId, handleSubmit, handleChange, checkResult, stderr, stdout} = props;
-
+  const {challenge, propSolution, insertedId, solution, userId, handleSubmit, handleChange, checkResult, stderr, stdout} = props;
 
   return (
     <main id="ChallengeDetails">
@@ -18,7 +17,7 @@ function Challenge(props) {
           <Link to={`/challenges/${challenge._id}/comments`}>
             Forum
           </Link>
-          { (propSolution || isSavedBefore) && (
+          { (propSolution || insertedId) && (
           <Link to={`/challenges/${challenge._id}/whiteboard`}>
             white board
           </Link>
@@ -31,33 +30,34 @@ function Challenge(props) {
 
         <div id="challenge-description">
           <p id="descriptionHeader">description</p>
-          <p style={{whiteSpace: "pre-line"}} id="challengeDescription">
-            { challenge.description }
-          </p>
+          <div style={{whiteSpace: "pre-line"}} id="challengeDescription">
+             <ReactMarkdown source={challenge.description} />
+          </div>
         </div>
 
         <div id="work-area">
           <p id="solutionHeader">code here</p>
           <form id="saveChallenge" onSubmit={handleSubmit}>
             <textarea name="solution" onChange={handleChange} id="userSolution">
-              { solution }
+              {solution}
             </textarea>
-            <input type="submit" value="save" />
+            <Button  variant="dark" type="submit" value="save" style={{float: "left", marginRight: "2%"}} >Save</Button>
           </form>
 
+        <Button variant="dark" type="button" id="checkResultButton" onClick={checkResult}>RUN</Button>
         </div>
 
       </section>
 
       <section id="checkResult">
-      <button type="button" id="checkResultButton" onClick={checkResult}>check</button>
+
         <div id="results">
-          <div style={{whitSpace: "pre-line"}} id="result-failed-cases"> {stderr} </div>
-          <div style={{whitSpace: "pre-line"}} id="result-passed-cases"> {stdout} </div>
+          <div style={{whitSpace: "pre-line"}} id="result-failed-cases"> {stderr && stderr.split('\n').map(str => <p>{str}</p>)} </div>
+          <div style={{whitSpace: "pre-line"}} id="result-passed-cases"> {stdout && stdout.split('\n').map(str => <p>{str}</p>)} </div>
         </div>
       </section>
 
-<ChallengeRate/>
+      {/* <ChallengeRate /> */}
 
 
     </main>

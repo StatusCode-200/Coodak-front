@@ -1,8 +1,6 @@
 /* eslint-disable */
 const initialState = {
     whiteboard: {},
-    savedChallengeId: null,
-    userId: null,
     isLoading: false,
     msg: "",
   };
@@ -17,7 +15,7 @@ const initialState = {
         return { ...state, isLoading: true };
       } case "FETCH_WHITEBOARD_SUCCESS":
         return {
-          ...state, whiteboard: payload.whiteboard, savedChallengeId:payload.savedChallengeId, userId:payload.userId, isLoading: false,
+          ...state, whiteboard: payload.whiteboard, isLoading: false,
         };
       case "FETCH_WHITEBOARD_FAILED":
         return {
@@ -28,7 +26,7 @@ const initialState = {
             return { ...state };
           } case "POST_WHITEBOARD_SUCCESS":
             return {
-              ...state, whiteboard: payload.whiteboard, savedChallengeId:payload.savedChallengeId, userId:payload.userId,
+              ...state, whiteboard: payload.whiteboard,
             };
           case "POST_WHITEBOARD_FAILED":
             return {
@@ -39,7 +37,7 @@ const initialState = {
                 return { ...state };
               } case "PUT_WHITEBOARD_SUCCESS":
                 return {
-                  ...state, whiteboard: payload.whiteboard, savedChallengeId:payload.savedChallengeId, userId:payload.userId,
+                  ...state, whiteboard: payload.whiteboard,
                 };
               case "PUT_WHITEBOARD_FAILED":
                 return {
