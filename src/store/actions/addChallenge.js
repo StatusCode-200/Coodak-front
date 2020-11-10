@@ -28,4 +28,10 @@ export const postChallengeAction = ({ challenge, token }) => (dispatch) => {
     });
 };
 
-//
+const flushAddChallenge = () => ({
+  type: "FLUSH_ADD_CHALLENGE",
+});
+
+export const flushAddChallengeAction = () => (dispatch) => {
+  dispatch(flushAddChallenge());
+}

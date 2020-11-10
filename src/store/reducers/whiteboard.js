@@ -12,7 +12,7 @@ const initialState = {
     } = action;
     switch (type) {
       case "FETCH_WHITEBOARD_START": {
-        return { ...state, isLoading: true };
+        return { ...state, whiteboard: {}, isLoading: true };
       } case "FETCH_WHITEBOARD_SUCCESS":
         return {
           ...state, whiteboard: payload.whiteboard, isLoading: false,
