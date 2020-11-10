@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import WhiteBoard from "./WhiteBoard";
 import { connect } from "react-redux";
 import { getWhiteboradAction, postWhiteboardAction, putWhiteboardAction } from "./../../store/actions/whiteboard.js"
+import Loading from "../../components/Loading/Loading";
 
 class WhiteBoardContainer extends Component {
   constructor(props) {
@@ -48,7 +49,8 @@ class WhiteBoardContainer extends Component {
     return (
       <>
       { isLoading ?
-        <h1>loadingWhiteBoard</h1>
+        // <h1>loadingWhiteBoard</h1>
+        <Loading />
         :
         <WhiteBoard whiteboard={whiteboard} userId={this.props.userId} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
   }

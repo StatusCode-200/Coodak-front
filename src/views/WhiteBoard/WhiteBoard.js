@@ -20,9 +20,9 @@ function WhiteBoard(props) {
 
           <div className="grid-item inputAndOutput">
             <h3>Input and output</h3>
-            <label htmlFor="input">Input: <input name="input" id="input" onChange={handleChange} type="text" value={whiteboard.input} /> </label>
+            <label htmlFor="input">Input: <input style={{width: "95%"}} name="input" id="input" onChange={handleChange} type="text" value={whiteboard.input} /> </label>
 
-            <label htmlFor="output">Output: <input name="output" id="output" onChange={handleChange} type="text" value={whiteboard.output} /> </label>
+            <label htmlFor="output">Output: <input style={{width: "95%"}} name="output" id="output" onChange={handleChange} type="text" value={whiteboard.output} /> </label>
 
           </div>
 
