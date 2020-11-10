@@ -43,7 +43,7 @@ function ControlledCarousel() {
                 />
 
                 <Carousel.Caption>
-                    <h2 className="animated zoomIn" style={{ animationDelay: "1s" }}>COLLABORATICE DEVELOPMENT ENVIROMENT</h2>
+                    <h2 className="animated zoomIn" style={{ animationDelay: "1s" }}>COLLABORATIVE DEVELOPMENT ENVIROMENT</h2>
                     <h3 className="animated zoomIn" style={{ animationDelay: "2s" }}>REAL-TIME CODE TYPING SYNCRONIZATION.</h3>
                 </Carousel.Caption>
             </Carousel.Item>

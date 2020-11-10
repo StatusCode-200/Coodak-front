@@ -8,7 +8,7 @@ function WhiteBoard(props) {
   const { whiteboard, userId, handleChange, handleSubmit} = props;
   return (
     <main id="whiteboard">
-      <h2 id="titleW" style={{paddingTop: "1.5rem"}}>Whiteboard</h2>
+      {/* <h2 id="titleW" style={{paddingTop: "1.5rem"}}>Whiteboard</h2> */}
       <form action="#" id="whiteBoardForm" onSubmit={handleSubmit}>
         <div className="grid-container">
           <div className="grid-item">
