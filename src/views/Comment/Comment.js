@@ -46,7 +46,7 @@ function comment(props) {
                                     </Alert>
 
                                     <br />
-                                    <Alert style={{ whiteSpace: "pre-line", backgroundColor: "#ccc", marginLeft: "3%",  width: "93%", marginBottom: "4%" }}>
+                                    <Alert style={{ whiteSpace: "pre-line", backgroundColor: "#e5e7ec", marginLeft: "3%",  width: "93%", marginBottom: "4%" }}>
 
                                         {item.comment}
                                     </Alert>
@@ -60,10 +60,10 @@ function comment(props) {
 
                     <Form onSubmit={props.handleSubmit}>
                         <Form.Group className="formComment" controlId="exampleForm.ControlTextarea1">
-                            <Form.Label style={{ fontSize: "1.2em", fontWeight: "bold" }} className="commentText">WRITE YOUR COMMENT</Form.Label>
-                            <Form.Control onChange={props.handleChange} as="textarea" rows={3} className="textAria" name="coment" />
+                            <Form.Label style={{ fontSize: "0.9em", fontWeight: "bold" }} className="commentText"> </Form.Label>
+                            <Form.Control onChange={props.handleChange} as="textarea" rows={2} className="textAria" name="coment" placeholder="TYPE YOUR COMMENT.."/>
                         </Form.Group>
-                        <Button type="submit" className="commentBtn" variant="danger">Comment</Button>{' '}
+                        <Button type="submit" className="commentBtn" variant="outline-danger">Send</Button>{' '}
                     </Form>
                 </div>
 

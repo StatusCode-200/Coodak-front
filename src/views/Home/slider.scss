@@ -1,0 +1,27 @@
+
+ .containerHeader .carousel-inner .item{
+    height: 100vh;
+  } 
+   .containerHeader .carousel-inner .item img{
+    width: 100%;
+  } 
+  
+  .carousel-caption{
+    padding-bottom: 160px;
+    // background-color: rgba(0,0,0,0.5);
+  }
+  .carousel-caption h2{
+    font-size: 50px;
+    text-transform: uppercase;
+  }
+  .carousel-control.right{
+    background-image: none;
+  }
+  .carousel-control.left{
+    background-image: none;
+  }
+  
+  
+  
+
+  
