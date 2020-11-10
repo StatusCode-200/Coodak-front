@@ -21,19 +21,19 @@ function AddChalenge(props) {
                             <Card bg="danger" text="white" className="text-center" style={{ width: '25.5rem' }} >
                                 <Card.Header>Summary</Card.Header>
 
-                                <textarea style={{resize: "none"}} onChange={props.handleChange} required type="text" placeholder=" Write your chalenge summary" name="summary" cols="30" rows="10" />
+                                <textarea style={{resize: "none"}} onChange={props.handleChange} required type="text" placeholder=" Write your challenge summary" name="summary" cols="30" rows="10" />
                             </Card>
                             <Card bg="danger" text="white" className="text-center" style={{ width: '23.5rem' }} >
                                 <Card.Header>Description</Card.Header>
-                                <textarea style={{resize: "none"}} onChange={props.handleChange} required type="text" placeholder=" Write your chalenge description" name="description" cols="30" rows="10" />
+                                <textarea style={{resize: "none"}} onChange={props.handleChange} required type="text" placeholder=" Write your challenge description" name="description" cols="30" rows="10" />
                             </Card>
                             <Card bg="danger" text="white" className="text-center" style={{ width: '23.5rem' }} >
                                 <Card.Header>Starter Code</Card.Header>
-                                <textarea style={{resize: "none"}} onChange={props.handleChange} required type="text" placeholder=" Write your chalenge starter_code" name="starter_code" cols="30" rows="10" />
+                                <textarea style={{resize: "none"}} onChange={props.handleChange} required type="text" placeholder=" Write your challenge starter_code" name="starter_code" cols="30" rows="10" />
                             </Card>
                             <Card bg="danger" text="white" className="text-center" style={{ width: '23.5rem' }} >
                                 <Card.Header>Test</Card.Header>
-                                <textarea style={{resize: "none"}} onChange={props.handleChange} required type='text' placeholder=' Write your chalenge test' name='test' cols="30" rows="10" />
+                                <textarea style={{resize: "none"}} onChange={props.handleChange} required type='text' placeholder=' Write your challenge test' name='test' cols="30" rows="10" />
                             </Card>
                         </CardDeck>
                         <br />
@@ -42,7 +42,7 @@ function AddChalenge(props) {
                                 placeholder="Challenge Name" onChange={props.handleChange} aria-label="challenge Name" aria-describedby="basic-addon2" name="name" id="challengeName" required
                             />
                             <InputGroup.Append>
-                                <Button type="submit" variant="outline-danger">Save Chalenge</Button>
+                                <Button type="submit" variant="outline-danger">Save Challenge</Button>
                             </InputGroup.Append>
                         </InputGroup>
 
