@@ -8,7 +8,7 @@ import "./ChallengeDetails.scss"
 import ChallengeRate from "./challengeRate"
 
 function Challenge(props) {
-  const {challenge, propSolution, isSavedBefore, solution, userId, savedChallengeId, handleSubmit, handleChange, checkResult, stderr, stdout} = props;
+  const {challenge, propSolution, insertedId, solution, userId, handleSubmit, handleChange, checkResult, stderr, stdout} = props;
 
   return (
     <main id="ChallengeDetails">
@@ -17,7 +17,7 @@ function Challenge(props) {
           <Link to={`/challenges/${challenge._id}/comments`}>
             Forum
           </Link>
-          { (propSolution || isSavedBefore) && (
+          { (propSolution || insertedId) && (
           <Link to={`/challenges/${challenge._id}/whiteboard`}>
             white board
           </Link>
