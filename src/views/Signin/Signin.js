@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React, { useState } from "react";
 import { ClipLoader } from "react-spinners";
+import GoogleBtn from "../GoogleBtn/GoogleBtn.js";
 
 import './Signin.scss';
 
@@ -15,6 +16,8 @@ function Signin(props) {
 							<div className="social-container">
 								<a href="#" className="social-icon"><i className="fa fa-github fa-2x"></i></a>
 								<a href="#" className="social"><i className="fa fa-google fa-2x"></i></a>
+								<div><GoogleBtn user={props.user}/></div>
+								
 							</div>
 							<span>or use your email for registration</span>
 							<input onChange={props.handleChange} required type="text" placeholder="Username" name="username" />
