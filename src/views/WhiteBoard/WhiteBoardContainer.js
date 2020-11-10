@@ -19,7 +19,8 @@ class WhiteBoardContainer extends Component {
 
   componentWillReceiveProps(nextProps){
     // set state WhiteBoard at the firstTime (after loaded success)
-    if (JSON.stringify(nextProps.whiteboard) !== JSON.stringify(this.props.whiteboard)){
+    if (JSON.stringify(nextProps.isLoading) !== JSON.stringify(this.props.isLoading)){
+      console.log("setWhiteBoard");
       this.setState({ whiteboard: {...nextProps.whiteboard} })
     }
   }

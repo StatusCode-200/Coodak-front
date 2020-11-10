@@ -57,14 +57,21 @@ function comment(props) {
 
                     })
                     }
-
+                    { props.userId && 
                     <Form onSubmit={props.handleSubmit}>
                         <Form.Group className="formComment" controlId="exampleForm.ControlTextarea1">
                             <Form.Label style={{ fontSize: "1.2em", fontWeight: "bold" }} className="commentText">WRITE YOUR COMMENT</Form.Label>
                             <Form.Control onChange={props.handleChange} as="textarea" rows={3} className="textAria" name="coment" />
                         </Form.Group>
                         <Button type="submit" className="commentBtn" variant="danger">Comment</Button>{' '}
-                    </Form>
+                    </Form>}
+                    {/* <Form onSubmit={props.handleSubmit}>
+                        <Form.Group className="formComment" controlId="exampleForm.ControlTextarea1">
+                            <Form.Label style={{ fontSize: "1.2em", fontWeight: "bold" }} className="commentText">WRITE YOUR COMMENT</Form.Label>
+                            <Form.Control onChange={props.handleChange} as="textarea" rows={3} className="textAria" name="coment" />
+                        </Form.Group>
+                        <Button type="submit" className="commentBtn" variant="danger">Comment</Button>{' '}
+                    </Form> */}
                 </div>
 
             </main>

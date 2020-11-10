@@ -1,7 +1,7 @@
 /* eslint-disable */
 const initialState = {
     challenge: {
-        _id: "",
+        _id: '',
         name: '',
         summary: '',
         description:'',
@@ -29,6 +29,8 @@ const initialState = {
             return {
               ...state, msg: payload,
             };
+          case "FLUSH_ADD_CHALLENGE": 
+          return { ...initialState };
 
       default:
         return state;
