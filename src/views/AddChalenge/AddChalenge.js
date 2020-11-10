@@ -12,7 +12,10 @@ function AddChalenge(props) {
                 <div className="container" id="container">
 
                     <form onSubmit={props.handleSubmit} action="#">
-                        <h1 style={{textAlign : "center"}}>Add New Challenge</h1>
+                        <p style={{textAlign : "center"}}>
+                        <h1>Add New Challenge</h1>
+                        <p>Please add your challenge information in each field and save the challenge in order to display it in the challenges page</p>
+                        </p>
                         <br></br>
                         <CardDeck>
                             <Card bg="danger" text="white" className="text-center" style={{ width: '25.5rem' }} >
