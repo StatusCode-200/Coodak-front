@@ -52,8 +52,32 @@ function Challenge(props) {
       <section id="checkResult">
 
         <div id="results">
-          <div style={{whitSpace: "pre-line"}} id="result-failed-cases"> {stderr && stderr.split('\n').map(str => <p>{str}</p>)} </div>
-          <div style={{whitSpace: "pre-line"}} id="result-passed-cases"> {stdout && stdout.split('\n').map(str => <p>{str}</p>)} </div>
+          <div style={{whitSpace: "pre-line"}} id="result-failed-cases"> {stderr && stderr.split('\n').map(str => <p style={{color: "red"}}>{str}</p>)} </div>
+          <div style={{whitSpace: "pre-line"}} id="result-passed-cases">
+          {
+            stdout && stdout.split("failing")[0] && stdout.split("failing")[0].split('\n').map((str, i) => {
+              const string = str.trim();
+              if (i === 2) return (<p style={{color: "blue"}}>{string}</p>)
+              else if (!(isNaN(string.charAt(0))) && !string.includes("passing")) {
+                 return (<p style={{color: "red"}}>{string}</p>)
+              } else if (string.includes("passing")){
+                if (string.startsWith("0")){
+                  return (<p style={{color: "red"}}>{string}</p>)   ;
+                } else {
+                  return (<p style={{color: "green"}}>{string}</p>)   ;
+                }
+              } else if (string.includes("✓")) {
+                return (<p style={{color: "green"}}>{string}</p>)   ;
+              } else {
+                 return (<p style={{color: "black"}}>{string}</p>)
+              }
+            })
+          }
+
+          {
+          stdout && stdout.split("failing")[1] && stdout.split("failing")[1].split('\n').map(str => <p style={{color: "red"}}>{str}</p>)
+        }
+           </div>
         </div>
       </section>
 
