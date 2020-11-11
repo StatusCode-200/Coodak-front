@@ -15,7 +15,7 @@ export default function (state = initialState, action) {
 
     switch (type) {
         case "FETCH_CHALLENGE_START": {
-            return { ...state, isLoading: true, stderr: "", stdout: "" };
+            return { ...state, isLoading: true, insertedId: "", stderr: "", stdout: "" };
         }
         case "FETCH_CHALLENGE_SUCCESS":
             return {
