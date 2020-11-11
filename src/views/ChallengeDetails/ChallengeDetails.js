@@ -15,11 +15,11 @@ function Challenge(props) {
       <section id="forumAndWhiteboard">
         <div>
           <Link to={`/challenges/${challenge._id}/comments`}>
-            Forum
+            FORUM
           </Link>
           { (propSolution || insertedId) && (
           <Link to={`/challenges/${challenge._id}/whiteboard`}>
-            white board
+            WHITEBOARD
           </Link>
         )
       }
@@ -29,22 +29,22 @@ function Challenge(props) {
       <section id="started-challenge">
 
         <div id="challenge-description">
-          <p id="descriptionHeader">description</p>
-          <div style={{whiteSpace: "pre-line"}} id="challengeDescription">
+          <p id="descriptionHeader">Description</p>
+          <div style={{whiteSpace: "pre-line" , paddingTop: "10px"}} id="challengeDescription">
              <ReactMarkdown source={challenge.description} />
           </div>
         </div>
 
         <div id="work-area">
-          <p id="solutionHeader">code here</p>
+          <p id="solutionHeader">Code Here </p>
           <form id="saveChallenge" onSubmit={handleSubmit}>
             <textarea name="solution" onChange={handleChange} id="userSolution">
               {solution}
             </textarea>
-            <Button  variant="dark" type="submit" value="save" style={{float: "left", marginRight: "2%"}} >Save</Button>
+            <Button   type="submit" value="save" style={{ borderColor: "snow" , float: "left", marginRight: "2%",  backgroundColor: "#c5c0c0"}} >Save</Button>
           </form>
 
-        <Button variant="dark" type="button" id="checkResultButton" onClick={checkResult}>RUN</Button>
+        <Button style={{ borderColor: "snow",backgroundColor: "#c5c0c0"}} type="button" id="checkResultButton" onClick={checkResult}>RUN</Button>
         </div>
 
       </section>

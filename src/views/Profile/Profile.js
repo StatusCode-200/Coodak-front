@@ -83,7 +83,7 @@ function profile(props) {
                                                     {project.name}
                                                 </Link>
                                                 {/*  style={{padding: "0px" , width: "2rem", height: "1.5rem", marginRight: "20px" }} */}
-                                                <Button variant="outline-danger" onClick={() => props.handleDelete("project",project._id)} className="deleteButton" ><i class="fa fa-trash"></i></Button>
+                                                <Button variant="outline-danger" onClick={() => props.handleDelete("project",project._id)} className="deleteButton" ><i class="fa fa-trash fa-1x"></i></Button>
                                             </ul>
                                         )
                                             : <> </>
