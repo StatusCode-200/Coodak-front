@@ -9,7 +9,8 @@ function AboutUs() {
     
 <div className="aboutUsPage">
 
-<img className=" img-fluid" src="http://pyramidaal.com/wp-content/uploads/2019/03/aboutus-org.jpg" alt="card image" />
+{/* <img className=" img-fluid" src="%PUBLIC_URL%/aboutus-org.jpg" alt="card image" /> */}
+<img src={process.env.PUBLIC_URL + '/aboutus-org.jpg'} /> 
 
     
       <section  className="team" className="pb-5">
