@@ -148,7 +148,7 @@ componentDidUpdate(prevProps, prevState, snapshot){
             "</script>";
       code.writeln(newCode);
       code.close();
-      sendSocket && this.state.socket.emit("code", { projectId, code: codePacket });
+      sendSocket && this.state.socket && this.state.socket.emit("code", { projectId, code: codePacket });
     } else {
       console.log("iframe not loaded");
     }
