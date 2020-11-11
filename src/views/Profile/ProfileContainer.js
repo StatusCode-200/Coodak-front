@@ -21,7 +21,6 @@ class ProfileContainer extends Component {
 
 handleDelete = (type, id) => {
   const userId = this.props.user_id;
-  console.log("data id to be sent>>>>" ,id);
   if(type == "project"){
     this.props.deleteUserProjectAction({ id, userId, token: this.props.token });
   }

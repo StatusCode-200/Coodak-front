@@ -34,8 +34,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 function profile(props) {
     const classes = useStyles();
-    console.log("challenge", props.challenges);
-    console.log("project", props.projects);
     // const renderProjects = () => {
     //     {
     //         props.projects ? props.projects.map((project, idx) =>

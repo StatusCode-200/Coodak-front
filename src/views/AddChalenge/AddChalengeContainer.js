@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import AddChallenge from "./AddChalenge";
 import { Redirect } from 'react-router-dom';
 import { connect } from "react-redux";
-import { postChallengeAction } from "./../../store/actions/addChallenge.js"
+import { flushAddChallengeAction, postChallengeAction } from "./../../store/actions/addChallenge.js"
 
 
 class AddChallengeContainer extends Component {
@@ -27,8 +27,12 @@ class AddChallengeContainer extends Component {
     handleSubmit = e => {
         e.preventDefault();
         const challenge = this.state;
-        this.props.postChallengeAction({ challenge, token: this.props.token });
+        this.props.postChallenge({ challenge, token: this.props.token });
 
+    }
+
+    componentWillUnmount(){
+      this.props.flushAddChallenge();
     }
 
     render() {
@@ -46,7 +50,8 @@ class AddChallengeContainer extends Component {
 }
 
 const mapDispatchToProps = {
-    postChallengeAction: postChallengeAction,
+    postChallenge: postChallengeAction,
+    flushAddChallenge: flushAddChallengeAction,
   }
 
   const mapStateToProps = store => ({

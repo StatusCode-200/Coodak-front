@@ -1,14 +1,11 @@
 /* eslint-disable */
 const initialState = {
     project: {
-      _id: null,
-      owner_id: null,
-      name: null,
-      code_html: null,
-      code_css: null,
-      code_js: null,
+      name: "",
+      code_html: "",
+      code_css: "",
+      code_js: "",
     },
-      insertedId: "",
       isLoading: false,
     msg: "",
   };
@@ -20,7 +17,7 @@ const initialState = {
     } = action;
     switch (type) {
       case "FETCH_PROJECT_START": {
-        return { ...state, isLoading: true };
+        return { ...initialState, isLoading: true };
       } case "FETCH_PROJECT_SUCCESS":
         return {
           ...state, project: payload.project, isLoading: false,
@@ -34,7 +31,7 @@ const initialState = {
             return { ...state };
           } case "POST_PROJECT_SUCCESS":
             return {
-              ...state, project: payload.project, insertedId: payload.project._id,
+              ...state, project: payload,
             };
           case "POST_PROJECT_FAILED":
             return {
@@ -45,12 +42,15 @@ const initialState = {
                 return { ...state };
               } case "PUT_PROJECT_SUCCESS":
                 return {
-                  ...state, project: payload.project,
+                  ...state,
                 };
               case "PUT_PROJECT_FAILED":
                 return {
                   ...state, msg: payload,
                 };
+
+            case "FLUSH_PROJECT":
+              return { ...initialState };
 
       default:
         return state;
