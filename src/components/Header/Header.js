@@ -30,7 +30,7 @@ function Header(props) {
           </Link>
 
           <Link className="links" to="/aboutus">
-            ABOUTUS
+            ABOUT US
           </Link>
 
           { props.user && props.user.username ?
