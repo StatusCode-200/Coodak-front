@@ -1,7 +1,7 @@
 /* eslint-disable */
 const initialState = {
     challenge: { _id: ""},
-    insertedId: "", // insertedId || savedChallengeId
+    savedChallengeId: "", // insertedId || savedChallengeId
     solution: null,
     isLoading: false,
     msg: "",
@@ -15,11 +15,11 @@ export default function (state = initialState, action) {
 
     switch (type) {
         case "FETCH_CHALLENGE_START": {
-            return { ...state, isLoading: true, insertedId: "", stderr: "", stdout: "" };
+            return { ...state, isLoading: true, savedChallengeId: "", stderr: "", stdout: "" };
         }
         case "FETCH_CHALLENGE_SUCCESS":
             return {
-                ...state, challenge: payload.challenge, solution: payload.solution,  isLoading: false
+                ...state, challenge: payload.challenge, solution: payload.solution, savedChallengeId: payload.savedChallengeId,  isLoading: false
             };
         case "FETCH_CHALLENGE_FAILED":
             return {
@@ -29,7 +29,7 @@ export default function (state = initialState, action) {
         case "POST_CHALLENGE_START":
             return { ...state };
         case "POST_CHALLENGE_SUCCESS":
-            return { ...state, insertedId: payload._id };
+            return { ...state, savedChallengeId: payload._id };
         case "POST_CHALLENGE_FAILED":
             return { ...state, msg: payload };
 
