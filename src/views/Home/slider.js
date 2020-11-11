@@ -20,8 +20,8 @@ function ControlledCarousel() {
                 />
                 <Carousel.Caption className="carousel-caption">
                       
-                        <h2 className="animated slideInDown" style={{ animationDelay: "1s" }}>TEST YOUR LOGICAL THINKING</h2>
-                  <h3 className="animated slideInRight" style={{ animationDelay: "2s" }}>TRY OUT CODE CHALLENGES.</h3>
+                        <h2 className="animated slideInDown" style={{ animationDelay: "1s" , lineHeight: "2em" }}>TEST YOUR LOGICAL THINKING</h2>
+                  <h3 className="animated slideInRight" style={{ animationDelay: "2s" , fontWeight: "lighter" }}>TRY OUT CODE CHALLENGES.</h3>
                
                 </Carousel.Caption>
             </Carousel.Item>
@@ -33,8 +33,8 @@ function ControlledCarousel() {
                 />
 
                 <Carousel.Caption >
-                <h2 className="animated bounceInRight" style={{ animationDelay: "1s" }}>Code Editor</h2>
-                        <h3 className="animated bounceInLeft" style={{ animationDelay: "2s" }}>START WRITE YOUR CODE.</h3>
+                <h2 className="animated bounceInRight" style={{ animationDelay: "1s" , lineHeight: "2em" }}>Code Editor</h2>
+                        <h3 className="animated bounceInLeft" style={{ animationDelay: "2s" , fontWeight: "lighter" }}>START WRITING YOUR CODE.</h3>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -45,8 +45,8 @@ function ControlledCarousel() {
                 />
 
                 <Carousel.Caption>
-                    <h2 className="animated zoomIn" style={{ animationDelay: "1s" }}>COLLABORATIVE DEVELOPMENT ENVIROMENT</h2>
-                    <h3 className="animated zoomIn" style={{ animationDelay: "2s" }}>REAL-TIME CODE TYPING SYNCRONIZATION.</h3>
+                    <h2 className="animated zoomIn" style={{ animationDelay: "1s" , lineHeight: "2em" }}>COLLABORATIVE DEVELOPMENT ENVIROMENT</h2>
+                    <h3 className="animated zoomIn" style={{ animationDelay: "2s" , fontWeight: "lighter"}}>REAL-TIME CODE TYPING SYNCRONIZATION.</h3>
                 </Carousel.Caption>
             </Carousel.Item>
         </Carousel>

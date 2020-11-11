@@ -29,7 +29,7 @@ main#ChallengeDetails {
     a {
       background-color: #efeaea;
       color: black;
-    width: 6em;
+    width: 7em;
       height: 2em;
       display: inline-block;
       text-align: center;
@@ -54,7 +54,7 @@ main#ChallengeDetails {
     #descriptionHeader {
       background-color: #efeaea;
       padding: 5px;
-      width: 15%;
+      // width: 15%;
       position: relative;
       bottom: 7%;
   
@@ -70,7 +70,7 @@ main#ChallengeDetails {
         background-color: #efeaea;
       padding: 5px;
       margin-bottom: 0px;
-      width: 15%;
+      // width: 15%;
     }
 
     form#saveChallenge {
