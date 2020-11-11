@@ -50,7 +50,9 @@ class CodeEdotorContainer extends Component {
           code_html: html !== undefined ? html : this.state.project.code_html,
           code_css: css !== undefined ? css : this.state.project.code_css,
           code_js: js !== undefined ? js : this.state.project.code_js,
-       }});
+       },
+       isDataChanged: false,
+     });
     });
 
     socket.on('disconnect', function(){
@@ -130,7 +132,7 @@ componentDidUpdate(prevProps, prevState, snapshot){
       }
     }
 
-    console.log(codePacket);
+    console.log("codePacket", codePacket);
 
     var codeIframe = document.getElementById("code");
     if (codeIframe){
