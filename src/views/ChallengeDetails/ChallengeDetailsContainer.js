@@ -33,9 +33,9 @@ import Loading from "../../components/Loading/Loading";
 
   handleSubmit = e => {
     const { solution } = this.state;
-    const { userId, token } = this.props;
+    const { userId, token, savedChallengeId } = this.props;
     e.preventDefault();
-    if(this.props.solution || this.props.insertedId){ // is Saved before to handle the first case
+    if(savedChallengeId){ // is Saved before to handle the first case
       this.props.putChallenge({ solution, userId, challengeId: this.props.match.params.challengeId, token });
     }else {
       this.props.postChallenge({ solution, userId, challengeId: this.props.match.params.challengeId, token });
@@ -52,14 +52,14 @@ import Loading from "../../components/Loading/Loading";
 
   render() {
     const { solution } = this.state;
-    const { isLoading, challenge, solution: propSolution, insertedId, stderr, stdout } = this.props;
+    const { isLoading, challenge, solution: propSolution, savedChallengeId, stderr, stdout } = this.props;
     return (
       <>
       {isLoading ?
           // <h1>loading</h1>
           <Loading/>
         :
-      <Challenge challenge={challenge} propSolution={propSolution} insertedId={insertedId} solution={solution} challengeId={this.props.match.params.challengeId} handleChange={this.handleChange} handleSubmit={this.handleSubmit}  checkResult={this.checkResult} stderr={stderr} stdout={stdout} />
+      <Challenge challenge={challenge} propSolution={propSolution} savedChallengeId={savedChallengeId} solution={solution} challengeId={this.props.match.params.challengeId} handleChange={this.handleChange} handleSubmit={this.handleSubmit}  checkResult={this.checkResult} stderr={stderr} stdout={stdout} />
         }
       </>
     )
@@ -76,7 +76,7 @@ const mapDispatchToProps = {
 const mapStateToProps = store => ({
   challenge: store.challengeDetails.challenge,
   solution: store.challengeDetails.solution,
-  insertedId: store.challengeDetails.insertedId,
+  savedChallengeId: store.challengeDetails.savedChallengeId,
   isLoading: store.challengeDetails.isLoading,
   userId:  store.auth.user ? store.auth.user._id : "",
   token: store.auth.token,

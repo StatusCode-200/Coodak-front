@@ -14,7 +14,7 @@ class WhiteBoardContainer extends Component {
   }
 
     componentWillMount() {
-      this.props.getWhiteboradAction({challengeId : this.props.match.params.challengeId,userId : this.props.userId, token: this.props.token});
+      this.props.getWhiteboradAction({savedChallengeId : this.props.match.params.savedChallengeId,userId : this.props.userId, token: this.props.token});
   }
 
   componentWillReceiveProps(nextProps){
@@ -32,14 +32,14 @@ class WhiteBoardContainer extends Component {
 
   handleSubmit = e => {
     const { whiteboard } = this.state;
-    const challengeId =  this.props.match.params.challengeId;
+    const savedChallengeId =  this.props.match.params.savedChallengeId;
     const {userId } = this.props;
     e.preventDefault();
     // do a fetch to send data to the server then redirect to some page
     if(this.props.whiteboard){
-      this.props.putWhiteboardAction({ whiteboard, challengeId, userId, token: this.props.token });
+      this.props.putWhiteboardAction({ whiteboard, savedChallengeId, userId, token: this.props.token });
     }else{
-      this.props.postWhiteboardAction({ whiteboard, challengeId, userId, token: this.props.token });
+      this.props.postWhiteboardAction({ whiteboard, savedChallengeId, userId, token: this.props.token });
     }
 
   }

@@ -8,7 +8,7 @@ import ChallengeRate from "./challengeRate";
 import {  Button } from 'react-bootstrap';
 
 function Challenge(props) {
-  const {challenge, propSolution, insertedId, solution, userId, handleSubmit, handleChange, checkResult, stderr, stdout} = props;
+  const {challenge, propSolution, savedChallengeId, solution, userId, handleSubmit, handleChange, checkResult, stderr, stdout} = props;
 
   return (
     <main id="ChallengeDetails">
@@ -17,8 +17,8 @@ function Challenge(props) {
           <Link to={`/challenges/${challenge._id}/comments`}>
             FORUM
           </Link>
-          { (propSolution || insertedId) && (
-          <Link to={`/challenges/${challenge._id}/whiteboard`}>
+          { (savedChallengeId) && (
+          <Link to={`/challenges/${savedChallengeId}/whiteboard`}>
             WHITEBOARD
           </Link>
         )
