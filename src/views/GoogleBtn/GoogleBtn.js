@@ -6,6 +6,8 @@ import Cookies from "universal-cookie";
 const cookies = new Cookies();
 import { Redirect } from "react-router-dom";
 
+import { API } from "../../store/config";
+
 
 const CLIENT_ID = '612985001665-ojtsob6eddqf3pv3rmc423vf6uq20mmi.apps.googleusercontent.com';
 
@@ -34,14 +36,14 @@ class GoogleBtn extends Component {
       }));
 //
 // const API = "https://coodak-api.herokuapp.com";
-  const API = "http://localhost:4000";
+//  const API = "http://localhost:4000";
 axios.get(`${API}/reactOauth?token=${response.accessToken}`, { headers: { "Content-Type": "application/json" } })
     .then(({ data }) => {
       console.log(data);
       cookies.set("token", data.token);
       document.location.reload();
       // console.log("token from cookies",cookies.get("token"));
-      
+
     }).catch((err) => {
       console.log(err);
     });
@@ -74,7 +76,7 @@ axios.get(`${API}/reactOauth?token=${response.accessToken}`, { headers: { "Conte
           :
           <GoogleLogin
         clientId={ CLIENT_ID }
-        buttonText='Login'
+        buttonText=''
         onSuccess={ this.login }
         onFailure={ this.handleLoginFailure }
         cookiePolicy={ 'single_host_origin' }
