@@ -10,7 +10,8 @@ main#profilePage{
   }
   .profileList .deleteButton {
     width: 12%;
-    padding-left: 70%;
+    // padding-left: 70%;
+    float: right;
     border: none !important;
     outline-offset: none !important;
 
