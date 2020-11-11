@@ -9,12 +9,12 @@ function Signin(props) {
 	return (
 		<>
 			<main id="signinPage">
-				<div className={`container ${props.switchToSignup ? "right-panel-active": ""}`} id="container">
+				<div className={`container ${props.switchToSignup ? "right-panel-active" : ""}`} id="container">
 					<div className="form-container sign-up-container">
 						<form onSubmit={props.handleSubmit} action="#">
 							<h1>Create Account</h1>
 							<div className="social-container">
-							{/*
+								{/*
 								<a href="#" className="social-icon"><i className="fa fa-github fa-2x"></i></a>
 								<a href="#" className="social"><i className="fa fa-google fa-2x"></i></a>
 								*/}
@@ -26,52 +26,58 @@ function Signin(props) {
 							<input onChange={props.handleChange} required type="password" placeholder="Password" name="password" />
 							<input onChange={props.handleChange} required type='password' placeholder='Confirm Password' className='input-line full-width'></input>
 
-							{ props.switchToSignup &&
+							{props.switchToSignup &&
 								<center>
 									<ClipLoader
 										sizeUnit="px"
 										size={20}
 										color="#123abc"
 										loading={props.isLoading}
-										/>
+									/>
 								</center>
-						}
-						{ props.switchToSignup && <h6>{ props.msg} </h6>}
+							}
+							{props.switchToSignup && <h6>{props.msg} </h6>}
 
 							<button  >Sign Up</button>
 						</form>
 					</div>
 					<div className="form-container sign-in-container">
-					<form onSubmit={props.handleSubmit} action="#">
-					<h1>Sign in</h1>
-					<div className="social-container">
-					<div><GoogleBtn user={props.user}/></div>
-						{ /*
+						<form onSubmit={props.handleSubmit} action="#">
+							<h1>Sign in</h1>
+							<div className="social-container">
+								{/* background-color: rgb(255, 255, 255);
+								 height: 39px;
+								border: none; 
+								align-items: center;
+								box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 2px 0px, rgba(0, 0, 0, 0.24) 0px 0px 1px 0px;
+								padding: 0px; */}
+					<div><GoogleBtn  className="oauthBtn" user={props.user} /></div>
+								{ /*
 						<a href="#" className="social"><i className="fa fa-github fa-2x"></i></a>
 						<a href="#" className="social"><i className="fa fa-google fa-2x"></i></a>
 						*/ }
+							</div>
+							<span>or use your account</span>
+							<input onChange={props.handleChange} type="username" placeholder="username" name="username" />
+							<input onChange={props.handleChange} type="password" placeholder="Password" name="password" />
+							<a href="#">Forgot your password?</a>
+
+							{!props.switchToSignup &&
+								<center>
+									<ClipLoader
+										sizeUnit="px"
+										size={20}
+										color="#123abc"
+										loading={props.isLoading}
+									/>
+								</center>
+							}
+
+							{!props.switchToSignup && <h6>{props.msg} </h6>}
+
+							<button >Sign In</button>
+						</form>
 					</div>
-					<span>or use your account</span>
-					<input onChange={props.handleChange} type="username" placeholder="username" name="username" />
-					<input onChange={props.handleChange} type="password" placeholder="Password" name="password"  />
-					<a href="#">Forgot your password?</a>
-
-					{ !props.switchToSignup &&
-						<center>
-							<ClipLoader
-								sizeUnit="px"
-								size={20}
-								color="#123abc"
-								loading={props.isLoading}
-								/>
-						</center>
-				}
-
-				{ !props.switchToSignup && <h6>{ props.msg} </h6>}
-
-					<button >Sign In</button>
-				    </form>
-			        </div>
 
 					<div className="overlay-container">
 						<div className="overlay">

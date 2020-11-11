@@ -1,5 +1,5 @@
 #signinPage {
-  @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+  @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
   @import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
 
   // background: #1c1d22;
@@ -106,7 +106,6 @@
     max-width: 100%;
     min-height: 480px;
     // margin-top: 99px;
-
   }
 
   .form-container {
@@ -171,8 +170,8 @@
 
   .overlay {
     background: #332d2c;
-    background: linear-gradient(to right, #842924 , #d9524a);
-    background: -webkit-linear-gradient(to right, #ff4b2b, #d9524a );
+    background: linear-gradient(to right, #842924, #d9524a);
+    background: -webkit-linear-gradient(to right, #ff4b2b, #d9524a);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;
@@ -223,8 +222,14 @@
 
   .social-container {
     margin: 20px 0;
-  }
 
+    // .oauthBtn {
+    //   height: 31px !important;
+    //   border-radius: 50% !important ;
+    //   border: none !important;
+    //   padding: 0px !important ;
+    // }
+  }
   .social-container a {
     border: 1px solid #dddddd;
     border-radius: 50%;

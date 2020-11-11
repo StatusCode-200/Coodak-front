@@ -7,7 +7,7 @@ const cookies = new Cookies();
 import { Redirect } from "react-router-dom";
 
 import { API } from "../../store/config";
-
+import './google.scss';
 
 const CLIENT_ID = '612985001665-ojtsob6eddqf3pv3rmc423vf6uq20mmi.apps.googleusercontent.com';
 
@@ -74,7 +74,7 @@ axios.get(`${API}/reactOauth?token=${response.accessToken}`, { headers: { "Conte
         this.props.user&&this.props.user.username ?
           <Redirect to="/" />
           :
-          <GoogleLogin
+          <GoogleLogin className="oauthBtn"
         clientId={ CLIENT_ID }
         buttonText=''
         onSuccess={ this.login }
