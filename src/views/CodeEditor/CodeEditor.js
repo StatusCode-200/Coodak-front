@@ -15,17 +15,17 @@ function CodeEdotor(props) {
         <Card bg="dark" text="white" style={{ width: '25.5rem', marginRight: "15px" }}  >
           <Card.Header className="codeName">HTML</Card.Header>
 
-          <textarea onChange={props.handleChange} value={project.code_html}  name="code_html" id="html" onKeyUp={onKeyUp} placeholder="HTML" />
+          <textarea onChange={props.handleChange} value={project.code_html}  name="code_html" id="html" placeholder="HTML" />
         </Card>
 
         <Card bg="dark" text="white" style={{ width: '25.5rem', marginRight: "15px" }}  >
           <Card.Header className="codeName">CSS</Card.Header>
-          <textarea onChange={props.handleChange} value={project.code_css} name="code_css" id="css" onKeyUp={onKeyUp} placeholder="CSS" />
+          <textarea onChange={props.handleChange} value={project.code_css} name="code_css" id="css" placeholder="CSS" />
 
         </Card>
         <Card bg="dark" text="white" style={{ width: '25.5rem' }}  >
           <Card.Header className="codeName">JAVASCRIPT</Card.Header>
-          <textarea onChange={props.handleChange} value={project.code_js} name="code_js" id="js" onKeyUp={onKeyUp} placeholder="JavaScript" />
+          <textarea onChange={props.handleChange} value={project.code_js} name="code_js" id="js" placeholder="JavaScript" />
 
         </Card>
       </CardGroup>

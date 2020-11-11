@@ -2,7 +2,25 @@ main#profilePage{
 
   padding-bottom: 130px;
   padding-top: 100px;
-    
+   
+  .profileList{
+    //   display: inline;
+      width: 37rem;
+    // justify-content: space-between;
+  }
+  .profileList .deleteButton {
+    width: 12%;
+    padding-left: 70%;
+    border: none !important;
+    outline-offset: none !important;
+
+  }
+
+  .profileList .deleteButton:hover {
+    background-color: white;
+    color: red;
+  }
+  
     .padding {
         padding: 3rem !important
     }

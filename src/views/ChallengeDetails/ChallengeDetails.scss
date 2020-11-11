@@ -1,22 +1,22 @@
 main#ChallengeDetails {
   ::-webkit-scrollbar {
     width: 10px;
-    background-color: #969799;
+    background-color: #f4f5f7;
   }
 
   ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(216, 212, 212, 0.3);
+    box-shadow: inset 0 0 6px rgba(230, 227, 227, 0.3);
     border-radius: 10px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: rgb(219, 219, 219);
   }
 
   ::-webkit-scrollbar-thumb {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: inset 0 0 6px rgba(189, 188, 188, 0.5);
+    box-shadow: inset 0 0 6px rgba(221, 218, 218, 0.5);
     border-radius: 10px;
   }
 
@@ -27,8 +27,9 @@ main#ChallengeDetails {
   #forumAndWhiteboard {
     margin-bottom: 30px;
     a {
-      background-color: #e7e6ef;
-      width: 10em;
+      background-color: #efeaea;
+      color: black;
+    width: 7em;
       height: 2em;
       display: inline-block;
       text-align: center;
@@ -47,13 +48,16 @@ main#ChallengeDetails {
   }
   #challenge-description {
     width: 48%;
+    margin-top: 3%;
     background-color: white;
 
     #descriptionHeader {
-      margin-bottom: 0px;
-      background-color: #bfb7b7;
+      background-color: #efeaea;
       padding: 5px;
-      width: 15%;
+      // width: 15%;
+      position: relative;
+      bottom: 7%;
+  
     }
     #challengeDescription {
       padding: 5px;
@@ -63,10 +67,10 @@ main#ChallengeDetails {
     width: 48%;
 
     #solutionHeader {
-        background-color: #a2a2a2;
+        background-color: #efeaea;
       padding: 5px;
       margin-bottom: 0px;
-      width: 15%;
+      // width: 15%;
     }
 
     form#saveChallenge {
@@ -77,18 +81,18 @@ main#ChallengeDetails {
         overflow-x: hidden;
         margin: auto;
         display: inline-block;
-        color: #ccc;
+        color: #000;
         outline: none;
-        font-family: Courier, sans-serif;
+        // font-family: Courier, sans-serif;
         font-size: 1em;
-        background-color: rgba(0, 0, 0, 0.7%);
+        // background-color: rgba(0, 0, 0, 0.7%);
         resize: none;
       }
     }
   }
   #checkResult {
-    width: 47%;
-    left: 52%;
+    width: 67%;
+    left: 17%;
     position: relative;
     border-radius: 8px;
     padding: 10px;

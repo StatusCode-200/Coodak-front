@@ -46,10 +46,15 @@ function comment(props) {
                                     </Alert>
 
                                     <br />
-                                    <Alert style={{ whiteSpace: "pre-line", backgroundColor: "#ccc", marginLeft: "3%",  width: "93%", marginBottom: "4%" }}>
+                                    <Alert style={{ whiteSpace: "pre-line", backgroundColor:  "rgb(231 234 243)" , marginLeft: "3%",  width: "93%", marginBottom: "4%" }}>
 
                                         {item.comment}
                                     </Alert>
+                                    <div >
+                                    <i class="fa fa-reply fa-x1" style={{paddingLeft: "3%" , color: "#2a1ca5"}}>  reply  </i>
+                                    <i class="fa fa-share-square fa-x2" style={{paddingLeft: "3%",     color: "#18d46c"}}>  share  </i>
+                                    <i class="fa fa-exclamation-triangle" style={{paddingLeft: "3%" , color: "#cc0d30"}}>  report  </i>
+                                    </div>
                                 </Alert>
 
                             </>
@@ -60,18 +65,11 @@ function comment(props) {
                     { props.userId && 
                     <Form onSubmit={props.handleSubmit}>
                         <Form.Group className="formComment" controlId="exampleForm.ControlTextarea1">
-                            <Form.Label style={{ fontSize: "1.2em", fontWeight: "bold" }} className="commentText">WRITE YOUR COMMENT</Form.Label>
-                            <Form.Control onChange={props.handleChange} as="textarea" rows={3} className="textAria" name="coment" />
+                            <Form.Label style={{ fontSize: "0.9em", fontWeight: "bold" }} className="commentText"> </Form.Label>
+                            <Form.Control onChange={props.handleChange} as="textarea" rows={2} className="textAria" name="coment" placeholder="TYPE YOUR COMMENT.."/>
                         </Form.Group>
-                        <Button type="submit" className="commentBtn" variant="danger">Comment</Button>{' '}
+                        <Button type="submit" className="commentBtn" variant="danger">ADD COMMENT</Button>{' '}
                     </Form>}
-                    {/* <Form onSubmit={props.handleSubmit}>
-                        <Form.Group className="formComment" controlId="exampleForm.ControlTextarea1">
-                            <Form.Label style={{ fontSize: "1.2em", fontWeight: "bold" }} className="commentText">WRITE YOUR COMMENT</Form.Label>
-                            <Form.Control onChange={props.handleChange} as="textarea" rows={3} className="textAria" name="coment" />
-                        </Form.Group>
-                        <Button type="submit" className="commentBtn" variant="danger">Comment</Button>{' '}
-                    </Form> */}
                 </div>
 
             </main>
